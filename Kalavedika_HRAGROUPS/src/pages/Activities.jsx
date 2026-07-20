@@ -4,7 +4,7 @@ function Activities() {
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
-      backgroundColor: "#f8f9fa",
+      backgroundColor: "#f6f9fc",
       color: "#333",
     },
 
@@ -54,7 +54,7 @@ function Activities() {
     },
 
     card: {
-      background: "#fff",
+      background: "#c10b0b",
       borderRadius: "12px",
       padding: "30px",
       boxShadow: "0 5px 15px rgba(0,0,0,.1)",

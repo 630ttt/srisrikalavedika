@@ -1,16 +1,18 @@
 import React from "react";
-
+import founder from "../assets/founder.png";
+import aboutBg from "../assets/about-bg.jpg";
+import founderBg from "../assets/founder-bg.jpg";
 function Home() {
   const styles = {
     hero: {
-      backgroundImage: "url('/hero.jpg')",
+      backgroundImage: "url('https://media.craiyon.com/2025-09-12/YbwIl4IsQeCtLwSSQEHJxw.webp')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "90vh",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      color: "#fff",
+      color: "#fffdfd",
       textAlign: "center",
       position: "relative",
     },
@@ -24,11 +26,11 @@ function Home() {
     },
 
     heading: {
-      fontSize: "50px",
-      marginBottom: "10px",
-      color: "#FFD700",
+    fontSize: "clamp(2rem, 5vw, 3.8rem)",
+    color: "#FFD700",
+    marginBottom: "15px",
+    fontWeight: "700",
     },
-
     subHeading: {
       fontSize: "24px",
       marginBottom: "20px",
@@ -45,21 +47,26 @@ function Home() {
       marginTop: "20px",
     },
 
-    section: {
-      padding: "70px 10%",
+    aboutSection: {
+      padding: "80px 10%",
       textAlign: "center",
-    },
-
+      backgroundImage: `linear-gradient(rgba(210, 196, 196, 0.23), rgba(27, 27, 27, 0.77)), url(${aboutBg})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
+      
+      
+},
     title: {
-      fontSize: "36px",
-      color: "#7B1113",
-      marginBottom: "20px",
+      fontSize: "40px",
+      color: "#fcfcfc",
+      marginBottom: "10px",
     },
 
     paragraph: {
-      fontSize: "18px",
+      fontSize: "20px",
       lineHeight: "1.8",
-      color: "#555",
+      color: "#ffffff",
     },
 
     cards: {
@@ -70,20 +77,31 @@ function Home() {
     },
 
     card: {
-      background: "#fff",
+      background: "#f1e9e5fa",
       padding: "30px",
-      borderRadius: "15px",
+      borderRadius: "10px",
       boxShadow: "0 5px 20px rgba(0,0,0,.1)",
+      transition: "all 0.4s ease",
+      cursor: "pointer",
+  
     },
+  
 
-    founder: {
+    found: {
+      padding: "80px 10%",
+      textAlign: "center",
+      backgroundImage:`linear-gradient(rgba(207, 204, 204, 0), rgba(27, 27, 27, 0.77)), url(${founderBg})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
       display: "flex",
       flexWrap: "wrap",
       alignItems: "center",
       justifyContent: "center",
       gap: "40px",
       padding: "80px 10%",
-      background: "#fafafa",
+      
+      
     },
 
     founderImage: {
@@ -136,7 +154,7 @@ function Home() {
 
       {/* About */}
 
-      <section style={styles.section}>
+      <section style={styles.aboutSection}>
         <h2 style={styles.title}>About Us</h2>
 
         <p style={styles.paragraph}>
@@ -146,16 +164,22 @@ function Home() {
           literature, arts, culture and humanitarian
           values through various national and
           international programs.
+
+          Established with the vision of nurturing creativity and strengthening cultural values, 
+          Sri Sri Kalavedika organizes literary conferences, poetry gatherings, cultural festivals, 
+          award ceremonies, educational initiatives, and social welfare activities at both national and international levels. 
+          Through these programs, the organization recognizes excellence, encourages emerging talent, 
+          and fosters unity among Telugu-speaking communities across the world.
         </p>
       </section>
 
       {/* Vision Mission */}
 
-      <section style={styles.section}>
+      <section style={styles.aboutSection}>
 
-        <div style={styles.cards}>
+       <div style={styles.cards}>
 
-          <div style={styles.card}>
+        <div className="card" style={styles.card}>
             <h2>Vision</h2>
 
             <p>
@@ -165,7 +189,7 @@ function Home() {
             </p>
           </div>
 
-          <div style={styles.card}>
+         <div className="card" style={styles.card}>
             <h2>Mission</h2>
 
             <p>
@@ -181,10 +205,10 @@ function Home() {
 
       {/* Founder */}
 
-      <section style={styles.founder}>
+      <section style={styles.found}>
 
         <img
-          src="/founder.jpg"
+          src={founder}
           alt="Founder"
           style={styles.founderImage}
         />
@@ -209,24 +233,23 @@ function Home() {
       </section>
 
       {/* Activities */}
-
-      <section style={styles.section}>
+ <section style={styles.aboutSection}>
 
         <h2 style={styles.title}>Our Activities</h2>
 
         <div style={styles.cards}>
 
-          <div style={styles.card}>📚 Literary Conferences</div>
+          <div className="card" style={styles.card}>📚 Literary Conferences</div>
 
-          <div style={styles.card}>🏆 Award Ceremonies</div>
+           <div className="card" style={styles.card}>🏆 Award Ceremonies</div>
 
-          <div style={styles.card}>🎭 Cultural Programs</div>
+          <div className="card" style={styles.card}>🎭 Cultural Programs</div>
 
-          <div style={styles.card}>🌳 Social Service</div>
+           <div className="card" style={styles.card}>🌳 Social Service</div>
 
-          <div style={styles.card}>🎓 Educational Programs</div>
+           <div className="card" style={styles.card}>🎓 Educational Programs</div>
 
-          <div style={styles.card}>🌍 International Events</div>
+           <div className="card" style={styles.card}>🌍 International Events</div>
 
         </div>
 
@@ -234,7 +257,7 @@ function Home() {
 
       {/* Gallery */}
 
-      <section style={styles.section}>
+  <section style={styles.aboutSection}>
 
         <h2 style={styles.title}>Gallery</h2>
 
@@ -252,7 +275,7 @@ function Home() {
 
       {/* Contact */}
 
-      <section style={styles.section}>
+   <section style={styles.aboutSection}>
 
         <h2 style={styles.title}>Contact Us</h2>
 

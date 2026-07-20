@@ -31,3 +31,21 @@ body {
 .main-content {
   width: 100%;
 }
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  background: linear-gradient(135deg, #000000, #ffd87a);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card h2,
+.card p {
+  transition: color 0.3s ease;
+}
+
+.card:hover h2 {
+  color: #fffbfb;
+}
+
+.card:hover p {
+  color: #000000;
+}

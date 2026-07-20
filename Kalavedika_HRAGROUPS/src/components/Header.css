@@ -7,7 +7,7 @@
 /* Header */
 .header {
     width: 100%;
-    background: linear-gradient(135deg, #5f0f13, #7B1113);
+    background: linear-gradient(135deg, #917700, #7B1113);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -89,7 +89,7 @@
 
     .header {
         flex-direction: column;
-        padding: 20px;
+        padding: 10px;
         text-align: center;
     }
 
@@ -100,7 +100,7 @@
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 5px;
         margin: 20px 0;
     }
 

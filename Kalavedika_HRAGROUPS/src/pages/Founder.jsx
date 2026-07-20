@@ -1,5 +1,5 @@
 import React from "react";
-
+import founder from "../assets/founder.png";
 function Founder() {
   const styles = {
     page: {
@@ -132,10 +132,10 @@ function Founder() {
 
       <section style={styles.container}>
         <img
-          src="/members/founder.jpg"
-          alt="Founder"
-          style={styles.image}
-        />
+        src={founder}
+        alt="Founder"
+        style={styles.founderImage}
+      />
 
         <div style={styles.content}>
           <h2 style={styles.name}>
