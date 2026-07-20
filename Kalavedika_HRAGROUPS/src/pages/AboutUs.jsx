@@ -1,4 +1,5 @@
 import React from "react";
+import aboutusBg from "../assets/aboutus-bg.jpg";
 
 function AboutUs() {
   const styles = {
@@ -9,7 +10,7 @@ function AboutUs() {
     },
 
     hero: {
-      background: "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/about-banner.jpg')",
+      backgroundImage: `linear-gradient(rgba(210, 196, 196, 0.23), rgba(27, 27, 27, 0.77)), url(${aboutusBg})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "45vh",
@@ -53,13 +54,15 @@ function AboutUs() {
     },
 
     card: {
-      background: "#fff",
+      background: "#f1e9e5fa",
       padding: "30px",
       borderRadius: "10px",
-      boxShadow: "0 5px 15px rgba(0,0,0,.1)",
-      textAlign: "center",
+      boxShadow: "0 5px 20px rgba(0,0,0,.1)",
+      transition: "all 0.4s ease",
+      cursor: "pointer",
+  
     },
-
+  
     cardTitle: {
       color: "#7B1113",
       marginBottom: "15px",
@@ -167,17 +170,17 @@ function AboutUs() {
         <h2 style={styles.title}>Major Activities</h2>
 
         <div style={styles.cards}>
-          <div style={styles.card}>Literary Conferences</div>
+          <div className="card" style={styles.card}>Literary Conferences</div>
 
-          <div style={styles.card}>National Awards</div>
+          <div className="card" style={styles.card}>National Awards</div>
 
-          <div style={styles.card}>Cultural Programs</div>
+          <div className="card" style={styles.card}>Cultural Programs</div>
 
-          <div style={styles.card}>Book Launches</div>
+          <div className="card" style={styles.card}>Book Launches</div>
 
-          <div style={styles.card}>Social Service</div>
+          <div className="card" style={styles.card}>Social Service</div>
 
-          <div style={styles.card}>Educational Seminars</div>
+          <div className="card" style={styles.card}>Educational Seminars</div>
         </div>
       </section>
 
