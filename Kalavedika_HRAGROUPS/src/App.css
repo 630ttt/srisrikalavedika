@@ -49,3 +49,154 @@ body {
 .card:hover p {
   color: #000000;
 }
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 80vh !important;
+    padding: 20px;
+  }
+
+  .hero-overlay {
+    width: 95% !important;
+    padding: 35px 20px !important;
+  }
+}
+.hero-title {
+  animation: fadeDown 1s ease-out;
+}
+
+.hero-subtitle {
+  animation: fadeUp 1s ease-out 0.3s both;
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  animation: fadeUp 1s ease-out 0.6s both;
+}
+
+.hero-button {
+  animation: fadeUp 1s ease-out 0.9s both;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.about-section1 {
+  animation: aboutReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.about-title {
+  animation: aboutTitle linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.about-text {
+  animation: aboutText linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes aboutReveal {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutText {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.founder-image {
+  animation: founderFadeIn linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes founderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+.activitycard {
+  animation: activityCardReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes activityCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activity-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(192, 92, 92, 0.25);
+}

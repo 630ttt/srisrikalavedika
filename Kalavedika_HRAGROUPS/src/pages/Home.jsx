@@ -4,34 +4,43 @@ import aboutBg from "../assets/about-bg.jpg";
 import founderBg from "../assets/founder-bg.jpg";
 function Home() {
   const styles = {
-    hero: {
-      backgroundImage: "url('https://media.craiyon.com/2025-09-12/YbwIl4IsQeCtLwSSQEHJxw.webp')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "90vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "#fffdfd",
-      textAlign: "center",
-      position: "relative",
-    },
+   hero: {
+     backgroundImage: `linear-gradient(
+     rgba(0, 0, 0, 0.22),
+     rgba(0, 0, 0, 0.24)
+     ), url('https://media.craiyon.com/2025-09-12/YbwIl4IsQeCtLwSSQEHJxw.webp')`,
+     backgroundSize: "cover",
+     backgroundPosition: "center center",
+     backgroundRepeat: "no-repeat",
+     minHeight: "90vh",
+     width: "100%",
+     display: "flex",
+     justifyContent: "center",
+     alignItems: "center",
+     color: "#fff",
+     textAlign: "center",
+     position: "relative",
+     boxSizing: "border-box",
+   },
 
     overlay: {
-      background: "rgba(0,0,0,0.6)",
-      padding: "50px",
-      borderRadius: "15px",
-      width: "80%",
-      maxWidth: "800px",
-    },
+     background: "rgba(171, 174, 26, 0.01)",
+     padding: "50px",
+     borderRadius: "15px",
+     width: "80%",
+     maxWidth: "800px",
+     boxSizing: "border-box",
+  },
 
     heading: {
+    fontFamily: "'Noto Serif Telugu', serif",
     fontSize: "clamp(2rem, 5vw, 3.8rem)",
     color: "#FFD700",
     marginBottom: "15px",
-    fontWeight: "700",
+    fontWeight: "600",
     },
     subHeading: {
+      fontFamily: "'Noto Serif Telugu', serif",
       fontSize: "24px",
       marginBottom: "20px",
     },
@@ -45,10 +54,11 @@ function Home() {
       borderRadius: "30px",
       cursor: "pointer",
       marginTop: "20px",
+      
     },
 
     aboutSection: {
-      padding: "80px 10%",
+      padding: "20px 10%",
       textAlign: "center",
       backgroundImage: `linear-gradient(rgba(210, 196, 196, 0.23), rgba(27, 27, 27, 0.77)), url(${aboutBg})`,
       backgroundSize: "cover",
@@ -58,6 +68,7 @@ function Home() {
       
 },
     title: {
+      fontFamily: "'Noto Serif Telugu', serif",
       fontSize: "40px",
       color: "#fcfcfc",
       marginBottom: "10px",
@@ -77,15 +88,16 @@ function Home() {
     },
 
     card: {
-      background: "#f1e9e5fa",
+      background: "#f7ae40d0",
       padding: "30px",
       borderRadius: "10px",
       boxShadow: "0 5px 20px rgba(0,0,0,.1)",
       transition: "all 0.4s ease",
       cursor: "pointer",
+      margin:"55px",
   
     },
-  
+   
 
     found: {
       padding: "80px 10%",
@@ -126,6 +138,7 @@ function Home() {
       objectFit: "cover",
       borderRadius: "10px",
     },
+    
   };
 
   return (
@@ -133,20 +146,20 @@ function Home() {
 
       {/* Hero */}
 
-      <section style={styles.hero}>
-        <div style={styles.overlay}>
-          <h1 style={styles.heading}>శ్రీ శ్రీ కళావేదిక</h1>
+      <section className="hero-section" style={styles.hero}>
+        <div className="hero-overlay" style={styles.overlay}>
+          <h1 className="hero-title" style={styles.heading}>శ్రీ శ్రీ కళావేదిక</h1>
 
-          <h2 style={styles.subHeading}>
+          <h2  className="hero-subtitle" style={styles.subHeading}>
             Sri Sri Kalavedika
           </h2>
 
-          <p>
+          <p className="hero-description">
             International Literary, Cultural &
             Social Service Organization
           </p>
 
-          <button style={styles.button}>
+          <button className="hero-button" style={styles.button}>
             Become a Member
           </button>
         </div>
@@ -154,10 +167,10 @@ function Home() {
 
       {/* About */}
 
-      <section style={styles.aboutSection}>
-        <h2 style={styles.title}>About Us</h2>
+      <section className="about"  style={styles.aboutSection}>
+        <h2 className="about-title" style={styles.title}>About Us</h2>
 
-        <p style={styles.paragraph}>
+        <p className="about-text"style={styles.paragraph}>
           Sri Sri Kalavedika is a renowned literary,
           cultural and social service organization
           dedicated to promoting Telugu language,
@@ -179,7 +192,7 @@ function Home() {
 
        <div style={styles.cards}>
 
-        <div className="card" style={styles.card}>
+        <div className="activitycard" style={styles.card}>
             <h2>Vision</h2>
 
             <p>
@@ -189,7 +202,7 @@ function Home() {
             </p>
           </div>
 
-         <div className="card" style={styles.card}>
+         <div className="activitycard" style={styles.card}>
             <h2>Mission</h2>
 
             <p>
@@ -208,6 +221,7 @@ function Home() {
       <section style={styles.found}>
 
         <img
+         className="founder-image"
           src={founder}
           alt="Founder"
           style={styles.founderImage}
@@ -239,17 +253,17 @@ function Home() {
 
         <div style={styles.cards}>
 
-          <div className="card" style={styles.card}>📚 Literary Conferences</div>
+          <div className="activitycard" style={styles.card}>📚 Literary Conferences</div>
 
-           <div className="card" style={styles.card}>🏆 Award Ceremonies</div>
+           <div className="activitycard" style={styles.card}>🏆 Award Ceremonies</div>
 
-          <div className="card" style={styles.card}>🎭 Cultural Programs</div>
+          <div className="activitycard" style={styles.card}>🎭 Cultural Programs</div>
 
-           <div className="card" style={styles.card}>🌳 Social Service</div>
+           <div className="activitycard" style={styles.card}>🌳 Social Service</div>
 
-           <div className="card" style={styles.card}>🎓 Educational Programs</div>
+           <div className="activitycard" style={styles.card}>🎓 Educational Programs</div>
 
-           <div className="card" style={styles.card}>🌍 International Events</div>
+           <div className="activitycard" style={styles.card}>🌍 International Events</div>
 
         </div>
 
@@ -273,25 +287,6 @@ function Home() {
 
       </section>
 
-      {/* Contact */}
-
-   <section style={styles.aboutSection}>
-
-        <h2 style={styles.title}>Contact Us</h2>
-
-        <p style={styles.paragraph}>
-          📍 Andhra Pradesh, India
-        </p>
-
-        <p style={styles.paragraph}>
-          📞 +91 XXXXX XXXXX
-        </p>
-
-        <p style={styles.paragraph}>
-          ✉ info@srisrikalavedika.org
-        </p>
-
-      </section>
 
     </div>
   );

@@ -127,7 +127,7 @@ function AboutUs() {
             </p>
           </div>
 
-          <div style={styles.card}>
+          <div className="card" style={styles.card}>
             <h2 style={styles.cardTitle}>Mission</h2>
 
             <p>
