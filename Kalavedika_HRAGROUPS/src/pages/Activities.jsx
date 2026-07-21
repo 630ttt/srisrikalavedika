@@ -9,8 +9,8 @@ function Activities() {
     
       backgroundImage: `
         linear-gradient(
-          rgba(255, 255, 255, 0.37),
-          rgba(255, 255, 255, 0.07)
+          rgba(255, 255, 255, 0.04),
+          rgba(65, 64, 63, 0.49)
         ),
         url(${activityBg})
       `,
@@ -22,7 +22,7 @@ function Activities() {
     },
     hero: {
       background:
-        "linear-gradient(rgba(25, 23, 23, 0.29), rgba(123,17,19,0.85)), url('/activities-banner.jpg')",
+        "linear-gradient(rgba(251, 141, 38, 0.57), rgba(123, 17, 19, 0)), url('/activities-banner.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "45vh",
@@ -72,6 +72,7 @@ function Activities() {
       boxShadow: "0 5px 15px rgba(0,0,0,.1)",
       textAlign: "center",
       transition: "0.3s",
+      margin:"20px",
     },
 
     icon: {
@@ -90,7 +91,7 @@ function Activities() {
     },
 
     highlight: {
-      background: "#7B1113",
+      background: "#aa7423df",
       color: "#fff",
       padding: "60px 10%",
       textAlign: "center",
@@ -98,10 +99,19 @@ function Activities() {
     },
 
     quote: {
+      
       fontSize: "24px",
       fontStyle: "italic",
       lineHeight: "1.8",
     },
+    contentCard: {
+  background: "rgba(0, 0, 0, 0.33)",
+  padding: "40px",
+  borderRadius: "20px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+},
   };
 
   const activities = [
@@ -153,37 +163,55 @@ function Activities() {
       description:
         "Connecting Telugu communities worldwide through literary and cultural events.",
     },
+     {
+      icon: "✍️  ",
+      title: "Supporting Writers & Poets",
+      description:
+        "Providing a platform for emerging and established writers, poets, and literary personalities to showcase their talent.",
+    },
   ];
 
   return (
     <div style={styles.page}>
       {/* Hero */}
       <section style={styles.hero}>
+        <div style={styles.contentCard}>
+
         <div>
           <h1 style={styles.heroTitle}>Our Activities</h1>
           <p>Serving Literature, Culture & Society</p>
         </div>
+        </div>
+        
       </section>
 
       <section style={styles.section}>
+       <div style={styles.contentCard}>
         <h2 style={styles.title}>What We Do</h2>
-
+            
         <p style={styles.description}>
           Sri Sri Kalavedika actively organizes literary, cultural,
           educational and social service programs across India and
           internationally to promote Telugu language, culture and community
-          welfare.
+          welfare.We provide a platform for writers, poets, artists, students
+           and emerging talents to showcase their abilities and receive recognition.
+            Along with cultural and literary initiatives, we actively support social welfare, 
+            environmental awareness and community development programs, 
+            while promoting Telugu culture and connecting literary and cultural communities 
+            across India and around the world.
         </p>
+           </div>
 
         <div style={styles.grid}>
           {activities.map((activity, index) => (
-            <div key={index} style={styles.card}>
+            <div key={index} className="card" style={styles.card}>
               <div style={styles.icon}>{activity.icon}</div>
 
               <h3 style={styles.cardTitle}>{activity.title}</h3>
 
               <p style={styles.cardText}>{activity.description}</p>
             </div>
+            
           ))}
         </div>
       </section>

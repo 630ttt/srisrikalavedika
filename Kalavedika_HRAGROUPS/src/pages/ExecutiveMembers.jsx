@@ -69,7 +69,7 @@ function ExecutiveMembers() {
     },
 
     card: {
-      background: "#ffffff",
+      background: "#f7f3ec",
       borderRadius: "15px",
       overflow: "hidden",
       boxShadow: "0 5px 20px rgba(0,0,0,.1)",
