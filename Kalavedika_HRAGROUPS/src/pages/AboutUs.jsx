@@ -4,22 +4,44 @@ import aboutusBg from "../assets/aboutus-bg.jpg";
 function AboutUs() {
   const styles = {
     page: {
-      fontFamily: "Arial, sans-serif",
-      background: "#f8f9fa",
-      color: "#333",
-    },
+  fontFamily: "'Poppins', sans-serif",
+  color: "#333",
+  minHeight: "100vh",
+
+  backgroundImage: `
+    linear-gradient(
+      rgba(255, 255, 255, 0.37),
+      rgba(255, 255, 255, 0.07)
+    ),
+    url(${aboutusBg})
+  `,
+
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundAttachment: "fixed",
+  backgroundRepeat: "no-repeat",
+},
+contentCard: {
+  background: "rgba(0, 0, 0, 0.33)",
+  padding: "40px",
+  borderRadius: "20px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+},
 
     hero: {
-      backgroundImage: `linear-gradient(rgba(210, 196, 196, 0.23), rgba(27, 27, 27, 0.77)), url(${aboutusBg})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "45vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "#fff",
-      textAlign: "center",
-    },
+  background: "rgba(0, 0, 0, 0.33)",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  minHeight: "45vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "#eba901",
+  textAlign: "center",
+},
 
     heroTitle: {
       fontSize: "48px",
@@ -27,13 +49,14 @@ function AboutUs() {
     },
 
     section: {
-      padding: "70px 10%",
-      maxWidth: "1200px",
-      margin: "auto",
-    },
+  padding: "70px 10%",
+  maxWidth: "1200px",
+  margin: "auto",
+  background: "transparent",
+},
 
     title: {
-      color: "#7B1113",
+      color: "#dcae25",
       textAlign: "center",
       fontSize: "36px",
       marginBottom: "20px",
@@ -43,7 +66,7 @@ function AboutUs() {
       fontSize: "18px",
       lineHeight: "1.9",
       textAlign: "justify",
-      color: "#555",
+      color: "#f0e7e7",
     },
 
     cards: {
@@ -64,7 +87,7 @@ function AboutUs() {
     },
   
     cardTitle: {
-      color: "#7B1113",
+      color: "#dcae25",
       marginBottom: "15px",
     },
 
@@ -72,10 +95,11 @@ function AboutUs() {
       marginTop: "30px",
       lineHeight: "2",
       fontSize: "18px",
+       color: "#fff",
     },
 
     quote: {
-      background: "#7B1113",
+      background: "#aa7423df",
       color: "#fff",
       padding: "50px",
       textAlign: "center",
@@ -88,14 +112,17 @@ function AboutUs() {
     <div style={styles.page}>
       {/* Hero Section */}
       <section style={styles.hero}>
+        <div style={styles.contentCard}>
         <div>
           <h1 style={styles.heroTitle}>About Sri Sri Kalavedika</h1>
-          <p>International Literary, Cultural & Social Service Organization</p>
+          <p style={styles.paragraph}>International Literary, Cultural & Social Service Organization</p>
+        </div>
         </div>
       </section>
 
       {/* About */}
       <section style={styles.section}>
+         <div style={styles.contentCard}>
         <h2 style={styles.title}>Who We Are</h2>
 
         <p style={styles.paragraph}>
@@ -113,12 +140,14 @@ function AboutUs() {
           book release events, educational programs and social service
           initiatives across India and abroad.
         </p>
+        </div>
       </section>
+      
 
       {/* Vision & Mission */}
       <section style={styles.section}>
         <div style={styles.cards}>
-          <div style={styles.card}>
+          <div className="card" style={styles.card}>
             <h2 style={styles.cardTitle}>Vision</h2>
 
             <p>
@@ -136,10 +165,13 @@ function AboutUs() {
             </p>
           </div>
         </div>
+        
+        
       </section>
 
       {/* Objectives */}
       <section style={styles.section}>
+        <div style={styles.contentCard}>
         <h2 style={styles.title}>Our Objectives</h2>
 
         <div style={styles.objectives}>
@@ -163,12 +195,14 @@ function AboutUs() {
           <br />
            International Cultural Exchange
         </div>
+        </div>
       </section>
 
       {/* Activities */}
       <section style={styles.section}>
+         <div style={styles.contentCard}>
         <h2 style={styles.title}>Major Activities</h2>
-
+        </div>
         <div style={styles.cards}>
           <div className="card" style={styles.card}>Literary Conferences</div>
 

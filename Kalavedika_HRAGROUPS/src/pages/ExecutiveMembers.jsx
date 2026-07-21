@@ -106,12 +106,20 @@ function ExecutiveMembers() {
     },
 
     footer: {
-      background: "#7B1113",
+      background: "#aa7423a3",
       color: "#fff",
       textAlign: "center",
       padding: "60px 20px",
       marginTop: "70px",
     },
+    contentCard: {
+  background: "rgba(0, 0, 0, 0.33)",
+  padding: "40px",
+  borderRadius: "20px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+},
   };
 
   const members = [
@@ -271,9 +279,11 @@ function ExecutiveMembers() {
     <div style={styles.page}>
       {/* Hero */}
       <section style={styles.hero}>
+        <div style={styles.contentCard}>
         <div>
           <h1 style={styles.heroTitle}>Executive Members</h1>
           <p>Leadership Team of Sri Sri Kalavedika</p>
+        </div>
         </div>
       </section>
 
@@ -282,7 +292,7 @@ function ExecutiveMembers() {
 
         <div style={styles.grid}>
           {members.map((member, index) => (
-            <div key={index} style={styles.card}>
+            <div key={index} className="card" style={styles.card}>
               <img
                 src={member.image}
                 alt={member.name}

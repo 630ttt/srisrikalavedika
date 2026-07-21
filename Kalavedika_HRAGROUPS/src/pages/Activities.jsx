@@ -1,16 +1,28 @@
 import React from "react";
-
+import activityBg from "../assets/activitybg.jpg";
 function Activities() {
   const styles = {
     page: {
-      fontFamily: "Arial, sans-serif",
-      backgroundColor: "#f6f9fc",
+      fontFamily: "'Poppins', sans-serif",
       color: "#333",
+      minHeight: "100vh",
+    
+      backgroundImage: `
+        linear-gradient(
+          rgba(255, 255, 255, 0.37),
+          rgba(255, 255, 255, 0.07)
+        ),
+        url(${activityBg})
+      `,
+    
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
+      backgroundRepeat: "no-repeat",
     },
-
     hero: {
       background:
-        "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/activities-banner.jpg')",
+        "linear-gradient(rgba(25, 23, 23, 0.29), rgba(123,17,19,0.85)), url('/activities-banner.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "45vh",
@@ -34,14 +46,14 @@ function Activities() {
 
     title: {
       textAlign: "center",
-      color: "#7B1113",
+      color: "#e6a422",
       fontSize: "36px",
       marginBottom: "20px",
     },
 
     description: {
       textAlign: "center",
-      color: "#555",
+      color: "#eee4e4",
       lineHeight: "1.8",
       fontSize: "18px",
       marginBottom: "50px",
@@ -54,7 +66,7 @@ function Activities() {
     },
 
     card: {
-      background: "#c10b0b",
+      background: "#e3d2d2",
       borderRadius: "12px",
       padding: "30px",
       boxShadow: "0 5px 15px rgba(0,0,0,.1)",

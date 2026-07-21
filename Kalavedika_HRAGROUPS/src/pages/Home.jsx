@@ -88,13 +88,13 @@ function Home() {
     },
 
     card: {
-      background: "#f7ae40d0",
-      padding: "30px",
+      background: "#b67f2ed0",
+      padding: "20px",
       borderRadius: "10px",
       boxShadow: "0 5px 20px rgba(0,0,0,.1)",
       transition: "all 0.4s ease",
       cursor: "pointer",
-      margin:"55px",
+      margin:"20px",
   
     },
    
@@ -138,6 +138,14 @@ function Home() {
       objectFit: "cover",
       borderRadius: "10px",
     },
+    contentCard: {
+  background: "rgba(0, 0, 0, 0.33)",
+  padding: "40px",
+  borderRadius: "20px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+},
     
   };
 
@@ -166,8 +174,9 @@ function Home() {
       </section>
 
       {/* About */}
-
+       
       <section className="about"  style={styles.aboutSection}>
+        <div style={styles.contentCard}>
         <h2 className="about-title" style={styles.title}>About Us</h2>
 
         <p className="about-text"style={styles.paragraph}>
@@ -184,16 +193,18 @@ function Home() {
           Through these programs, the organization recognizes excellence, encourages emerging talent, 
           and fosters unity among Telugu-speaking communities across the world.
         </p>
+        </div>
+        
       </section>
 
       {/* Vision Mission */}
 
       <section style={styles.aboutSection}>
-
+         
        <div style={styles.cards}>
 
-        <div className="activitycard" style={styles.card}>
-            <h2>Vision</h2>
+        <div className="activitycard card" style={styles.card}>
+            <h2 >Vision</h2>
 
             <p>
               To preserve and promote Telugu
@@ -202,7 +213,7 @@ function Home() {
             </p>
           </div>
 
-         <div className="activitycard" style={styles.card}>
+         <div className="activitycard card" style={styles.card}>
             <h2>Mission</h2>
 
             <p>
@@ -251,6 +262,7 @@ function Home() {
 
       {/* Activities */}
  <section style={styles.aboutSection}>
+  <div style={styles.contentCard}>
 
         <h2 style={styles.title}>Our Activities</h2>
 
@@ -258,7 +270,7 @@ function Home() {
 
           <div className="activitycard" style={styles.card}>📚 Literary Conferences</div>
 
-           <div className="activitycard" style={styles.card}>🏆 Award Ceremonies</div>
+           <div className="activitycard " style={styles.card}>🏆 Award Ceremonies</div>
 
           <div className="activitycard" style={styles.card}>🎭 Cultural Programs</div>
 
@@ -268,6 +280,7 @@ function Home() {
 
            <div className="activitycard" style={styles.card}>🌍 International Events</div>
 
+        </div>
         </div>
 
       </section>
