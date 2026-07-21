@@ -240,7 +240,10 @@ function Home() {
             Founder and Chairman of Sri Sri
             Kalavedika, working tirelessly for the
             development of literature, culture and
-            social welfare.
+            social welfare.With a deep passion for 
+            encouraging creativity and bringing talented individuals together,
+             the Founder established Sri Sri Kalavedika as a platform 
+             to celebrate and nurture artistic excellence.
           </p>
         </div>
 
