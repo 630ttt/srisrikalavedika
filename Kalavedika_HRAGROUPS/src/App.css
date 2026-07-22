@@ -200,3 +200,12 @@ body {
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 15px 30px rgba(192, 92, 92, 0.25);
 }
+.award-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35) !important;
+  border-color: #d4af37 !important;
+}
+
+.award-card:hover .award-icon {
+  transform: scale(1.1);
+}

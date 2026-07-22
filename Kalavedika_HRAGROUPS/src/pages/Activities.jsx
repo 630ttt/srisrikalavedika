@@ -22,7 +22,7 @@ function Activities() {
     },
     hero: {
       background:
-        "linear-gradient(rgba(251, 141, 38, 0.57), rgba(123, 17, 19, 0)), url('/activities-banner.jpg')",
+      "linear-gradient(rgba(6, 4, 3, 0.56), rgba(23, 9, 9, 0.63)), url('/activities-banner.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "45vh",

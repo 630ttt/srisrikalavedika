@@ -1,25 +1,47 @@
 import React from "react";
+import founderPic1 from "../assets/founderpic1.png";
+import founderPic2 from "../assets/founderpic2.png";
 import founder from "../assets/founder.png";
+import founderPage from "../assets/founderpage.jpg";
+import headFounder from "../assets/headfounder.jpg";
 function Founder() {
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
       backgroundColor: "#f8f9fa",
       color: "#333",
+      backgroundImage: `
+          linear-gradient(
+            rgba(200, 131, 35, 0),
+            rgba(255, 255, 255, 0.07)
+          ),
+          url(${headFounder})
+        `,
+        backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundAttachment: "fixed",
+  backgroundRepeat: "no-repeat",  
     },
 
     hero: {
-      background:
-        "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/founder-banner.jpg')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "45vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "#fff",
-      textAlign: "center",
-    },
+  backgroundImage: `
+          linear-gradient(
+            rgba(200, 35, 35, 0.04),
+            rgba(255, 255, 255, 0.07)
+          ),
+          url(${headFounder})
+        `,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+   backgroundAttachment: "fixed",
+  backgroundRepeat: "no-repeat",
+  minHeight: "45vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "#eba901",
+  textAlign: "center",
+},
 
     heroTitle: {
       fontSize: "48px",
@@ -36,10 +58,9 @@ function Founder() {
       gap: "50px",
     },
 
-    image: {
-      width: "380px",
-      borderRadius: "15px",
-      boxShadow: "0 8px 20px rgba(0,0,0,.2)",
+    founderImage: {
+      width: "320px",
+      borderRadius: "12px",
     },
 
     content: {
@@ -48,13 +69,13 @@ function Founder() {
     },
 
     name: {
-      color: "#7B1113",
+      color: "#faf8f8",
       fontSize: "40px",
       marginBottom: "10px",
     },
 
     designation: {
-      color: "#b8860b",
+      color: "#f7d47b",
       fontSize: "22px",
       fontWeight: "bold",
       marginBottom: "25px",
@@ -63,20 +84,20 @@ function Founder() {
     paragraph: {
       fontSize: "18px",
       lineHeight: "1.9",
-      color: "#555",
+      color: "#dbd108",
       marginBottom: "20px",
       textAlign: "justify",
     },
 
     achievements: {
-      background: "#fff",
+      background: "#ffffff0a",
       padding: "50px 10%",
       marginTop: "50px",
     },
 
     title: {
       textAlign: "center",
-      color: "#7B1113",
+      color: "#ebe8e8",
       fontSize: "36px",
       marginBottom: "40px",
     },
@@ -88,12 +109,22 @@ function Founder() {
     },
 
     card: {
-      background: "#fff8f0",
-      padding: "30px",
-      borderRadius: "12px",
+      background:
+        "linear-gradient(145deg, rgba(255,255,255,0.97), rgba(244, 167, 24, 0.98))",
+      borderRadius: "18px",
+      padding: "35px 25px",
       textAlign: "center",
-      boxShadow: "0 5px 15px rgba(0,0,0,.1)",
+      minHeight: "280px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+      transition: "all 0.4s ease",
+      cursor: "pointer",
+      border: "1px solid rgba(212, 55, 55, 0.4)",
     },
+
 
     icon: {
       fontSize: "45px",
@@ -101,7 +132,7 @@ function Founder() {
     },
 
     quote: {
-      background: "#7B1113",
+      background: "#aa7423df",
       color: "#fff",
       padding: "60px 10%",
       textAlign: "center",
@@ -115,6 +146,14 @@ function Founder() {
       maxWidth: "900px",
       margin: "auto",
     },
+    contentCard: {
+  background: "rgba(0, 0, 0, 0.33)",
+  padding: "40px",
+  borderRadius: "20px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+},
   };
 
   return (
@@ -122,9 +161,11 @@ function Founder() {
       {/* Hero Section */}
 
       <section style={styles.hero}>
+        <div style={styles.contentCard}>
         <div>
           <h1 style={styles.heroTitle}>Founder & Chairman</h1>
           <p>Visionary Leader of Sri Sri Kalavedika</p>
+        </div>
         </div>
       </section>
 
@@ -132,12 +173,26 @@ function Founder() {
 
       <section style={styles.container}>
         <img
+      className="founder-image"
+        src={founderPic1}
+        alt="Founder"
+        style={styles.founderImage}
+      />
+      <img
+      className="founder-image"
         src={founder}
+        alt="Founder"
+        style={styles.founderImage}
+      />
+      <img
+      className="founder-image"
+        src={founderPic2}
         alt="Founder"
         style={styles.founderImage}
       />
 
         <div style={styles.content}>
+          <div style={styles.contentCard}>
           <h2 style={styles.name}>
             కళారత్న కత్తిమండ ప్రతాప్ కుమార్
           </h2>
@@ -167,49 +222,52 @@ function Founder() {
             knowledge, cultural awareness and social responsibility.
           </p>
         </div>
+        </div>
       </section>
 
       {/* Achievements */}
 
       <section style={styles.achievements}>
+          <div style={styles.contentCard}>
         <h2 style={styles.title}>Major Contributions</h2>
 
         <div style={styles.grid}>
-          <div style={styles.card}>
+          <div className="card"style={styles.card}>
             <div style={styles.icon}>📚</div>
             <h3>Literary Promotion</h3>
             <p>Encouraging writers, poets and scholars across the world.</p>
           </div>
 
-          <div style={styles.card}>
+          <div className="card"style={styles.card}>
             <div style={styles.icon}>🏆</div>
             <h3>Award Programs</h3>
             <p>Recognizing excellence in literature, arts and social service.</p>
           </div>
 
-          <div style={styles.card}>
+          <div className="card"style={styles.card}>
             <div style={styles.icon}>🎭</div>
             <h3>Cultural Heritage</h3>
             <p>Organizing cultural festivals and preserving Indian traditions.</p>
           </div>
 
-          <div style={styles.card}>
+          <div className="card"style={styles.card}>
             <div style={styles.icon}>🌍</div>
             <h3>International Reach</h3>
             <p>Connecting Telugu communities across the globe.</p>
           </div>
 
-          <div style={styles.card}>
+          <div className="card"style={styles.card}>
             <div style={styles.icon}>🤝</div>
             <h3>Social Service</h3>
             <p>Leading community welfare and humanitarian initiatives.</p>
           </div>
 
-          <div style={styles.card}>
+          <div className="card" style={styles.card}>
             <div style={styles.icon}>🎓</div>
             <h3>Education</h3>
             <p>Supporting students through educational and motivational programs.</p>
           </div>
+        </div>
         </div>
       </section>
 

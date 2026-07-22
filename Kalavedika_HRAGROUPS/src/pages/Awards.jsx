@@ -1,23 +1,33 @@
 import React from "react";
-
+import awardsPic from "../assets/awards.jpg";
 function Awards() {
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
       background: "#f8f9fa",
       color: "#333",
-    },
-
+        backgroundImage: `
+             linear-gradient(
+               rgba(200, 35, 35, 0.04),
+               rgba(255, 255, 255, 0.07)
+             ),
+             url(${awardsPic})
+           `,
+           backgroundSize: "cover",
+     backgroundPosition: "center",
+     backgroundAttachment: "fixed",
+     backgroundRepeat: "no-repeat",  
+       },
     hero: {
       background:
-        "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/awards-banner.jpg')",
+        "linear-gradient(rgba(26, 23, 23, 0.69), rgba(21, 18, 18, 0.6)), url('/awards-banner.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "45vh",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      color: "#fff",
+      color: "#f7d232",
       textAlign: "center",
     },
 
@@ -33,8 +43,9 @@ function Awards() {
     },
 
     title: {
+      fontFamily:"Georgia",
       textAlign: "center",
-      color: "#7B1113",
+      color: "#ebeae8",
       fontSize: "36px",
       marginBottom: "20px",
     },
@@ -42,7 +53,7 @@ function Awards() {
     description: {
       textAlign: "center",
       fontSize: "18px",
-      color: "#555",
+      color: "#f7d232",
       lineHeight: "1.8",
       marginBottom: "50px",
     },
@@ -54,11 +65,20 @@ function Awards() {
     },
 
     card: {
-      background: "#fff",
-      borderRadius: "12px",
-      padding: "30px",
-      boxShadow: "0 5px 15px rgba(0,0,0,.1)",
+      background:
+        "linear-gradient(145deg, rgba(255,255,255,0.97),  rgba(244, 167, 24, 0.98))",
+      borderRadius: "18px",
+      padding: "35px 25px",
       textAlign: "center",
+      minHeight: "280px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+      transition: "all 0.4s ease",
+      cursor: "pointer",
+      border: "1px solid rgba(212,175,55,0.4)",
     },
 
     icon: {
@@ -77,7 +97,7 @@ function Awards() {
     },
 
     highlight: {
-      background: "#7B1113",
+      background: "#aa7423df",
       color: "#fff",
       padding: "60px 10%",
       textAlign: "center",
@@ -89,6 +109,14 @@ function Awards() {
       fontStyle: "italic",
       lineHeight: "1.8",
     },
+    contentCard: {
+  background: "rgba(0, 0, 0, 0.33)",
+  padding: "100px",
+  borderRadius: "35px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+},
   };
 
   const awards = [
@@ -146,14 +174,17 @@ function Awards() {
     <div style={styles.page}>
       {/* Hero */}
       <section style={styles.hero}>
+        <div style={styles.contentCard}>
         <div>
           <h1 style={styles.heroTitle}>Awards & Recognitions</h1>
           <p>Honouring Excellence in Literature, Culture & Social Service</p>
+        </div>
         </div>
       </section>
 
       {/* Awards Section */}
       <section style={styles.section}>
+        <div style={styles.contentCard}>
         <h2 style={styles.title}>Our Prestigious Awards</h2>
 
         <p style={styles.description}>
@@ -164,7 +195,7 @@ function Awards() {
 
         <div style={styles.grid}>
           {awards.map((award, index) => (
-            <div key={index} style={styles.card}>
+            <div key={index}  className="award-card"style={styles.card}>
               <div style={styles.icon}>{award.icon}</div>
 
               <h3 style={styles.cardTitle}>{award.title}</h3>
@@ -172,6 +203,7 @@ function Awards() {
               <p style={styles.cardText}>{award.description}</p>
             </div>
           ))}
+        </div>
         </div>
       </section>
 

@@ -88,14 +88,20 @@ function Home() {
     },
 
     card: {
-      background: "#b67f2ed0",
-      padding: "20px",
+      background:
+        "linear-gradient(145deg, rgba(255,255,255,0.97),  rgba(244, 167, 24, 0.98))",
       borderRadius: "10px",
-      boxShadow: "0 5px 20px rgba(0,0,0,.1)",
+      padding: "35px 25px",
+      textAlign: "center",
+      minHeight: "100px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
       transition: "all 0.4s ease",
       cursor: "pointer",
-      margin:"20px",
-  
+      border: "1px solid rgba(212,175,55,0.4)",
     },
    
 

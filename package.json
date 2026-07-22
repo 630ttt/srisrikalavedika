@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "react-responsive-carousel": "^3.2.23",
-    "swiper": "^14.0.5"
+    "swiper": "^14.0.6"
   }
 }
