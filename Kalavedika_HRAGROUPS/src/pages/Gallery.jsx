@@ -1,26 +1,48 @@
 import React from "react";
+import galleryHEad from "../assets/gallery-head.jpg";
+import galleryHead from "../assets/galleryhead.jpg";
 
 function Gallery() {
   const styles = {
     page: {
-      fontFamily: "Arial, sans-serif",
-      backgroundColor: "#f8f9fa",
-      color: "#333",
-    },
+       fontFamily: "Arial, sans-serif",
+            backgroundColor: "#f8f9fa",
+            color: "#333",
+            backgroundImage: `
+                linear-gradient(
+                  rgba(227, 157, 60, 0.8),
+                  rgba(247, 239, 228, 0.69)
+                ),
+                url(${galleryHead})
+              `,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",  
+          },
 
     hero: {
-      background:
-        "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/gallery-banner.jpg')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "45vh",
+       backgroundImage: `
+                linear-gradient(
+                  rgba(200, 131, 35, 0),
+                  rgba(255, 255, 255, 0.07)
+                ),
+                url(${galleryHEad})
+              `,
+       backgroundSize: "cover",
+     backgroundPosition: "center",
+     backgroundRepeat: "no-repeat",
+      minHeight: "45vh",
+      width: "100%",
       display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "#fff",
-      textAlign: "center",
-    },
-
+     justifyContent: "center",
+     alignItems: "center",
+     color: "#fff",
+     textAlign: "center",
+     padding: "40px 20px",
+     boxSizing: "border-box",
+   },
+  
     heroTitle: {
       fontSize: "48px",
       fontWeight: "bold",
@@ -54,28 +76,21 @@ function Gallery() {
     },
 
     card: {
-      background: "#fff",
-      borderRadius: "12px",
+      borderRadius: "40px",
       overflow: "hidden",
-      boxShadow: "0 5px 15px rgba(0,0,0,.1)",
-      transition: "0.3s",
+      
     },
 
     image: {
       width: "100%",
-      height: "250px",
+      height: "350px",
       objectFit: "cover",
     },
 
-    caption: {
-      padding: "18px",
-      textAlign: "center",
-      fontWeight: "bold",
-      color: "#7B1113",
-    },
+   
 
     footer: {
-      background: "#7B1113",
+      background: "#aa7423df",
       color: "#fff",
       textAlign: "center",
       padding: "60px 20px",
@@ -89,48 +104,59 @@ function Gallery() {
       maxWidth: "900px",
       margin: "20px auto",
     },
+     contentCard: {
+  background: "rgba(235, 169, 37, 0.11)",
+  padding: "100px",
+  borderRadius: "50px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(235, 0, 0, 0.92)",
+  height:"250px",
+  width:"700px",
+},
+
+    
   };
 
   const gallery = [
-    { image: "/gallery/gallery1.jpg", title: "Literary Conference" },
-    { image: "/gallery/gallery2.jpg", title: "Award Ceremony" },
-    { image: "/gallery/gallery3.jpg", title: "Cultural Program" },
-    { image: "/gallery/gallery4.jpg", title: "Book Release" },
-    { image: "/gallery/gallery5.jpg", title: "Women's Conference" },
-    { image: "/gallery/gallery6.jpg", title: "Youth Program" },
-    { image: "/gallery/gallery7.jpg", title: "Poetry Meet" },
-    { image: "/gallery/gallery8.jpg", title: "Social Service" },
-    { image: "/gallery/gallery9.jpg", title: "Educational Seminar" },
-    { image: "/gallery/gallery10.jpg", title: "International Event" },
-    { image: "/gallery/gallery11.jpg", title: "Annual Celebration" },
-    { image: "/gallery/gallery12.jpg", title: "Community Gathering" },
+    { 
+      image: "/src/gallery/Image 1.jpg", 
+       
+    },
+    { image: "/src/gallery/image 2.jpg", },
+    { image: "/src/gallery/image 3.jpg", },
+    { image: "/src/gallery/image 4.jpg", },
+    { image: "/src/gallery/image 5.jpg",  },
+    { image: "/src/gallery/image 6.jpg",  },
+    { image: "/src/gallery/image 7.jpg",  },
+    { image: "/src/gallery/image 8.jpg", },
+    { image: "/src/gallery/image 9.jpg",  },
+    { image: "/src/gallery/image 10.jpg", },
+    { image: "/src/gallery/image 11.jpg",  },
+    { image: "/src/gallery/image 12.jpg",  },
   ];
 
   return (
     <div style={styles.page}>
       {/* Hero */}
-
+        
       <section style={styles.hero}>
+         <div style={styles.contentCard}>
         <div>
           <h1 style={styles.heroTitle}>Gallery</h1>
           <p>Moments That Inspire Generations</p>
-        </div>
+        </div></div>
       </section>
 
       {/* Gallery */}
 
       <section style={styles.section}>
-        <h2 style={styles.heading}>Photo Gallery</h2>
-
-        <p style={styles.description}>
-          Explore memorable moments from literary conferences, cultural
-          festivals, award ceremonies, educational programs and social service
-          activities organized by Sri Sri Kalavedika.
-        </p>
-
+        
+        
+           
         <div style={styles.gallery}>
           {gallery.map((item, index) => (
-            <div key={index} style={styles.card}>
+            <div key={index} className="award-card" style={styles.card}>
               <img
                 src={item.image}
                 alt={item.title}
@@ -144,7 +170,7 @@ function Gallery() {
           ))}
         </div>
       </section>
-
+         
       {/* Closing */}
 
       <section style={styles.footer}>
