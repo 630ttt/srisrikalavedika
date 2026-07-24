@@ -296,21 +296,42 @@ function Home() {
 
       {/* Gallery */}
 
-  <section style={styles.aboutSection}>
+ <section style={styles.aboutSection}>
 
-        <h2 style={styles.title}>Gallery</h2>
+  <h2 style={styles.title}>Gallery</h2>
 
-        <div style={styles.gallery}>
+  <div style={styles.gallery}>
 
-          <img src="src/gallery/Image 1.jpg" alt="" style={styles.image} />
+    <div className="gallery-card">
+      <img
+        src="src/gallery/Image 1.jpg"
+        alt="Sri Sri Kalavedika"
+        style={styles.image}
+        className="gallery-image"
+      />
+    </div>
 
-          <img src="src/gallery/image 4.jpg" alt="" style={styles.image} />
+    <div className="gallery-card">
+      <img
+        src="src/gallery/image 4.jpg"
+        alt="Sri Sri Kalavedika"
+        style={styles.image}
+        className="gallery-image"
+      />
+    </div>
 
-          <img src="src/gallery/image 3.jpg" alt="" style={styles.image} />
+    <div className="gallery-card">
+      <img
+        src="src/gallery/image 3.jpg"
+        alt="Sri Sri Kalavedika"
+        style={styles.image}
+        className="gallery-image"
+      />
+    </div>
 
-        </div>
+  </div>
 
-      </section>
+</section>
 
 
     </div>

@@ -1,50 +1,73 @@
 import React from "react";
-
+import publicationsBg from "../assets/publicationsbg.jpg";
+import pbHead from "../assets/pbhead.jpg";
 function Publications() {
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
-      background: "#f8f9fa",
-      color: "#333",
+            background: "#f8f9fa",
+            color: "#333",
+             backgroundImage: `
+                            linear-gradient(
+                              rgba(227, 157, 60, 0.23),
+                              rgba(235, 230, 223, 0.73)
+                            ),
+                            url(${publicationsBg})
+                          `,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundAttachment: "fixed",
+                    backgroundRepeat: "no-repeat",  
     },
 
     hero: {
-      background:
-        "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/publications-banner.jpg')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "45vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "#fff",
-      textAlign: "center",
+      backgroundImage: `
+                          linear-gradient(
+                            rgba(200, 131, 35, 0),
+                            rgba(255, 255, 255, 0.07)
+                          ),
+                          url(${pbHead})
+                        `,
+                 backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  minHeight: "45vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "#eeeeee",
+  textAlign: "center",
     },
 
     heroTitle: {
-      fontSize: "48px",
+       fontSize: "clamp(38px, 6vw, 65px)",
       fontWeight: "bold",
+      margin: "0 0 15px",
+      color: "#FFD700",
+      letterSpacing: "2px",
     },
 
-    section: {
-      maxWidth: "1200px",
-      margin: "70px auto",
-      padding: "0 20px",
+     section: {
+      maxWidth: "1300px",
+      margin: "0 auto",
+      padding: "80px 25px",
     },
 
     heading: {
       textAlign: "center",
       color: "#7B1113",
-      fontSize: "36px",
-      marginBottom: "15px",
+      fontSize: "clamp(30px, 4vw, 44px)",
+      marginBottom: "20px",
+      fontWeight: "bold",
     },
 
     description: {
       textAlign: "center",
-      color: "#666",
+      color: "#060606",
       fontSize: "18px",
-      marginBottom: "50px",
-      lineHeight: "1.8",
+      maxWidth: "900px",
+      margin: "0 auto 55px",
+      lineHeight: "1.9",
     },
 
     grid: {
@@ -54,10 +77,13 @@ function Publications() {
     },
 
     card: {
-      background: "#fff",
-      borderRadius: "12px",
+      background:
+        "linear-gradient(145deg, rgba(255,255,255,0.97),  rgba(241, 229, 192, 0.55))",
+      borderRadius: "20px",
       overflow: "hidden",
       boxShadow: "0 5px 15px rgba(0,0,0,.1)",
+      margin:"20px",
+      
     },
 
     image: {
@@ -91,47 +117,58 @@ function Publications() {
     },
 
     footer: {
-      background: "#7B1113",
+      background: "#aa7423df",
       color: "#fff",
       textAlign: "center",
       padding: "60px 20px",
       marginTop: "70px",
     },
+    contentCard: {
+  background: "rgba(0, 0, 0, 0.35)",
+      padding: "45px 60px",
+      borderRadius: "25px",
+      backdropFilter: "blur(6px)",
+      WebkitBackdropFilter: "blur(6px)",
+      border: "1px solid rgba(255,255,255,0.25)",
+      boxShadow: "0 10px 40px rgba(0,0,0,0.35)",
+      maxWidth: "850px",
+},
   };
 
   const books = [
     {
-      image: "/publications/book1.jpg",
+       
+      image: "/src/publications/Telugu Literary Collection.jpg",
       title: "Telugu Literary Collection",
       description:
         "A collection of inspiring Telugu poems, essays and literary works published by Sri Sri Kalavedika.",
     },
     {
-      image: "/publications/book2.jpg",
+      image: "/src/publications/Cultural Heritage.jpg",
       title: "Cultural Heritage",
       description:
         "A publication highlighting Indian traditions, Telugu culture and historical heritage.",
     },
     {
-      image: "/publications/book3.jpg",
+      image: "/src/publications/Poetry Anthology.jpg",
       title: "Poetry Anthology",
       description:
         "An anthology featuring poems written by emerging and renowned poets from across the world.",
     },
     {
-      image: "/publications/book4.jpg",
+      image:"/src/publications/Research Articles.jpg",
       title: "Research Articles",
       description:
         "Academic articles and literary research papers promoting Telugu literature and language.",
     },
     {
-      image: "/publications/book5.jpg",
+      image: "/src/publications/Annual Magazine.jpg",
       title: "Annual Magazine",
       description:
         "A yearly publication featuring organizational achievements, events and member contributions.",
     },
     {
-      image: "/publications/book6.jpg",
+      image: "/src/publications/Special Editions.jpg",
       title: "Special Editions",
       description:
         "Commemorative publications released during national and international literary conferences.",
@@ -143,15 +180,18 @@ function Publications() {
       {/* Hero */}
 
       <section style={styles.hero}>
+         <div style={styles.contentCard}>
         <div>
           <h1 style={styles.heroTitle}>Publications</h1>
           <p>Books • Magazines • Research • Literary Collections</p>
+        </div>
         </div>
       </section>
 
       {/* Publications */}
 
       <section style={styles.section}>
+  
         <h2 style={styles.heading}>Our Publications</h2>
 
         <p style={styles.description}>
@@ -159,10 +199,10 @@ function Publications() {
           research articles and literary journals to encourage writers,
           poets and literature enthusiasts.
         </p>
-
+        
         <div style={styles.grid}>
           {books.map((book, index) => (
-            <div key={index} style={styles.card}>
+            <div key={index} className="founder-image" style={styles.card}>
               <img
                 src={book.image}
                 alt={book.title}
