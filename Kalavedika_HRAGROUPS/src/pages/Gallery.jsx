@@ -122,12 +122,7 @@ function Gallery() {
 
     /* FOOTER */
     footer: {
-      background: `
-        linear-gradient(
-          rgba(100, 10, 10, 0.9),
-          rgba(100, 10, 10, 0.95)
-        )
-      `,
+      background: "#aa7423df",
       color: "#fff",
       textAlign: "center",
       padding: "70px 20px",

@@ -1,242 +1,474 @@
 import React from "react";
+import memHead from "../assets/mem-head.jpg";
 
 function Membership() {
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
-      background: "#f8f9fa",
+      background:
+        "linear-gradient(rgba(255,255,255,0.92), rgba(248,239,226,0.95))",
       color: "#333",
+      minHeight: "100vh",
     },
 
+    /* HERO */
+
     hero: {
-      background:
-        "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/membership-banner.jpg')",
+      backgroundImage: `
+        linear-gradient(
+          rgba(50, 8, 8, 0.55),
+          rgba(70, 15, 15, 0.8)
+        ),
+        url(${memHead})
+      `,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      height: "45vh",
+      backgroundRepeat: "no-repeat",
+      minHeight: "45vh",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       color: "#fff",
       textAlign: "center",
+      padding: "40px 20px",
+    },
+
+    heroContent: {
+      padding: "45px 60px",
+      background: "rgba(0, 0, 0, 0.25)",
+      border: "1px solid rgba(255, 215, 0, 0.4)",
+      borderRadius: "20px",
+      backdropFilter: "blur(5px)",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
     },
 
     heroTitle: {
-      fontSize: "48px",
+      fontSize: "clamp(2.5rem, 6vw, 4rem)",
       fontWeight: "bold",
+      color: "#FFD700",
+      marginBottom: "15px",
+      textShadow: "0 3px 10px rgba(0,0,0,0.5)",
     },
+
+    heroText: {
+      fontSize: "20px",
+      color: "#fff",
+      margin: "0",
+    },
+
+    /* MAIN SECTION */
 
     section: {
       maxWidth: "1200px",
       margin: "70px auto",
-      padding: "0 20px",
+      padding: "0 25px",
     },
 
     title: {
       textAlign: "center",
       color: "#7B1113",
-      fontSize: "36px",
-      marginBottom: "20px",
+      fontSize: "clamp(2rem, 5vw, 2.5rem)",
+      marginBottom: "15px",
+      fontWeight: "700",
     },
 
     subtitle: {
       textAlign: "center",
       color: "#666",
       fontSize: "18px",
-      marginBottom: "50px",
+      maxWidth: "850px",
+      margin: "0 auto 50px",
       lineHeight: "1.8",
     },
 
+    /* MEMBERSHIP CARDS */
+
     cards: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
+      gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
       gap: "25px",
-      marginBottom: "60px",
+      marginBottom: "70px",
     },
 
     card: {
-      background: "#fff",
-      padding: "30px",
-      borderRadius: "12px",
+      background: "rgba(255, 255, 255, 0.85)",
+      padding: "35px 25px",
+      borderRadius: "15px",
       textAlign: "center",
-      boxShadow: "0 5px 15px rgba(0,0,0,.1)",
+      border: "1px solid rgba(123, 17, 19, 0.15)",
+      boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
+      transition: "all 0.3s ease",
+      cursor: "pointer",
+    },
+
+    cardIcon: {
+      fontSize: "42px",
+      marginBottom: "15px",
     },
 
     cardTitle: {
       color: "#7B1113",
       marginBottom: "15px",
-      fontSize: "24px",
+      fontSize: "22px",
     },
 
-    form: {
-      background: "#fff",
-      padding: "40px",
-      borderRadius: "12px",
-      boxShadow: "0 5px 15px rgba(0,0,0,.1)",
+    cardText: {
+      color: "#666",
+      lineHeight: "1.7",
+      fontSize: "16px",
+    },
+
+    /* REGISTRATION FORM */
+
+    formWrapper: {
+      background: "rgba(255, 255, 255, 0.9)",
+      padding: "50px",
+      borderRadius: "20px",
+      boxShadow: "0 10px 35px rgba(0,0,0,0.12)",
+      border: "1px solid rgba(123,17,19,0.15)",
+    },
+
+    formTitle: {
+      textAlign: "center",
+      color: "#7B1113",
+      fontSize: "30px",
+      marginBottom: "10px",
+    },
+
+    formSubtitle: {
+      textAlign: "center",
+      color: "#777",
+      marginBottom: "35px",
+    },
+
+    formGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+      gap: "20px",
     },
 
     input: {
       width: "100%",
-      padding: "14px",
-      marginBottom: "20px",
-      border: "1px solid #ccc",
+      padding: "15px",
+      border: "1px solid #ddd",
       borderRadius: "8px",
       fontSize: "16px",
+      outline: "none",
+      boxSizing: "border-box",
+      background: "#fff",
     },
 
     textarea: {
       width: "100%",
-      height: "120px",
-      padding: "14px",
-      border: "1px solid #ccc",
+      height: "130px",
+      padding: "15px",
+      border: "1px solid #ddd",
       borderRadius: "8px",
       fontSize: "16px",
-      marginBottom: "20px",
-      resize: "none",
+      resize: "vertical",
+      outline: "none",
+      boxSizing: "border-box",
+      background: "#fff",
+    },
+
+    fullWidth: {
+      gridColumn: "1 / -1",
     },
 
     button: {
       background: "#7B1113",
       color: "#fff",
       border: "none",
-      padding: "15px 30px",
-      borderRadius: "8px",
+      padding: "15px 35px",
+      borderRadius: "30px",
       cursor: "pointer",
-      fontSize: "16px",
-      width: "100%",
+      fontSize: "17px",
+      fontWeight: "600",
+      display: "block",
+      margin: "25px auto 0",
+      transition: "all 0.3s ease",
+      boxShadow: "0 5px 15px rgba(123,17,19,0.25)",
     },
 
+    /* BENEFITS */
+
     benefits: {
-      background: "#7B1113",
+      background:
+        "linear-gradient(135deg, #e7b72596, #7B1113, #4e0809)",
       color: "#fff",
-      padding: "60px 20px",
+      padding: "70px 25px",
       textAlign: "center",
-      marginTop: "70px",
+      marginTop: "80px",
+      borderTop: "4px solid #D4AF37",
+    },
+
+    benefitsTitle: {
+      fontSize: "34px",
+      color: "#FFD700",
+      marginBottom: "15px",
+    },
+
+    benefitsSubtitle: {
+      color: "#f1f1f1",
+      fontSize: "17px",
+      marginBottom: "40px",
     },
 
     list: {
-      maxWidth: "800px",
-      margin: "30px auto",
+      maxWidth: "900px",
+      margin: "auto",
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+      gap: "15px",
       textAlign: "left",
-      lineHeight: "2",
-      fontSize: "18px",
+    },
+
+    benefitItem: {
+      background: "rgba(255,255,255,0.08)",
+      padding: "15px 20px",
+      borderRadius: "8px",
+      borderLeft: "3px solid #D4AF37",
+      fontSize: "16px",
     },
   };
 
+  const membershipTypes = [
+    {
+      icon: "👤",
+      title: "Individual Member",
+      text: "Open to writers, poets, artists and literature enthusiasts who wish to support and participate in our activities.",
+    },
+    {
+      icon: "🎓",
+      title: "Student Member",
+      text: "Special membership for students interested in literature, arts, culture and creative activities.",
+    },
+    {
+      icon: "🌍",
+      title: "International Member",
+      text: "For Telugu communities and cultural supporters across the globe who wish to connect with our mission.",
+    },
+    {
+      icon: "🏅",
+      title: "Lifetime Member",
+      text: "Become a permanent member and contribute to preserving literature, culture and social values for generations.",
+    },
+  ];
+
+  const benefits = [
+    "📚 Participation in Literary Conferences",
+    "🎭 Invitations to Cultural Programs",
+    "🖋️ Opportunity to Publish Literary Works",
+    "🏆 Recognition & Awards",
+    "🤝 Networking with Writers & Artists",
+    "🌱 Participation in Social Service Activities",
+    "🎓 Access to Workshops & Seminars",
+    "🌍 International Cultural Exchange Programs",
+  ];
+
   return (
     <div style={styles.page}>
-      {/* Hero */}
+
+      {/* HERO */}
+
       <section style={styles.hero}>
-        <div>
-          <h1 style={styles.heroTitle}>Membership</h1>
-          <p>Become a Member of Sri Sri Kalavedika</p>
+        <div style={styles.heroContent}>
+          <h1 style={styles.heroTitle}>
+            Membership
+          </h1>
+
+          <p style={styles.heroText}>
+            Become a Member of Sri Sri Kalavedika
+          </p>
         </div>
       </section>
 
-      {/* Membership Types */}
+
+      {/* MEMBERSHIP SECTION */}
+
       <section style={styles.section}>
-        <h2 style={styles.title}>Membership Categories</h2>
+
+        <h2 style={styles.title}>
+          Join Our Literary & Cultural Family
+        </h2>
 
         <p style={styles.subtitle}>
-          Join our literary and cultural family and contribute to preserving
-          Telugu language, literature, arts and social service.
+          Become a part of Sri Sri Kalavedika and contribute to the
+          preservation and promotion of Telugu language, literature,
+          arts, culture and social service.
         </p>
 
+
+        {/* MEMBERSHIP CARDS */}
+
         <div style={styles.cards}>
-          <div style={styles.card}>
-            <h3 style={styles.cardTitle}>👤 Individual Member</h3>
-            <p>Open to writers, poets, artists and literature enthusiasts.</p>
-          </div>
 
-          <div style={styles.card}>
-            <h3 style={styles.cardTitle}>🎓 Student Member</h3>
-            <p>Special membership for students interested in literature and culture.</p>
-          </div>
+          {membershipTypes.map((member, index) => (
 
-          <div style={styles.card}>
-            <h3 style={styles.cardTitle}>🌍 International Member</h3>
-            <p>For Telugu communities and cultural supporters across the globe.</p>
-          </div>
+            <div
+              key={index}
+              style={styles.card}
 
-          <div style={styles.card}>
-            <h3 style={styles.cardTitle}>🏅 Lifetime Member</h3>
-            <p>Become a permanent member and support our mission for generations.</p>
-          </div>
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform =
+                  "translateY(-8px)";
+                e.currentTarget.style.boxShadow =
+                  "0 15px 30px rgba(123,17,19,0.2)";
+                e.currentTarget.style.borderColor =
+                  "#D4AF37";
+              }}
+
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform =
+                  "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 25px rgba(0,0,0,0.08)";
+                e.currentTarget.style.borderColor =
+                  "rgba(123, 17, 19, 0.15)";
+              }}
+            >
+
+              <div style={styles.cardIcon}>
+                {member.icon}
+              </div>
+
+              <h3 style={styles.cardTitle}>
+                {member.title}
+              </h3>
+
+              <p style={styles.cardText}>
+                {member.text}
+              </p>
+
+            </div>
+
+          ))}
+
         </div>
 
-        {/* Registration Form */}
-        <div style={styles.form}>
-          <h2 style={{ color: "#7B1113", marginBottom: "25px" }}>
+
+        {/* REGISTRATION FORM */}
+
+        <div style={styles.formWrapper}>
+
+          <h2 style={styles.formTitle}>
             Membership Registration
           </h2>
 
+          <p style={styles.formSubtitle}>
+            Fill in your details below to express your interest in membership.
+          </p>
+
           <form>
-            <input
-              type="text"
-              placeholder="Full Name"
-              style={styles.input}
-            />
 
-            <input
-              type="email"
-              placeholder="Email Address"
-              style={styles.input}
-            />
+            <div style={styles.formGrid}>
 
-            <input
-              type="tel"
-              placeholder="Mobile Number"
-              style={styles.input}
-            />
+              <input
+                type="text"
+                placeholder="Full Name"
+                style={styles.input}
+              />
 
-            <input
-              type="text"
-              placeholder="City / State"
-              style={styles.input}
-            />
+              <input
+                type="email"
+                placeholder="Email Address"
+                style={styles.input}
+              />
 
-            <select style={styles.input}>
-              <option>Select Membership Type</option>
-              <option>Individual Member</option>
-              <option>Student Member</option>
-              <option>International Member</option>
-              <option>Lifetime Member</option>
-            </select>
+              <input
+                type="tel"
+                placeholder="Mobile Number"
+                style={styles.input}
+              />
 
-            <textarea
-              placeholder="Tell us about yourself..."
-              style={styles.textarea}
-            ></textarea>
+              <input
+                type="text"
+                placeholder="City / State"
+                style={styles.input}
+              />
 
-            <button type="submit" style={styles.button}>
+              <select style={styles.input}>
+                <option>Select Membership Type</option>
+                <option>Individual Member</option>
+                <option>Student Member</option>
+                <option>International Member</option>
+                <option>Lifetime Member</option>
+              </select>
+
+              <input
+                type="text"
+                placeholder="Profession / Occupation"
+                style={styles.input}
+              />
+
+              <textarea
+                placeholder="Tell us about yourself..."
+                style={{
+                  ...styles.textarea,
+                  ...styles.fullWidth,
+                }}
+              ></textarea>
+
+            </div>
+
+            <button
+              type="submit"
+              style={styles.button}
+
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background =
+                  "#A52A2A";
+                e.currentTarget.style.transform =
+                  "translateY(-3px)";
+              }}
+
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background =
+                  "#7B1113";
+                e.currentTarget.style.transform =
+                  "translateY(0)";
+              }}
+            >
               Apply for Membership
             </button>
+
           </form>
+
         </div>
+
       </section>
 
-      {/* Benefits */}
+
+      {/* BENEFITS */}
+
       <section style={styles.benefits}>
-        <h2>Membership Benefits</h2>
+
+        <h2 style={styles.benefitsTitle}>
+          Membership Benefits
+        </h2>
+
+        <p style={styles.benefitsSubtitle}>
+          As a member, become an active part of our literary,
+          cultural and social initiatives.
+        </p>
 
         <div style={styles.list}>
-          Participation in Literary Conferences
-          <br />
-          Invitations to Cultural Programs
-          <br />
-          Opportunity to Publish Literary Works
-          <br />
-          Recognition & Awards
-          <br />
-          Networking with Writers & Artists
-          <br />
-          Participation in Social Service Activities
-          <br />
-          Access to Workshops & Seminars
-          <br />
-          International Cultural Exchange Programs
+
+          {benefits.map((benefit, index) => (
+
+            <div
+              key={index}
+              style={styles.benefitItem}
+            >
+              {benefit}
+            </div>
+
+          ))}
+
         </div>
+
       </section>
+
     </div>
   );
 }
