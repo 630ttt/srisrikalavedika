@@ -2,6 +2,7 @@ import React from "react";
 import founder from "../assets/founder.png";
 import aboutBg from "../assets/about-bg.jpg";
 import founderBg from "../assets/founder-bg.jpg";
+import { Link } from "react-router-dom";
 function Home() {
   const styles = {
    hero: {
@@ -140,7 +141,7 @@ function Home() {
 
     image: {
       width: "100%",
-      height: "250px",
+      height: "400px",
       objectFit: "cover",
       borderRadius: "10px",
     },
@@ -173,9 +174,11 @@ function Home() {
             Social Service Organization
           </p>
 
-          <button className="hero-button" style={styles.button}>
-            Become a Member
-          </button>
+          <Link to="/membership">
+  <button className="hero-button" style={styles.button}>
+    Become a Member
+  </button>
+</Link>
         </div>
       </section>
 
@@ -293,21 +296,42 @@ function Home() {
 
       {/* Gallery */}
 
-  <section style={styles.aboutSection}>
+ <section style={styles.aboutSection}>
 
-        <h2 style={styles.title}>Gallery</h2>
+  <h2 style={styles.title}>Gallery</h2>
 
-        <div style={styles.gallery}>
+  <div style={styles.gallery}>
 
-          <img src="/gallery/1.jpg" alt="" style={styles.image} />
+    <div className="gallery-card">
+      <img
+        src="src/gallery/Image 1.jpg"
+        alt="Sri Sri Kalavedika"
+        style={styles.image}
+        className="gallery-image"
+      />
+    </div>
 
-          <img src="/gallery/2.jpg" alt="" style={styles.image} />
+    <div className="gallery-card">
+      <img
+        src="src/gallery/image 4.jpg"
+        alt="Sri Sri Kalavedika"
+        style={styles.image}
+        className="gallery-image"
+      />
+    </div>
 
-          <img src="/gallery/3.jpg" alt="" style={styles.image} />
+    <div className="gallery-card">
+      <img
+        src="src/gallery/image 3.jpg"
+        alt="Sri Sri Kalavedika"
+        style={styles.image}
+        className="gallery-image"
+      />
+    </div>
 
-        </div>
+  </div>
 
-      </section>
+</section>
 
 
     </div>

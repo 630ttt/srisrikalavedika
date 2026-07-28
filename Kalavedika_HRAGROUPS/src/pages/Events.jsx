@@ -1,25 +1,48 @@
 import React from "react";
-
+import eventsHead from "../assets/eventshead.jpg";
+import eventsBg from "../assets/eventsbg.jpg";
 function Events() {
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
       background: "#f8f9fa",
       color: "#333",
-    },
-
-    hero: {
-      background:
-        "linear-gradient(rgba(123,17,19,0.85), rgba(123,17,19,0.85)), url('/events-banner.jpg')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      height: "45vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "#fff",
-      textAlign: "center",
-    },
+       backgroundImage: `
+                      linear-gradient(
+                        rgba(227, 157, 60, 0.23),
+                        rgba(233, 156, 48, 0.5)
+                      ),
+                      url(${eventsBg})
+                    `,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+              backgroundRepeat: "no-repeat",  
+                },
+      
+   
+hero: {
+    backgroundImage: `
+                    linear-gradient(
+                      rgba(200, 131, 35, 0),
+                      rgba(255, 255, 255, 0.07)
+                    ),
+                    url(${eventsHead})
+                  `,
+           backgroundSize: "cover",
+         backgroundPosition: "center",
+        
+          minHeight: "45vh",
+          width: "100%",
+          display: "flex",
+         justifyContent: "center",
+         alignItems: "center",
+         color: "#fff",
+         textAlign: "center",
+         padding: "40px 20px",
+         boxSizing: "border-box",
+       },
+      
 
     heroTitle: {
       fontSize: "48px",
@@ -34,7 +57,7 @@ function Events() {
 
     title: {
       textAlign: "center",
-      color: "#7B1113",
+      color: "#efa51c",
       fontSize: "36px",
       marginBottom: "20px",
     },
@@ -42,7 +65,7 @@ function Events() {
     description: {
       textAlign: "center",
       fontSize: "18px",
-      color: "#555",
+      color: "#f5ebeb",
       marginBottom: "50px",
       lineHeight: "1.8",
     },
@@ -97,7 +120,7 @@ function Events() {
     },
 
     footer: {
-      background: "#7B1113",
+      background: "#aa7423df",
       color: "#fff",
       textAlign: "center",
       padding: "60px 10%",
@@ -109,6 +132,14 @@ function Events() {
       lineHeight: "1.8",
       fontStyle: "italic",
     },
+   contentCard: {
+  background: "rgba(0, 0, 0, 0.33)",
+  padding: "40px",
+  borderRadius: "20px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+  backdropFilter: "blur(5px)",
+  border: "1px solid rgba(255, 255, 255, 0.15)",
+},
   };
 
   const events = [
@@ -168,6 +199,7 @@ function Events() {
 
       {/* Events Section */}
       <section style={styles.section}>
+        <div style={styles.contentCard}>
         <h2 style={styles.title}>Upcoming Events</h2>
 
         <p style={styles.description}>
@@ -178,7 +210,8 @@ function Events() {
 
         <div style={styles.grid}>
           {events.map((event, index) => (
-            <div key={index} style={styles.card}>
+            
+            <div key={index} className="founder-image" style={styles.card}>
               <img
                 src={event.image}
                 alt={event.title}
@@ -195,7 +228,9 @@ function Events() {
                 <button style={styles.button}>Read More</button>
               </div>
             </div>
+        
           ))}
+        </div>
         </div>
       </section>
 

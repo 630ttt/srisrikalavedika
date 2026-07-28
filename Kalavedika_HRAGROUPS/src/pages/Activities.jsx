@@ -34,8 +34,11 @@ function Activities() {
     },
 
     heroTitle: {
-      fontSize: "48px",
+       fontSize: "clamp(38px, 6vw, 65px)",
       fontWeight: "bold",
+      margin: "0 0 15px",
+      color: "#FFD700",
+      letterSpacing: "2px",
     },
 
     section: {
