@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -28,22 +28,11 @@ import Profile from './pages/admin/Profile.jsx';
 
 import './App.css';
 
-function MainLayout() {
-  return (
-    <div className="app-container">
-      <Header />
-      <main className="main-content">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
-  );
-}
-
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Welcome />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route
           path="/admin/*"
@@ -63,20 +52,30 @@ function App() {
           <Route path="*" element={<Dashboard />} />
         </Route>
 
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Welcome />} />
-          <Route path="home" element={<Home />} />
-          <Route path="about" element={<AboutUs />} />
-          <Route path="founder" element={<Founder />} />
-          <Route path="executive-members" element={<ExecutiveMembers />} />
-          <Route path="activities" element={<Activities />} />
-          <Route path="awards" element={<Awards />} />
-          <Route path="gallery" element={<Gallery />} />
-          <Route path="events" element={<Events />} />
-          <Route path="publications" element={<Publications />} />
-          <Route path="membership" element={<Membership />} />
-          <Route path="contact" element={<Contact />} />
-        </Route>
+        <Route
+          path="/*"
+          element={
+            <div className="app-container">
+              <Header />
+              <main className="main-content">
+                <Routes>
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/about" element={<AboutUs />} />
+                  <Route path="/founder" element={<Founder />} />
+                  <Route path="/executive-members" element={<ExecutiveMembers />} />
+                  <Route path="/activities" element={<Activities />} />
+                  <Route path="/awards" element={<Awards />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/publications" element={<Publications />} />
+                  <Route path="/membership" element={<Membership />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
