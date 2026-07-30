@@ -1,23 +1,37 @@
-import React from "react";
+﻿import React, { useEffect, useState } from "react";
 import publicationsBg from "../assets/publicationsbg.jpg";
 import pbHead from "../assets/pbhead.jpg";
+import { fetchPublications } from "../publicationsService";
+import { resolveAssetUrl } from "../services/api.js";
+
 function Publications() {
+  const [publications, setPublications] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [viewPublication, setViewPublication] = useState(null);
+  const [newTitle, setNewTitle] = useState("");
+  const [newDescription, setNewDescription] = useState("");
+  const [newImage, setNewImage] = useState(null);
+  const [formLoading, setFormLoading] = useState(false);
+  const [formError, setFormError] = useState("");
+
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
-            background: "#f8f9fa",
-            color: "#333",
-             backgroundImage: `
+      background: "#f8f9fa",
+      color: "#333",
+      backgroundImage: `
                             linear-gradient(
                               rgba(227, 157, 60, 0.23),
                               rgba(235, 230, 223, 0.73)
                             ),
                             url(${publicationsBg})
                           `,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundAttachment: "fixed",
-                    backgroundRepeat: "no-repeat",  
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundAttachment: "fixed",
+      backgroundRepeat: "no-repeat",
     },
 
     hero: {
@@ -28,37 +42,45 @@ function Publications() {
                           ),
                           url(${pbHead})
                         `,
-                 backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-  minHeight: "45vh",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  color: "#eeeeee",
-  textAlign: "center",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "45vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      color: "#eeeeee",
+      textAlign: "center",
     },
 
     heroTitle: {
-       fontSize: "clamp(38px, 6vw, 65px)",
+      fontSize: "clamp(38px, 6vw, 65px)",
       fontWeight: "bold",
       margin: "0 0 15px",
       color: "#FFD700",
       letterSpacing: "2px",
     },
 
-     section: {
+    section: {
       maxWidth: "1300px",
       margin: "0 auto",
       padding: "80px 25px",
     },
 
+    headingRow: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      alignItems: "center",
+      gap: "15px",
+      marginBottom: "20px",
+    },
+
     heading: {
-      textAlign: "center",
       color: "#7B1113",
       fontSize: "clamp(30px, 4vw, 44px)",
-      marginBottom: "20px",
       fontWeight: "bold",
+      margin: 0,
     },
 
     description: {
@@ -82,8 +104,7 @@ function Publications() {
       borderRadius: "20px",
       overflow: "hidden",
       boxShadow: "0 5px 15px rgba(0,0,0,.1)",
-      margin:"20px",
-      
+      margin: "20px",
     },
 
     image: {
@@ -116,6 +137,27 @@ function Publications() {
       cursor: "pointer",
     },
 
+    secondaryButton: {
+      background: "transparent",
+      color: "#7B1113",
+      border: "1px solid #7B1113",
+      padding: "10px 22px",
+      borderRadius: "5px",
+      cursor: "pointer",
+      marginLeft: "12px",
+    },
+
+    addButton: {
+      background: "#7B1113",
+      color: "#fff",
+      border: "none",
+      padding: "12px 24px",
+      borderRadius: "30px",
+      cursor: "pointer",
+      fontWeight: "bold",
+      boxShadow: "0 10px 20px rgba(0,0,0,0.12)",
+    },
+
     footer: {
       background: "#aa7423df",
       color: "#fff",
@@ -123,8 +165,9 @@ function Publications() {
       padding: "60px 20px",
       marginTop: "70px",
     },
+
     contentCard: {
-  background: "rgba(0, 0, 0, 0.35)",
+      background: "rgba(0, 0, 0, 0.35)",
       padding: "45px 60px",
       borderRadius: "25px",
       backdropFilter: "blur(6px)",
@@ -132,102 +175,208 @@ function Publications() {
       border: "1px solid rgba(255,255,255,0.25)",
       boxShadow: "0 10px 40px rgba(0,0,0,0.35)",
       maxWidth: "850px",
-},
+    },
+
+    message: {
+      textAlign: "center",
+      marginBottom: "24px",
+      color: error ? "#A22" : "#19692C",
+      fontWeight: 600,
+    },
+
+    modalOverlay: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0, 0, 0, 0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 50,
+      padding: "20px",
+    },
+
+    modal: {
+      background: "#fff",
+      borderRadius: "20px",
+      maxWidth: "700px",
+      width: "100%",
+      padding: "30px",
+      boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+      position: "relative",
+      maxHeight: "90vh",
+      overflowY: "auto",
+    },
+
+    modalTitle: {
+      marginBottom: "18px",
+      color: "#7B1113",
+    },
+
+    field: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "8px",
+      marginBottom: "18px",
+    },
+
+    input: {
+      padding: "14px 16px",
+      borderRadius: "10px",
+      border: "1px solid #ccc",
+      fontSize: "16px",
+    },
+
+    textarea: {
+      minHeight: "120px",
+      resize: "vertical",
+      padding: "14px 16px",
+      borderRadius: "10px",
+      border: "1px solid #ccc",
+      fontSize: "16px",
+    },
+
+    closeButton: {
+      position: "absolute",
+      right: "18px",
+      top: "18px",
+      background: "transparent",
+      border: "none",
+      color: "#7B1113",
+      fontSize: "24px",
+      cursor: "pointer",
+    },
   };
 
-  const books = [
-    {
-       
-      image: "/src/publications/Telugu Literary Collection.jpg",
-      title: "Telugu Literary Collection",
-      description:
-        "A collection of inspiring Telugu poems, essays and literary works published by Sri Sri Kalavedika.",
-    },
-    {
-      image: "/src/publications/Cultural Heritage.jpg",
-      title: "Cultural Heritage",
-      description:
-        "A publication highlighting Indian traditions, Telugu culture and historical heritage.",
-    },
-    {
-      image: "/src/publications/Poetry Anthology.jpg",
-      title: "Poetry Anthology",
-      description:
-        "An anthology featuring poems written by emerging and renowned poets from across the world.",
-    },
-    {
-      image:"/src/publications/Research Articles.jpg",
-      title: "Research Articles",
-      description:
-        "Academic articles and literary research papers promoting Telugu literature and language.",
-    },
-    {
-      image: "/src/publications/Annual Magazine.jpg",
-      title: "Annual Magazine",
-      description:
-        "A yearly publication featuring organizational achievements, events and member contributions.",
-    },
-    {
-      image: "/src/publications/Special Editions.jpg",
-      title: "Special Editions",
-      description:
-        "Commemorative publications released during national and international literary conferences.",
-    },
-  ];
+  useEffect(() => {
+    loadPublications();
+  }, []);
+
+  async function loadPublications() {
+    setLoading(true);
+    setError("");
+    try {
+      const data = await fetchPublications();
+      setPublications(data);
+    } catch (err) {
+      setError(err.message || "Unable to load publications");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function openAddModal() {
+    // Admin-only action. Public site cannot open add modal.
+    alert('Adding publications is restricted to admins. Please use the Admin Panel.');
+  }
+
+  function closeAddModal() {
+    setViewPublication(null);
+  }
+
+  function handleImageChange(event) {
+    const file = event.target.files[0];
+    setFormError("");
+    if (!file) {
+      setNewImage(null);
+      return;
+    }
+    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+    if (!allowedTypes.includes(file.type)) {
+      setFormError("Only JPG, PNG, JPEG, and WEBP image formats are allowed.");
+      setNewImage(null);
+      return;
+    }
+    setNewImage(file);
+  }
+
+  async function handleSubmitPublication(event) {
+    event.preventDefault();
+    setFormError("");
+    setMessage("");
+
+    if (!newTitle.trim() || !newDescription.trim() || !newImage) {
+      setFormError("Please provide a title, description, and publication image.");
+      return;
+    }
+
+    // Add is admin-only; public site should not support creating publications
+    setFormError('Adding publications is restricted to admins.');
+    setFormLoading(false);
+  }
+
+  async function handleDeletePublication(id) {
+    // Delete is admin-only; public site cannot delete publications
+    alert('Deleting publications is restricted to admins. Please use the Admin Panel.');
+  }
+
+  function showPublication(publication) {
+    setViewPublication(publication);
+  }
 
   return (
     <div style={styles.page}>
-      {/* Hero */}
-
       <section style={styles.hero}>
-         <div style={styles.contentCard}>
-        <div>
-          <h1 style={styles.heroTitle}>Publications</h1>
-          <p>Books • Magazines • Research • Literary Collections</p>
-        </div>
+        <div style={styles.contentCard}>
+          <div>
+            <h1 style={styles.heroTitle}>Publications</h1>
+            <p>Books • Magazines • Research • Literary Collections</p>
+          </div>
         </div>
       </section>
 
-      {/* Publications */}
-
       <section style={styles.section}>
-  
-        <h2 style={styles.heading}>Our Publications</h2>
+        <div style={styles.headingRow}>
+          <h2 style={styles.heading}>Our Publications</h2>
+        </div>
 
         <p style={styles.description}>
           Sri Sri Kalavedika publishes books, magazines, poetry collections,
           research articles and literary journals to encourage writers,
           poets and literature enthusiasts.
         </p>
-        
-        <div style={styles.grid}>
-          {books.map((book, index) => (
-            <div key={index} className="founder-image" style={styles.card}>
-              <img
-                src={book.image}
-                alt={book.title}
-                style={styles.image}
-              />
 
-              <div style={styles.content}>
-                <h3 style={styles.title}>{book.title}</h3>
+        {error && <div style={styles.message}>{error}</div>}
+        {message && <div style={styles.message}>{message}</div>}
 
-                <p style={styles.text}>{book.description}</p>
-
-                <button style={styles.button}>
-                  Read More
-                </button>
+        {loading ? (
+          <p style={{ textAlign: "center", marginBottom: "30px" }}>Loading publications...</p>
+        ) : publications.length === 0 ? (
+          <p style={{ textAlign: "center", marginBottom: "30px" }}>
+            No publications available yet. Use Add Publication to create one.
+          </p>
+        ) : (
+          <div style={styles.grid}>
+            {publications.map(publication => (
+              <div key={publication.id} className="founder-image" style={styles.card}>
+                <img
+                  src={resolveAssetUrl(publication.image_url)}
+                  alt={publication.title}
+                  style={styles.image}
+                />
+                <div style={styles.content}>
+                  <h3 style={styles.title}>{publication.title}</h3>
+                  <p style={styles.text}>
+                    {publication.description.length > 120
+                      ? `${publication.description.slice(0, 120).trim()}...`
+                      : publication.description}
+                  </p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+                    <button style={styles.button} onClick={() => showPublication(publication)}>
+                      Read More
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
-
-      {/* Closing */}
 
       <section style={styles.footer}>
         <h2>Knowledge Through Literature</h2>
-
         <p
           style={{
             maxWidth: "900px",
@@ -240,6 +389,29 @@ function Publications() {
           publications become the voice of society."
         </p>
       </section>
+
+
+      {viewPublication && (
+        <div style={styles.modalOverlay}>
+          <div style={styles.modal}>
+            <button style={styles.closeButton} onClick={closeAddModal}>
+              ×
+            </button>
+            <h3 style={styles.modalTitle}>{viewPublication.title}</h3>
+            <img
+              src={resolveAssetUrl(viewPublication.image_url)}
+              alt={viewPublication.title}
+              style={{ width: "100%", borderRadius: "18px", marginBottom: "20px" }}
+            />
+            <p style={{ color: "#444", lineHeight: "1.8", marginBottom: "25px" }}>
+              {viewPublication.description}
+            </p>
+            <button style={styles.button} onClick={closeAddModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

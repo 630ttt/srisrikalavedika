@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import galleryHead from "../assets/galleryhead.jpg";
 import galleryHEad from "../assets/gallery-head.jpg";
+import { fetchGallery } from "../galleryService";
+import { resolveAssetUrl } from "../services/api.js";
 
 function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [messageType, setMessageType] = useState(null);
 
   const styles = {
     page: {
@@ -76,6 +83,7 @@ function Gallery() {
       maxWidth: "1300px",
       margin: "0 auto",
       padding: "80px 25px",
+      position: "relative",
     },
 
     heading: {
@@ -103,13 +111,16 @@ function Gallery() {
 
     card: {
       position: "relative",
-      height: "350px",
-      borderRadius: "20px",
+      borderRadius: "12px",
       overflow: "hidden",
       cursor: "pointer",
       background: "#fff",
-      boxShadow: "0 8px 25px rgba(80, 30, 10, 0.2)",
-      transition: "transform 0.4s ease, box-shadow 0.4s ease",
+      boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+      transition: "transform 0.25s ease, box-shadow 0.25s ease",
+      aspectRatio: '4 / 3',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
     image: {
@@ -118,6 +129,35 @@ function Gallery() {
       objectFit: "cover",
       display: "block",
       transition: "transform 0.6s ease",
+    },
+
+
+    addButton: {
+      position: "absolute",
+      right: "20px",
+      bottom: "-20px",
+      width: "56px",
+      height: "56px",
+      borderRadius: "50%",
+      background: "#7B1113",
+      color: "#fff",
+      border: "none",
+      fontSize: "30px",
+      cursor: "pointer",
+      boxShadow: "0 6px 18px rgba(0,0,0,0.3)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+
+    message: {
+      position: "fixed",
+      right: "20px",
+      top: "20px",
+      padding: "12px 16px",
+      borderRadius: "8px",
+      color: "#fff",
+      zIndex: 10000,
     },
 
     /* FOOTER */
@@ -182,20 +222,25 @@ function Gallery() {
     },
   };
 
-  const gallery = [
-    { image: "src/gallery/Image 1.jpg" },
-    { image: "src/gallery/image 2.jpg" },
-    { image: "src/gallery/image 3.jpg" },
-    { image: "src/gallery/image 4.jpg" },
-    { image: "src/gallery/image 5.jpg" },
-    { image: "src/gallery/image 6.jpg" },
-    { image: "src/gallery/image 7.jpg" },
-    { image: "src/gallery/image 8.jpg" },
-    { image: "src/gallery/image 9.jpg" },
-    { image: "src/gallery/image 10.jpg" },
-    { image: "src/gallery/image 11.jpg" },
-    { image: "src/gallery/image 12.jpg" },
-  ];
+  useEffect(() => {
+    let mounted = true;
+    async function load() {
+      setLoading(true);
+      try {
+        const imgs = await fetchGallery();
+        if (mounted) setImages(imgs);
+      } catch (err) {
+        console.error(err);
+        setMessage('Failed to load gallery');
+        setMessageType('error');
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    }
+    load();
+    return () => { mounted = false };
+  }, []);
+
 
   return (
     <div style={styles.page}>
@@ -232,22 +277,31 @@ function Gallery() {
         </p>
 
         <div style={styles.gallery}>
-          {gallery.map((item, index) => (
-            <div
-              key={index}
-              style={styles.card}
-              className="gallery-card"
-              onClick={() => setSelectedImage(item.image)}
-            >
-              <img
-                src={item.image}
-                alt={`Sri Sri Kalavedika Gallery ${index + 1}`}
-                style={styles.image}
-                className="gallery-image"
-              />
-            </div>
-          ))}
+          {loading ? (
+            <div>Loading images...</div>
+          ) : (
+            images.map((item, index) => {
+              const imageUrl = resolveAssetUrl(typeof item === 'string' ? item : item.image_url);
+              const filename = imageUrl.split('/').pop();
+              return (
+                <div
+                  key={index}
+                  style={styles.card}
+                  className="gallery-card"
+                  onClick={() => setSelectedImage(imageUrl)}
+                >
+                  <img
+                    src={imageUrl}
+                    alt={`Sri Sri Kalavedika Gallery ${index + 1}`}
+                    style={styles.image}
+                    className="gallery-image"
+                  />
+                </div>
+              );
+            })
+          )}
         </div>
+
       </section>
 
       {/* FOOTER */}
@@ -283,6 +337,18 @@ function Gallery() {
             style={styles.largeImage}
             onClick={(e) => e.stopPropagation()}
           />
+        </div>
+      )}
+
+      {/* Messages */}
+      {message && (
+        <div
+          style={{
+            ...styles.message,
+            background: messageType === 'success' ? 'rgba(40,167,69,0.95)' : 'rgba(220,53,69,0.95)'
+          }}
+        >
+          {message}
         </div>
       )}
 

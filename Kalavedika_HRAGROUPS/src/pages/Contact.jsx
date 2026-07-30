@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { submitContact } from '../services/contactService.js';
 import contactHead from "../assets/contacthead.jpg";
 
 function Contact() {
@@ -189,6 +190,35 @@ function Contact() {
     },
   };
 
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [subject, setSubject] = useState('');
+  const [messageText, setMessageText] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (submitting) return;
+    if (!name || !email || !messageText) {
+      setStatusMessage({ text: 'Please fill name, email and message', type: 'error' });
+      return;
+    }
+    setSubmitting(true);
+    setStatusMessage(null);
+    try {
+      await submitContact({ name, email, phone, subject, message: messageText });
+      setStatusMessage({ text: 'Message sent successfully', type: 'success' });
+      setName(''); setEmail(''); setPhone(''); setSubject(''); setMessageText('');
+    } catch (err) {
+      console.error('Contact submit error:', err);
+      setStatusMessage({ text: err?.message || 'Failed to send message', type: 'error' });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <div style={styles.page}>
 
@@ -260,7 +290,7 @@ function Contact() {
           <iframe
             title="Google Map"
             style={styles.map}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.550503262482!2d78.486671!3d17.385044"
+            src="https://maps.google.com/maps?q=Andhra%20Pradesh%20India&output=embed"
             loading="lazy"
           ></iframe>
 
@@ -279,45 +309,61 @@ function Contact() {
             get back to you.
           </p>
 
-          <form>
+          <form onSubmit={handleSubmit}>
 
             <input
               type="text"
               placeholder="Full Name"
               style={styles.input}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
 
             <input
               type="email"
               placeholder="Email Address"
               style={styles.input}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <input
               type="tel"
               placeholder="Phone Number"
               style={styles.input}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
 
             <input
               type="text"
               placeholder="Subject"
               style={styles.input}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
             />
 
             <textarea
               placeholder="Write your message here..."
               style={styles.textarea}
+              value={messageText}
+              onChange={(e) => setMessageText(e.target.value)}
             ></textarea>
 
             <button
               type="submit"
               style={styles.button}
+              disabled={submitting}
             >
-              Send Message
+              {submitting ? 'Sending...' : 'Send Message'}
             </button>
 
           </form>
+          {statusMessage && (
+            <div style={{ marginTop: 12, color: statusMessage.type === 'success' ? 'green' : 'red' }}>
+              {statusMessage.text}
+            </div>
+          )}
 
         </div>
 
