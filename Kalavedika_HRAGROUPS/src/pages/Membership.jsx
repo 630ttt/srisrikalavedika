@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import memHead from "../assets/mem-head.jpg";
+import { submitMembership } from "../membershipService";
 
 function Membership() {
   const styles = {
@@ -266,6 +267,57 @@ function Membership() {
     "🌍 International Cultural Exchange Programs",
   ];
 
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [cityState, setCityState] = useState('');
+  const [membershipType, setMembershipType] = useState('');
+  const [occupation, setOccupation] = useState('');
+  const [about, setAbout] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [messageType, setMessageType] = useState(null);
+
+  const resetForm = () => {
+    setName(''); setEmail(''); setPhone(''); setCityState(''); setMembershipType(''); setOccupation(''); setAbout('');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage(null);
+
+    // basic validation
+    if (!name.trim() || !email.trim() || !phone.trim() || !membershipType.trim()) {
+      setMessage('Please fill in all required fields (Name, Email, Phone, Membership Type).');
+      setMessageType('error');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const payload = {
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        city_state: cityState.trim(),
+        membership_type: membershipType.trim(),
+        occupation: occupation.trim(),
+        about: about.trim(),
+      };
+
+      const res = await submitMembership(payload);
+      setMessage(res.message || 'Application submitted successfully');
+      setMessageType('success');
+      resetForm();
+    } catch (err) {
+      console.error(err);
+      setMessage(err.message || 'Submission failed');
+      setMessageType('error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div style={styles.page}>
 
@@ -359,7 +411,7 @@ function Membership() {
             Fill in your details below to express your interest in membership.
           </p>
 
-          <form>
+          <form onSubmit={handleSubmit}>
 
             <div style={styles.formGrid}>
 
@@ -367,28 +419,39 @@ function Membership() {
                 type="text"
                 placeholder="Full Name"
                 style={styles.input}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
 
               <input
                 type="email"
                 placeholder="Email Address"
                 style={styles.input}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
 
               <input
                 type="tel"
                 placeholder="Mobile Number"
                 style={styles.input}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
               />
 
               <input
                 type="text"
                 placeholder="City / State"
                 style={styles.input}
+                value={cityState}
+                onChange={(e) => setCityState(e.target.value)}
               />
 
-              <select style={styles.input}>
-                <option>Select Membership Type</option>
+              <select style={styles.input} value={membershipType} onChange={(e) => setMembershipType(e.target.value)} required>
+                <option value="">Select Membership Type</option>
                 <option>Individual Member</option>
                 <option>Student Member</option>
                 <option>International Member</option>
@@ -399,6 +462,8 @@ function Membership() {
                 type="text"
                 placeholder="Profession / Occupation"
                 style={styles.input}
+                value={occupation}
+                onChange={(e) => setOccupation(e.target.value)}
               />
 
               <textarea
@@ -407,6 +472,8 @@ function Membership() {
                   ...styles.textarea,
                   ...styles.fullWidth,
                 }}
+                value={about}
+                onChange={(e) => setAbout(e.target.value)}
               ></textarea>
 
             </div>
@@ -414,6 +481,7 @@ function Membership() {
             <button
               type="submit"
               style={styles.button}
+              disabled={loading}
 
               onMouseEnter={(e) => {
                 e.currentTarget.style.background =
@@ -429,8 +497,15 @@ function Membership() {
                   "translateY(0)";
               }}
             >
-              Apply for Membership
+              {loading ? 'Submitting...' : 'Apply for Membership'}
             </button>
+            {message && (
+              <div style={{
+                marginTop: 12,
+                textAlign: 'center',
+                color: messageType === 'success' ? 'green' : 'red'
+              }}>{message}</div>
+            )}
 
           </form>
 

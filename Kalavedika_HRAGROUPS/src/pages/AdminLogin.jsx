@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { adminLogin } from "../services/adminService.js";
 import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
@@ -35,37 +35,22 @@ const AdminLogin = () => {
     try {
       setLoading(true);
 
-      const response = await axios.post(
-        "http://localhost:5000/api/admin/login",
-        {
-          username: formData.username.trim(),
-          password: formData.password,
-        }
-      );
+      const data = await adminLogin(formData.username.trim(), formData.password);
 
-      console.log("Login Response:", response.data);
+      // apiFetch/adminLogin returns parsed JSON; assume token present
+      if (data?.token) {
+        localStorage.setItem('adminToken', data.token);
+        localStorage.setItem('username', data.username || formData.username.trim());
 
-      if (response.data.success) {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("username", response.data.username);
+        alert('Login Successful');
 
-        alert("Login Successful");
-
-        navigate("/admin-dashboard");
+        navigate('/admin');
       } else {
-        setError(response.data.message);
+        setError(data?.message || 'Login failed');
       }
     } catch (err) {
-      console.error("Login Error:", err);
-
-      if (err.response) {
-        console.log("Server Error:", err.response.data);
-        setError(err.response.data.message || "Login Failed");
-      } else if (err.request) {
-        setError("Cannot connect to backend server.");
-      } else {
-        setError("Something went wrong.");
-      }
+      console.error('Login Error:', err);
+      setError(err?.message || 'Login failed');
     } finally {
       setLoading(false);
     }
