@@ -2,7 +2,12 @@ import React from "react";
 import founder from "../assets/founder.png";
 import aboutBg from "../assets/about-bg.jpg";
 import founderBg from "../assets/founder-bg.jpg";
+import imagePic1 from "../gallery/Image 1.jpg";
+import imagePic2 from "../gallery/image 3.jpg";
+import imagePic3 from "../gallery/image 4.jpg";
+
 import { Link } from "react-router-dom";
+
 function Home() {
   const styles = {
    hero: {
@@ -104,8 +109,6 @@ function Home() {
       cursor: "pointer",
       border: "1px solid rgba(212,175,55,0.4)",
     },
-   
-
     found: {
       padding: "80px 10%",
       textAlign: "center",
@@ -117,10 +120,7 @@ function Home() {
       flexWrap: "wrap",
       alignItems: "center",
       justifyContent: "center",
-      gap: "40px",
-      padding: "80px 10%",
-      
-      
+      gap: "40px", 
     },
 
     founderImage: {
@@ -146,26 +146,39 @@ function Home() {
       borderRadius: "10px",
     },
     contentCard: {
-  background: "rgba(0, 0, 0, 0.33)",
-  padding: "40px",
-  borderRadius: "20px",
-  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
-  backdropFilter: "blur(5px)",
-  border: "1px solid rgba(255, 255, 255, 0.15)",
-},
+     background: "rgba(0, 0, 0, 0.33)",
+      padding: "40px",
+    borderRadius: "20px",
+     boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+     backdropFilter: "blur(5px)",
+     border: "1px solid rgba(255, 255, 255, 0.15)",
+    },
     
   };
-
+     const galleryImages = [
+       {
+         image: imagePic1,
+        alt: "Image 1",
+       }, 
+       {
+         image: imagePic2,
+         alt: "Image 2",
+       },
+       {
+        image: imagePic3,
+        alt: "Image 3",
+      },
+  ];
   return (
     <div>
 
       {/* Hero */}
 
-      <section className="hero-section" style={styles.hero}>
-        <div className="hero-overlay" style={styles.overlay}>
+      <section style={styles.hero}>
+        <div   style={styles.overlay}>
           <h1 className="hero-title" style={styles.heading}>శ్రీ శ్రీ కళావేదిక</h1>
 
-          <h2  className="hero-subtitle" style={styles.subHeading}>
+          <h2 className="hero-subtitle" style={styles.subHeading}>
             Sri Sri Kalavedika
           </h2>
 
@@ -175,20 +188,20 @@ function Home() {
           </p>
 
           <Link to="/membership">
-  <button className="hero-button" style={styles.button}>
-    Become a Member
-  </button>
-</Link>
+           <button style={styles.button}>
+            Become a Member
+           </button>
+          </Link>
         </div>
       </section>
 
       {/* About */}
        
-      <section className="about"  style={styles.aboutSection}>
+      <section style={styles.aboutSection}>
         <div style={styles.contentCard}>
         <h2 className="about-title" style={styles.title}>About Us</h2>
 
-        <p className="about-text"style={styles.paragraph}>
+        <p className="about-text" style={styles.paragraph}>
           Sri Sri Kalavedika is a renowned literary,
           cultural and social service organization
           dedicated to promoting Telugu language,
@@ -208,24 +221,24 @@ function Home() {
 
       {/* Vision Mission */}
 
-      <section style={styles.aboutSection}>
+      <section  style={styles.aboutSection}>
          
        <div style={styles.cards}>
 
-        <div className="activitycard card" style={styles.card}>
+        <div  style={styles.card}>
             <h2 >Vision</h2>
 
-            <p>
+            <p className="about-section1">
               To preserve and promote Telugu
               literature, language, arts and culture
               across the world.
             </p>
           </div>
 
-         <div className="activitycard card" style={styles.card}>
+         <div  style={styles.card}>
             <h2>Mission</h2>
 
-            <p>
+            <p className="about-section1">
               To encourage writers, poets, artists,
               students and social workers through
               events, awards and community service.
@@ -241,7 +254,7 @@ function Home() {
       <section style={styles.found}>
 
         <img
-         className="founder-image"
+         className="founder-image" 
           src={founder}
           alt="Founder"
           style={styles.founderImage}
@@ -270,24 +283,25 @@ function Home() {
       </section>
 
       {/* Activities */}
- <section style={styles.aboutSection}>
-  <div style={styles.contentCard}>
+
+       <section style={styles.aboutSection}>
+       <div style={styles.contentCard}>
 
         <h2 style={styles.title}>Our Activities</h2>
 
-        <div style={styles.cards}>
+        <div  className="activitycard" style={styles.cards}>
 
-          <div className="activitycard" style={styles.card}>📚 Literary Conferences</div>
+          <div style={styles.card}>📚 Literary Conferences</div>
 
-           <div className="activitycard " style={styles.card}>🏆 Award Ceremonies</div>
+           <div  style={styles.card}>🏆 Award Ceremonies</div>
 
-          <div className="activitycard" style={styles.card}>🎭 Cultural Programs</div>
+          <div  style={styles.card}>🎭 Cultural Programs</div>
 
-           <div className="activitycard" style={styles.card}>🌳 Social Service</div>
+           <div  style={styles.card}>🌳 Social Service</div>
 
-           <div className="activitycard" style={styles.card}>🎓 Educational Programs</div>
+           <div  style={styles.card}>🎓 Educational Programs</div>
 
-           <div className="activitycard" style={styles.card}>🌍 International Events</div>
+           <div  style={styles.card}>🌍 International Events</div>
 
         </div>
         </div>
@@ -295,44 +309,21 @@ function Home() {
       </section>
 
       {/* Gallery */}
+    <section style={styles.aboutSection}>
+      <h2 style={styles.title}>Gallery</h2>
 
- <section style={styles.aboutSection}>
-
-  <h2 style={styles.title}>Gallery</h2>
-
-  <div style={styles.gallery}>
-
-    <div className="gallery-card">
-      <img
-        src="src/gallery/Image 1.jpg"
-        alt="Sri Sri Kalavedika"
-        style={styles.image}
-        className="gallery-image"
-      />
-    </div>
-
-    <div className="gallery-card">
-      <img
-        src="src/gallery/image 4.jpg"
-        alt="Sri Sri Kalavedika"
-        style={styles.image}
-        className="gallery-image"
-      />
-    </div>
-
-    <div className="gallery-card">
-      <img
-        src="src/gallery/image 3.jpg"
-        alt="Sri Sri Kalavedika"
-        style={styles.image}
-        className="gallery-image"
-      />
-    </div>
-
-  </div>
-
-</section>
-
+      <div style={styles.gallery}>
+      {galleryImages.map((item, index) => (
+      <div key={index} >
+        <img
+          src={item.image}
+          alt={item.alt}
+          style={styles.image}
+        />
+     </div>
+  ))}
+       </div>
+   </section>
 
     </div>
   );
