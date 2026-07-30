@@ -1,9 +1,10 @@
-﻿import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
+import Welcome from './pages/Welcome';
 import AboutUs from './pages/AboutUs';
 import Founder from './pages/Founder';
 import ExecutiveMembers from './pages/ExecutiveMembers';
@@ -14,7 +15,6 @@ import Events from './pages/Events';
 import Publications from './pages/Publications';
 import Membership from './pages/Membership';
 import Contact from './pages/Contact';
-import Welcome from './pages/Welcome';
 import AdminLogin from './pages/AdminLogin.jsx';
 import AdminLayout from './components/AdminLayout.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
@@ -30,13 +30,13 @@ import './App.css';
 
 function MainLayout() {
   return (
-    <>
+    <div className="app-container">
       <Header />
-      <main>
+      <main className="main-content">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

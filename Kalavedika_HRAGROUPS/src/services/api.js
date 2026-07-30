@@ -1,5 +1,5 @@
 ﻿const ENV_BASE = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || '';
-const DEFAULT_CANDIDATES = [ENV_BASE, 'http://localhost:5001', 'http://localhost:5000', 'http://127.0.0.1:5001'].filter(Boolean);
+const DEFAULT_CANDIDATES = ['', ENV_BASE, 'http://localhost:5000', 'http://127.0.0.1:5000', 'http://localhost:5001', 'http://127.0.0.1:5001'].filter((base, index, values) => values.indexOf(base) === index);
 
 // Keep a mutable base so retries can try alternatives
 let API_BASE = DEFAULT_CANDIDATES[0] || '';
@@ -65,4 +65,3 @@ export async function apiFetch(endpoint, options = {}) {
   const message = lastErr?.message || 'Network request failed';
   throw new Error(message);
 }
-
