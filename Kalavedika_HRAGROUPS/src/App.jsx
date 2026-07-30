@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
+import Welcome from './pages/Welcome';
 import AboutUs from './pages/AboutUs';
 import Founder from './pages/Founder';
 import ExecutiveMembers from './pages/ExecutiveMembers';
@@ -31,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Welcome />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route
           path="/admin/*"
@@ -57,7 +59,7 @@ function App() {
               <Header />
               <main className="main-content">
                 <Routes>
-                  <Route path="/" element={<Home />} />
+                  <Route path="/home" element={<Home />} />
                   <Route path="/about" element={<AboutUs />} />
                   <Route path="/founder" element={<Founder />} />
                   <Route path="/executive-members" element={<ExecutiveMembers />} />
