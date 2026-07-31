@@ -31,34 +31,39 @@ app.use(cors());
 app.use(express.json());
 
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
-if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+const GALLERY_DIR = path.join(UPLOADS_DIR, 'gallery');
+const PUBLICATIONS_DIR = path.join(UPLOADS_DIR, 'publications');
+const EVENTS_DIR = path.join(UPLOADS_DIR, 'events');
 
-// Configure multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, UPLOADS_DIR);
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    // keep original extension
-    const ext = path.extname(file.originalname);
-    cb(null, `${file.fieldname}-${uniqueSuffix}${ext}`);
-  }
+[UPLOADS_DIR, GALLERY_DIR, PUBLICATIONS_DIR, EVENTS_DIR].forEach((dir) => {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 });
 
-const upload = multer({
-  storage,
-  fileFilter: function (req, file, cb) {
-    const allowed = ['.jpg', '.jpeg', '.png', '.webp'];
-    const ext = path.extname(file.originalname).toLowerCase();
-    if (!allowed.includes(ext)) {
-      return cb(new Error('Only images are allowed'));
-    }
-    cb(null, true);
-  }
-});
+const IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.webp'];
 
-// Serve uploads statically at /uploads
+function makeUploader(dir) {
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, dir),
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+      cb(null, `upload-${uniqueSuffix}${path.extname(file.originalname).toLowerCase()}`);
+    },
+  });
+  return multer({
+    storage,
+    fileFilter: (req, file, cb) => {
+      const ext = path.extname(file.originalname).toLowerCase();
+      if (!IMAGE_EXTS.includes(ext)) return cb(new Error('Only JPG, JPEG, PNG and WEBP images are allowed'));
+      cb(null, true);
+    },
+  });
+}
+
+const uploadGallery = makeUploader(GALLERY_DIR);
+const uploadPublication = makeUploader(PUBLICATIONS_DIR);
+const uploadEvent = makeUploader(EVENTS_DIR);
+
+// Serve all uploads (root + subdirs) under /uploads
 app.use('/uploads', express.static(UPLOADS_DIR));
 
 // Admin authentication and dashboard
@@ -92,18 +97,17 @@ app.get('/api/admin/stats', requireAdmin, async (req, res) => {
     const rejectedRows = await dbAll("SELECT COUNT(*) AS count FROM members WHERE status = 'Rejected'");
     const publicationRows = await dbAll('SELECT COUNT(*) AS count FROM publications');
     const contactRows = await dbAll('SELECT COUNT(*) AS count FROM contacts');
-    const files = fs.readdirSync(UPLOADS_DIR).filter((f) => {
-      const ext = path.extname(f).toLowerCase();
-      return ['.jpg', '.jpeg', '.png', '.webp'].includes(ext);
-    });
+    const eventRows = await dbAll('SELECT COUNT(*) AS count FROM events');
+    const galleryFiles = fs.readdirSync(GALLERY_DIR).filter((f) => IMAGE_EXTS.includes(path.extname(f).toLowerCase()));
     res.json({
       totalMemberships: totalRows[0]?.count || 0,
       pendingMemberships: pendingRows[0]?.count || 0,
       approvedMemberships: approvedRows[0]?.count || 0,
       rejectedMemberships: rejectedRows[0]?.count || 0,
-      galleryCount: files.length,
+      galleryCount: galleryFiles.length,
       publicationCount: publicationRows[0]?.count || 0,
       contactCount: contactRows[0]?.count || 0,
+      eventCount: eventRows[0]?.count || 0,
       unreadNotifications: 0,
     });
   } catch (err) {
@@ -174,6 +178,18 @@ async function initDb() {
     );
   `;
 
+  const createEventsTableSql = `
+    CREATE TABLE IF NOT EXISTS events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      date TEXT NOT NULL,
+      description TEXT NOT NULL,
+      image_url TEXT NOT NULL,
+      created_on TEXT NOT NULL,
+      updated_on TEXT
+    );
+  `;
+
   await new Promise((resolve, reject) => {
     db.run(createMembersTableSql, (err) => (err ? reject(err) : resolve()));
   });
@@ -183,6 +199,10 @@ async function initDb() {
 
   await new Promise((resolve, reject) => {
     db.run(createContactsTableSql, (err) => (err ? reject(err) : resolve()));
+  });
+
+  await new Promise((resolve, reject) => {
+    db.run(createEventsTableSql, (err) => (err ? reject(err) : resolve()));
   });
 
   // Ensure schema upgrades for older database files
@@ -272,19 +292,18 @@ let usingEthereal = false;
   }
 })();
 
-// GET /api/gallery -> return list of gallery image objects
+// GET /api/gallery -> return list of gallery images (gallery/ subdir only)
 app.get('/api/gallery', (req, res) => {
   try {
-    const files = fs.readdirSync(UPLOADS_DIR).filter((f) => {
-      const ext = path.extname(f).toLowerCase();
-      return ['.jpg', '.jpeg', '.png', '.webp'].includes(ext);
+    const files = fs.readdirSync(GALLERY_DIR).filter((f) => {
+      return IMAGE_EXTS.includes(path.extname(f).toLowerCase());
     });
     const images = files.map((f) => {
-      const filePath = path.join(UPLOADS_DIR, f);
+      const filePath = path.join(GALLERY_DIR, f);
       const stats = fs.existsSync(filePath) ? fs.statSync(filePath) : null;
       return {
         _id: f,
-        image_url: `/uploads/${f}`,
+        image_url: `/uploads/gallery/${f}`,
         original_name: f,
         uploaded_on: stats ? stats.mtime.toISOString() : null,
       };
@@ -297,10 +316,10 @@ app.get('/api/gallery', (req, res) => {
 });
 
 // POST /api/gallery/upload -> upload one or multiple images (field name 'images')
-app.post('/api/gallery/upload', upload.array('images', 20), (req, res) => {
+app.post('/api/gallery/upload', uploadGallery.array('images', 20), (req, res) => {
   try {
     const files = req.files || [];
-    const images = files.map((f) => `/uploads/${path.basename(f.path)}`);
+    const images = files.map((f) => `/uploads/gallery/${path.basename(f.path)}`);
     res.json({ uploaded: images });
   } catch (err) {
     console.error(err);
@@ -315,18 +334,17 @@ app.delete('/api/gallery/:id', (req, res) => {
     if (!id || id.includes('..') || id.includes('/') || id.includes('\\')) {
       return res.status(400).json({ error: 'Invalid file identifier' });
     }
-    const filePath = path.join(UPLOADS_DIR, id);
+    const filePath = path.join(GALLERY_DIR, id);
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: 'File not found' });
     }
     fs.unlinkSync(filePath);
-    const files = fs.readdirSync(UPLOADS_DIR).filter((f) => {
-      const ext = path.extname(f).toLowerCase();
-      return ['.jpg', '.jpeg', '.png', '.webp'].includes(ext);
+    const files = fs.readdirSync(GALLERY_DIR).filter((f) => {
+      return IMAGE_EXTS.includes(path.extname(f).toLowerCase());
     });
     const images = files.map((f) => ({
       _id: f,
-      image_url: `/uploads/${f}`,
+      image_url: `/uploads/gallery/${f}`,
       original_name: f,
     }));
     res.json({ images });
@@ -362,7 +380,7 @@ app.get('/api/publications/:id', async (req, res) => {
   }
 });
 
-app.post('/api/publications', upload.single('image'), async (req, res) => {
+app.post('/api/publications', uploadPublication.single('image'), async (req, res) => {
   try {
     const { title, description } = req.body || {};
     if (!title || !description) {
@@ -372,7 +390,7 @@ app.post('/api/publications', upload.single('image'), async (req, res) => {
       return res.status(400).json({ error: 'Publication image is required' });
     }
 
-    const imageUrl = `/uploads/${path.basename(req.file.path)}`;
+    const imageUrl = `/uploads/publications/${path.basename(req.file.path)}`;
     const createdOn = new Date().toISOString();
 
     const result = await dbRun(
@@ -395,14 +413,14 @@ app.post('/api/publications', upload.single('image'), async (req, res) => {
   }
 });
 
-app.put('/api/publications/:id', upload.single('image'), async (req, res) => {
+app.put('/api/publications/:id', uploadPublication.single('image'), async (req, res) => {
   try {
     const { title, description } = req.body || {};
     const publication = await dbGet(`SELECT * FROM publications WHERE id = ?`, [req.params.id]);
     if (!publication) return res.status(404).json({ error: 'Publication not found' });
 
     const updatedOn = new Date().toISOString();
-    const imageUrl = req.file ? `/uploads/${path.basename(req.file.path)}` : publication.image_url;
+    const imageUrl = req.file ? `/uploads/publications/${path.basename(req.file.path)}` : publication.image_url;
 
     if (req.file && publication.image_url) {
       const oldImagePath = path.join(__dirname, publication.image_url.replace(/^\//, ''));
@@ -441,6 +459,99 @@ app.delete('/api/publications/:id', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to delete publication' });
+  }
+});
+
+// Events API
+app.get('/api/events', async (req, res) => {
+  try {
+    const rows = await dbAll(`SELECT * FROM events ORDER BY created_on DESC`);
+    res.json({ events: rows.map((r) => ({ ...r, _id: r.id })) });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch events' });
+  }
+});
+
+app.get('/api/events/:id', async (req, res) => {
+  try {
+    const row = await dbGet(`SELECT * FROM events WHERE id = ?`, [req.params.id]);
+    if (!row) return res.status(404).json({ error: 'Event not found' });
+    res.json({ event: { ...row, _id: row.id } });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch event' });
+  }
+});
+
+app.post('/api/events', uploadEvent.single('image'), async (req, res) => {
+  try {
+    const { title, date, description } = req.body || {};
+    if (!title || !date || !description) {
+      return res.status(400).json({ error: 'Title, date and description are required' });
+    }
+    if (!req.file) {
+      return res.status(400).json({ error: 'Event image is required' });
+    }
+
+    const imageUrl = `/uploads/events/${path.basename(req.file.path)}`;
+    const createdOn = new Date().toISOString();
+
+    const result = await dbRun(
+      `INSERT INTO events (title, date, description, image_url, created_on, updated_on) VALUES (?, ?, ?, ?, ?, ?)`,
+      [title, date, description, imageUrl, createdOn, createdOn]
+    );
+
+    res.json({ event: { _id: result.lastID, title, date, description, image_url: imageUrl, created_on: createdOn, updated_on: createdOn } });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to create event' });
+  }
+});
+
+app.put('/api/events/:id', uploadEvent.single('image'), async (req, res) => {
+  try {
+    const { title, date, description } = req.body || {};
+    const event = await dbGet(`SELECT * FROM events WHERE id = ?`, [req.params.id]);
+    if (!event) return res.status(404).json({ error: 'Event not found' });
+
+    const updatedOn = new Date().toISOString();
+    const imageUrl = req.file ? `/uploads/events/${path.basename(req.file.path)}` : event.image_url;
+
+    if (req.file && event.image_url) {
+      const oldPath = path.join(__dirname, event.image_url.replace(/^\//, ''));
+      if (fs.existsSync(oldPath)) fs.unlinkSync(oldPath);
+    }
+
+    const updatedTitle = title || event.title;
+    const updatedDate = date || event.date;
+    const updatedDescription = description || event.description;
+
+    await dbRun(
+      `UPDATE events SET title = ?, date = ?, description = ?, image_url = ?, updated_on = ? WHERE id = ?`,
+      [updatedTitle, updatedDate, updatedDescription, imageUrl, updatedOn, req.params.id]
+    );
+
+    res.json({ event: { _id: event.id, title: updatedTitle, date: updatedDate, description: updatedDescription, image_url: imageUrl, created_on: event.created_on, updated_on: updatedOn } });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to update event' });
+  }
+});
+
+app.delete('/api/events/:id', async (req, res) => {
+  try {
+    const event = await dbGet(`SELECT * FROM events WHERE id = ?`, [req.params.id]);
+    if (!event) return res.status(404).json({ error: 'Event not found' });
+
+    const imagePath = path.join(__dirname, event.image_url.replace(/^\//, ''));
+    if (fs.existsSync(imagePath)) fs.unlinkSync(imagePath);
+
+    await dbRun(`DELETE FROM events WHERE id = ?`, [req.params.id]);
+    res.json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to delete event' });
   }
 });
 

@@ -79,3 +79,21 @@
     text-align:center;
     color:#ddd;
 }
+.copyright {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  padding: 15px 0;
+}
+
+.hra-link {
+  color: #e1e5ee;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hra-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}

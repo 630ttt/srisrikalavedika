@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import eventsHead from "../assets/eventshead.jpg";
 import eventsBg from "../assets/eventsbg.jpg";
+import { fetchEvents } from "../eventsService.js";
+import { resolveAssetUrl } from "../services/api.js";
+
 function Events() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  useEffect(() => {
+    fetchEvents()
+      .then((data) => setEvents(data))
+      .catch((err) => console.error('Failed to load events:', err))
+      .finally(() => setLoading(false));
+  }, []);
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
   const styles = {
     page: {
       fontFamily: "Arial, sans-serif",
@@ -142,107 +163,125 @@ hero: {
 },
   };
 
-  const events = [
-    {
-      image: "/events/event1.jpg",
-      date: "15 August 2026",
-      title: "National Literary Conference",
-      description:
-        "A gathering of renowned poets, writers and literary personalities to discuss Telugu literature and contemporary writing.",
-    },
-    {
-      image: "/events/event2.jpg",
-      date: "05 September 2026",
-      title: "Cultural Festival",
-      description:
-        "Celebrating Indian culture through music, dance, drama and traditional performances by talented artists.",
-    },
-    {
-      image: "/events/event3.jpg",
-      date: "02 October 2026",
-      title: "Social Service Program",
-      description:
-        "Community service activities including tree plantation, blood donation and educational support initiatives.",
-    },
-    {
-      image: "/events/event4.jpg",
-      date: "20 November 2026",
-      title: "Award Ceremony",
-      description:
-        "Honouring outstanding personalities in literature, arts, education and social service with prestigious awards.",
-    },
-    {
-      image: "/events/event5.jpg",
-      date: "10 December 2026",
-      title: "Book Release Event",
-      description:
-        "Launching new books written by distinguished authors followed by literary discussions and interactions.",
-    },
-    {
-      image: "/events/event6.jpg",
-      date: "01 January 2027",
-      title: "International Cultural Meet",
-      description:
-        "Bringing together Telugu communities across the globe to celebrate literature, heritage and cultural unity.",
-    },
-  ];
-
   return (
     <div style={styles.page}>
       {/* Hero Section */}
       <section style={styles.hero}>
         <div>
           <h1 style={styles.heroTitle}>Events</h1>
-          <p>Celebrating Literature, Culture & Social Service</p>
+          <p>Celebrating Literature, Culture &amp; Social Service</p>
         </div>
       </section>
 
       {/* Events Section */}
       <section style={styles.section}>
         <div style={styles.contentCard}>
-        <h2 style={styles.title}>Upcoming Events</h2>
+          <h2 style={styles.title}>Upcoming Events</h2>
+          <p style={styles.description}>
+            Sri Sri Kalavedika organizes literary conferences, award ceremonies,
+            cultural festivals, educational seminars and social service
+            initiatives throughout the year.
+          </p>
 
-        <p style={styles.description}>
-          Sri Sri Kalavedika organizes literary conferences, award ceremonies,
-          cultural festivals, educational seminars and social service
-          initiatives throughout the year.
-        </p>
-
-        <div style={styles.grid}>
-          {events.map((event, index) => (
-            
-            <div key={index} className="founder-image" style={styles.card}>
-              <img
-                src={event.image}
-                alt={event.title}
-                style={styles.image}
-              />
-
-              <div style={styles.content}>
-                <p style={styles.date}>{event.date}</p>
-
-                <h3 style={styles.eventTitle}>{event.title}</h3>
-
-                <p style={styles.text}>{event.description}</p>
-
-                <button style={styles.button}>Read More</button>
-              </div>
+          {loading ? (
+            <p style={{ textAlign: 'center', color: '#f5ebeb' }}>Loading events...</p>
+          ) : events.length === 0 ? (
+            <p style={{ textAlign: 'center', color: '#f5ebeb' }}>No events available at this time.</p>
+          ) : (
+            <div style={styles.grid}>
+              {events.map((event) => (
+                <div key={event._id} className="founder-image" style={styles.card}>
+                  <img
+                    src={resolveAssetUrl(event.image_url)}
+                    alt={event.title}
+                    style={styles.image}
+                  />
+                  <div style={styles.content}>
+                    <p style={styles.date}>{formatDate(event.date)}</p>
+                    <h3 style={styles.eventTitle}>{event.title}</h3>
+                    <p style={styles.text}>
+                      {event.description.length > 150
+                        ? `${event.description.slice(0, 150).trim()}...`
+                        : event.description}
+                    </p>
+                    <button style={styles.button} onClick={() => setSelectedEvent(event)}>
+                      Read More
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
-        
-          ))}
-        </div>
+          )}
         </div>
       </section>
 
       {/* Closing Section */}
       <section style={styles.footer}>
         <h2>Join Our Events</h2>
-
         <p style={styles.quote}>
           "Every event is an opportunity to celebrate literature, preserve
           culture and strengthen our commitment to serving society."
         </p>
       </section>
+
+      {/* Read More Modal */}
+      {selectedEvent && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.65)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+            padding: '24px',
+          }}
+          onClick={() => setSelectedEvent(null)}
+        >
+          <div
+            style={{
+              background: '#fff',
+              borderRadius: '16px',
+              maxWidth: '640px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              padding: '32px',
+              position: 'relative',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedEvent(null)}
+              style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                background: 'transparent',
+                border: 'none',
+                fontSize: '24px',
+                cursor: 'pointer',
+                color: '#555',
+              }}
+            >
+              ×
+            </button>
+            <img
+              src={resolveAssetUrl(selectedEvent.image_url)}
+              alt={selectedEvent.title}
+              style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '10px', marginBottom: '20px' }}
+            />
+            <p style={{ color: '#b8860b', fontWeight: 'bold', marginBottom: '8px' }}>
+              {formatDate(selectedEvent.date)}
+            </p>
+            <h2 style={{ color: '#7B1113', marginBottom: '16px' }}>{selectedEvent.title}</h2>
+            <p style={{ color: '#444', lineHeight: 1.8, whiteSpace: 'pre-wrap' }}>
+              {selectedEvent.description}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

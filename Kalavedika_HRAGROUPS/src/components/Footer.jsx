@@ -98,9 +98,16 @@ function Footer() {
       <hr />
 
       <div className="copyright">
-        © {new Date().getFullYear()} Sri Sri Kalavedika.
-        All Rights Reserved.
-      </div>
+  © {new Date().getFullYear()} Designed and Managed by{" "}
+  <a
+    href="https://www.hragroups.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hra-link"
+  >
+    HRA GROUPS PRIVATE LIMITED
+  </a>
+</div>
 
     </footer>
   );

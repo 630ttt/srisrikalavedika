@@ -24,6 +24,7 @@ import Dashboard from "./pages/admin/Dashboard.jsx";
 import Memberships from "./pages/admin/Memberships.jsx";
 import GalleryAdmin from "./pages/admin/GalleryAdmin.jsx";
 import PublicationsAdmin from "./pages/admin/PublicationsAdmin.jsx";
+import EventsAdmin from "./pages/admin/EventsAdmin.jsx";
 import Contacts from "./pages/admin/Contacts.jsx";
 import Notifications from "./pages/admin/Notifications.jsx";
 import Profile from "./pages/admin/Profile.jsx";
@@ -66,6 +67,7 @@ function App() {
           <Route path="memberships" element={<Memberships />} />
           <Route path="gallery" element={<GalleryAdmin />} />
           <Route path="publications" element={<PublicationsAdmin />} />
+          <Route path="events" element={<EventsAdmin />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="profile" element={<Profile />} />

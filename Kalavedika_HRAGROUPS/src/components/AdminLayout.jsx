@@ -68,6 +68,10 @@ function AdminLayout() {
           <span style={{ marginRight: collapsed ? 0 : 10 }}>📚</span>
           {!collapsed && 'Publications'}
         </NavLink>
+        <NavLink to="/admin/events" style={(props) => navLinkStyle({ ...props, collapsed })}>
+          <span style={{ marginRight: collapsed ? 0 : 10 }}>🎪</span>
+          {!collapsed && 'Events'}
+        </NavLink>
         <NavLink to="/admin/contacts" style={(props) => navLinkStyle({ ...props, collapsed })}>
           <span style={{ marginRight: collapsed ? 0 : 10 }}>✉️</span>
           {!collapsed && 'Contact Messages'}
