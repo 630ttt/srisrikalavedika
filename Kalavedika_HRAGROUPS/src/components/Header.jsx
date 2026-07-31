@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { FaFacebookF, FaYoutube } from "react-icons/fa";
 import "./Header.css";
 
@@ -17,7 +17,7 @@ function Header() {
 
       <nav>
         <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/home">Home</Link></li>
           <li><Link to="/about">About Us</Link></li>
           <li><Link to="/founder">Founder</Link></li>
           <li><Link to="/executive-members">Executive Members</Link></li>

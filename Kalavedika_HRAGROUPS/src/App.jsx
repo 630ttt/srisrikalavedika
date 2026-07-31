@@ -1,39 +1,59 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+﻿import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
-import Home from './pages/Home';
-import Welcome from './pages/Welcome';
-import AboutUs from './pages/AboutUs';
-import Founder from './pages/Founder';
-import ExecutiveMembers from './pages/ExecutiveMembers';
-import Activities from './pages/Activities';
-import Awards from './pages/Awards';
-import Gallery from './pages/Gallery';
-import Events from './pages/Events';
-import Publications from './pages/Publications';
-import Membership from './pages/Membership';
-import Contact from './pages/Contact';
-import AdminLogin from './pages/AdminLogin.jsx';
-import AdminLayout from './components/AdminLayout.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx';
-import Dashboard from './pages/admin/Dashboard.jsx';
-import Memberships from './pages/admin/Memberships.jsx';
-import GalleryAdmin from './pages/admin/GalleryAdmin.jsx';
-import PublicationsAdmin from './pages/admin/PublicationsAdmin.jsx';
-import Contacts from './pages/admin/Contacts.jsx';
-import Notifications from './pages/admin/Notifications.jsx';
-import Profile from './pages/admin/Profile.jsx';
+import Welcome from "./pages/Welcome";
+import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
+import Founder from "./pages/Founder";
+import ExecutiveMembers from "./pages/ExecutiveMembers";
+import Activities from "./pages/Activities";
+import Awards from "./pages/Awards";
+import Gallery from "./pages/Gallery";
+import Events from "./pages/Events";
+import Publications from "./pages/Publications";
+import Membership from "./pages/Membership";
+import Contact from "./pages/Contact";
 
-import './App.css';
+import AdminLogin from "./pages/AdminLogin.jsx";
+import AdminLayout from "./components/AdminLayout.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Dashboard from "./pages/admin/Dashboard.jsx";
+import Memberships from "./pages/admin/Memberships.jsx";
+import GalleryAdmin from "./pages/admin/GalleryAdmin.jsx";
+import PublicationsAdmin from "./pages/admin/PublicationsAdmin.jsx";
+import Contacts from "./pages/admin/Contacts.jsx";
+import Notifications from "./pages/admin/Notifications.jsx";
+import Profile from "./pages/admin/Profile.jsx";
+
+import "./App.css";
+
+function PublicLayout() {
+  return (
+    <div className="app-container">
+      <Header />
+      <main className="main-content">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
+        {/* Welcome splash — no header/footer */}
         <Route path="/" element={<Welcome />} />
+
+        {/* Admin login */}
         <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* Protected admin panel */}
         <Route
           path="/admin/*"
           element={
@@ -52,30 +72,20 @@ function App() {
           <Route path="*" element={<Dashboard />} />
         </Route>
 
-        <Route
-          path="/*"
-          element={
-            <div className="app-container">
-              <Header />
-              <main className="main-content">
-                <Routes>
-                  <Route path="/home" element={<Home />} />
-                  <Route path="/about" element={<AboutUs />} />
-                  <Route path="/founder" element={<Founder />} />
-                  <Route path="/executive-members" element={<ExecutiveMembers />} />
-                  <Route path="/activities" element={<Activities />} />
-                  <Route path="/awards" element={<Awards />} />
-                  <Route path="/gallery" element={<Gallery />} />
-                  <Route path="/events" element={<Events />} />
-                  <Route path="/publications" element={<Publications />} />
-                  <Route path="/membership" element={<Membership />} />
-                  <Route path="/contact" element={<Contact />} />
-                </Routes>
-              </main>
-              <Footer />
-            </div>
-          }
-        />
+        {/* Public pages — all share Header + Footer via PublicLayout */}
+        <Route element={<PublicLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/founder" element={<Founder />} />
+          <Route path="/executive-members" element={<ExecutiveMembers />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/publications" element={<Publications />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
