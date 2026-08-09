@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content {
+  width: 100%;
+}
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  background: linear-gradient(135deg, #000000, #ffd87a);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card h2,
+.card p {
+  transition: color 0.3s ease;
+}
+
+.card:hover h2 {
+  color: #fffbfb;
+}
+
+.card:hover p {
+  color: #000000;
+}
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 80vh !important;
+    padding: 20px;
+  }
+
+  .hero-overlay {
+    width: 95% !important;
+    padding: 35px 20px !important;
+  }
+}
+.hero-title {
+  animation: fadeDown 1s ease-out;
+}
+
+.hero-subtitle {
+  animation: fadeUp 1s ease-out 0.3s both;
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  animation: fadeUp 1s ease-out 0.6s both;
+}
+
+.hero-button {
+  animation: fadeUp 1s ease-out 0.9s both;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.about-section1 {
+  animation: aboutReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.about-title {
+  animation: aboutTitle linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.about-text {
+  animation: aboutText linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes aboutReveal {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutText {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.founder-image {
+  animation: founderFadeIn linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes founderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+.activitycard {
+  animation: activityCardReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes activityCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activity-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(192, 92, 92, 0.25);
+}
+.award-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35) !important;
+  border-color: #d4af37 !important;
+}
+
+.award-card:hover .award-icon {
+  transform: scale(1.1);
+}
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(80, 30, 10, 0.35);
+}
+
+.gallery-card:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+
+@keyframes welcomeFadeIn {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+  .welcome-page {
+    min-height: 100vh;
+  }
+
+  .welcome-overlay {
+    width: 95%;
+  }
+
+  .welcome-overlay h1 {
+    font-size: 2.5rem;
+  }
+
+  .welcome-overlay h2 {
+    font-size: 1.7rem;
+  }
+
+  .welcome-overlay p {
+    font-size: 1rem;
+
+    max-width: 350px;
+  }
+
+  .explore-button {
+    padding: 12px 30px;
+
+    font-size: 16px;
+  }
+
+}
+
+
+
+@media (max-width: 400px) {
+
+  .welcome-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-overlay h2 {
+    font-size: 1.4rem;
+  }
+
+  .welcome-overlay p {
+    font-size: 0.9rem;
+  }
+
+  .explore-button {
+    padding: 11px 25px;
+
+    font-size: 15px;
+  }
+
+}
