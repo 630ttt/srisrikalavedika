@@ -164,11 +164,11 @@ hero: {
   };
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       {/* Hero Section */}
       <section style={styles.hero}>
-        <div>
-          <h1 style={styles.heroTitle}>కార్యక్రమాలు</h1>
+        <div style={styles.contentCard} className="resp-content-card">
+          <h1 style={styles.heroTitle} className="resp-hero-title">కార్యక్రమాలు</h1>
           <p>సాహిత్యం, సంస్కృతి మరియు సామాజిక సేవను ఘనంగా జరుపుకుందాం</p>
         </div>
       </section>
@@ -188,9 +188,9 @@ hero: {
           ) : events.length === 0 ? (
             <p style={{ textAlign: 'center', color: '#f5ebeb' }}>No events available at this time.</p>
           ) : (
-            <div style={styles.grid}>
+            <div style={styles.grid} className="resp-grid-320">
               {events.map((event) => (
-                <div key={event._id} className="founder-image" style={styles.card}>
+                <div key={event._id} className="founder-image resp-card-reset-margin" style={styles.card}>
                   <img
                     src={resolveAssetUrl(event.image_url)}
                     alt={event.title}
@@ -204,7 +204,7 @@ hero: {
                         ? `${event.description.slice(0, 150).trim()}...`
                         : event.description}
                     </p>
-                    <button style={styles.button} onClick={() => setSelectedEvent(event)}>
+                    <button style={styles.button} className="resp-touch-btn" onClick={() => setSelectedEvent(event)}>
                       మరిన్ని వివరాలు
                     </button>
                   </div>
@@ -240,6 +240,7 @@ hero: {
           onClick={() => setSelectedEvent(null)}
         >
           <div
+            className="resp-modal"
             style={{
               background: '#fff',
               borderRadius: '16px',
@@ -253,6 +254,7 @@ hero: {
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              className="resp-close-btn"
               onClick={() => setSelectedEvent(null)}
               style={{
                 position: 'absolute',
@@ -270,6 +272,7 @@ hero: {
             <img
               src={resolveAssetUrl(selectedEvent.image_url)}
               alt={selectedEvent.title}
+              className="resp-modal-image"
               style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '10px', marginBottom: '20px' }}
             />
             <p style={{ color: '#b8860b', fontWeight: 'bold', marginBottom: '8px' }}>

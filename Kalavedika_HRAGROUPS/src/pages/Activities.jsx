@@ -175,12 +175,12 @@ function Activities() {
   ];
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       {/* Hero */}
       <section style={styles.hero}>
         <div style={styles.contentCard} className="resp-content-card">
         <div>
-          <h1 style={styles.heroTitle}>మా కార్యక్రమాలు</h1>
+          <h1 style={styles.heroTitle} className="resp-hero-title">మా కార్యక్రమాలు</h1>
           <p>సాహిత్యం, సంస్కృతి & సమాజానికి సేవ</p>
         </div>
         </div>
@@ -198,9 +198,9 @@ function Activities() {
         </p>
            </div>
 
-        <div style={styles.grid}>
+        <div style={styles.grid} className="resp-grid-280">
           {activities.map((activity, index) => (
-            <div key={index} className="card" style={styles.card}>
+            <div key={index} className="card resp-card-reset-margin" style={styles.card}>
               <div style={styles.icon}>{activity.icon}</div>
 
               <h3 style={styles.cardTitle}>{activity.title}</h3>

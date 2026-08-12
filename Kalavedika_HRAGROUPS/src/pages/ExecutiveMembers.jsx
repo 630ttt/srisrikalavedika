@@ -276,21 +276,21 @@ function ExecutiveMembers() {
   ];
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       {/* Hero */}
       <section style={styles.hero}>
         <div style={styles.contentCard} className="resp-content-card">
         <div>
-          <h1 style={styles.heroTitle}>Executive Members</h1>
+          <h1 style={styles.heroTitle} className="resp-hero-title">Executive Members</h1>
           <p>Leadership Team of Sri Sri Kalavedika</p>
         </div>
         </div>
       </section>
 
       {/* Members */}
-      <section style={styles.section}>
+      <section style={styles.section} className="resp-section">
 
-        <div style={styles.grid}>
+        <div style={styles.grid} className="resp-grid-280">
           {members.map((member, index) => (
             <div key={index} className="card" style={styles.card}>
               <img

@@ -317,17 +317,17 @@ function Publications() {
   }
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       <section style={styles.hero}>
         <div style={styles.contentCard} className="resp-publications-hero-card resp-content-card">
           <div>
-            <h1 style={styles.heroTitle}>ప్రచురణలు</h1>
+            <h1 style={styles.heroTitle} className="resp-hero-title">ప్రచురణలు</h1>
             <p>పుస్తకాలు • మాగజైన్లు • పరిశోధనలు • సాహిత్య సేకరణలు</p>
           </div>
         </div>
       </section>
 
-      <section style={styles.section}>
+      <section style={styles.section} className="resp-section">
         <div style={styles.headingRow}>
           <h2 style={styles.heading}>మా ప్రచురణలు</h2>
         </div>
@@ -348,9 +348,9 @@ function Publications() {
             ఇంకా ప్రచురణలు అందుబాటులో లేవు. ఒకటి సృష్టించడానికి ప్రచురణను జోడించండి.
           </p>
         ) : (
-          <div style={styles.grid}>
+          <div style={styles.grid} className="resp-grid-300">
             {publications.map(publication => (
-              <div key={publication.id} className="founder-image" style={styles.card}>
+              <div key={publication.id} className="founder-image resp-card-reset-margin" style={styles.card}>
                 <img
                   src={resolveAssetUrl(publication.image_url)}
                   alt={publication.title}
@@ -364,7 +364,7 @@ function Publications() {
                       : publication.description}
                   </p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-                    <button style={styles.button} onClick={() => showPublication(publication)}>
+                    <button style={styles.button} className="resp-touch-btn" onClick={() => showPublication(publication)}>
                       Read More
                     </button>
                   </div>
@@ -393,20 +393,21 @@ function Publications() {
 
       {viewPublication && (
         <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <button style={styles.closeButton} onClick={closeAddModal}>
+          <div style={styles.modal} className="resp-modal">
+            <button style={styles.closeButton} className="resp-close-btn" onClick={closeAddModal}>
               ×
             </button>
             <h3 style={styles.modalTitle}>{viewPublication.title}</h3>
             <img
               src={resolveAssetUrl(viewPublication.image_url)}
               alt={viewPublication.title}
+              className="resp-modal-image"
               style={{ width: "100%", borderRadius: "18px", marginBottom: "20px" }}
             />
             <p style={{ color: "#444", lineHeight: "1.8", marginBottom: "25px" }}>
               {viewPublication.description}
             </p>
-            <button style={styles.button} onClick={closeAddModal}>
+            <button style={styles.button} className="resp-touch-btn" onClick={closeAddModal}>
               Close
             </button>
           </div>

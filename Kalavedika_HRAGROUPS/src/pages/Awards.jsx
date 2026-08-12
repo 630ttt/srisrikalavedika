@@ -171,12 +171,12 @@ function Awards() {
   ];
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       {/* Hero */}
       <section style={styles.hero}>
         <div style={styles.contentCard} className="resp-awards-card resp-content-card">
         <div>
-          <h1 style={styles.heroTitle}>పురస్కారాలు & గుర్తింపులు</h1>
+          <h1 style={styles.heroTitle} className="resp-hero-title">పురస్కారాలు & గుర్తింపులు</h1>
           <p>సాహిత్యం, సంస్కృతి & సామాజిక సేవలో ఉన్నతతను గౌరవించడం</p>
         </div>
         </div>
@@ -192,7 +192,7 @@ function Awards() {
           ఉన్నతమైన వ్యక్తిత్వాలను వివిధ ప్రతిష్ఠాత్మక పురస్కారాల ద్వారా ఘనంగా గుర్తిస్తుంది.
         </p>
 
-        <div style={styles.grid}>
+        <div style={styles.grid} className="resp-grid-280">
           {awards.map((award, index) => (
             <div key={index}  className="award-card"style={styles.card}>
               <div style={styles.icon}>{award.icon}</div>

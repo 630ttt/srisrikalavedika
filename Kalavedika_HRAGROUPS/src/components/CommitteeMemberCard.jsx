@@ -59,19 +59,20 @@ function CommitteeMemberCard({ member }) {
   };
 
   return (
-    <article className="card" style={styles.card}>
+    <article className="card resp-committee-card" style={styles.card}>
       <img
         src={imageSrc}
         alt={member.name}
         style={styles.image}
+        className="resp-committee-image"
         loading="lazy"
         onError={() => setImageSrc(memberPlaceholder)}
       />
-      <div style={styles.content}>
-        <h3 style={styles.name}>{member.name}</h3>
-        <p style={styles.designation}>{member.designation}</p>
-        <p style={styles.district}>{member.district}</p>
-        <p style={styles.state}>{member.state}</p>
+      <div style={styles.content} className="resp-mobile-card">
+        <h3 style={styles.name} className="resp-break-anywhere">{member.name}</h3>
+        <p style={styles.designation} className="resp-break-anywhere">{member.designation}</p>
+        <p style={styles.district} className="resp-break-anywhere">{member.district}</p>
+        <p style={styles.state} className="resp-break-anywhere">{member.state}</p>
       </div>
     </article>
   );

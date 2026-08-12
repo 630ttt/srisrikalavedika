@@ -235,10 +235,10 @@ function Contact() {
       </section>
 
       {/* Contact Section */}
-      <div style={styles.container}>
+      <div style={styles.container} className="resp-grid-320 resp-section">
 
         {/* Contact Information */}
-        <div style={styles.card}>
+        <div style={styles.card} className="resp-mobile-card">
 
           <h2 style={styles.heading}>
             Get in Touch
@@ -290,6 +290,7 @@ function Contact() {
           <iframe
             title="Google Map"
             style={styles.map}
+            className="resp-map"
             src="https://maps.google.com/maps?q=Andhra%20Pradesh%20India&output=embed"
             loading="lazy"
           ></iframe>
@@ -297,7 +298,7 @@ function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div style={styles.card}>
+        <div style={styles.card} className="resp-mobile-card">
 
           <h2 style={styles.heading}>
             Send a Message
@@ -353,6 +354,7 @@ function Contact() {
             <button
               type="submit"
               style={styles.button}
+              className="resp-touch-btn"
               disabled={submitting}
             >
               {submitting ? 'Sending...' : 'Send Message'}

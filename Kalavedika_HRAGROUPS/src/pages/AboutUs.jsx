@@ -109,12 +109,12 @@ contentCard: {
   };
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.contentCard} className="resp-content-card">
         <div>
-          <h1 style={styles.heroTitle}>శ్రీ శ్రీ కళావేదిక గురించి</h1>
+          <h1 style={styles.heroTitle} className="resp-hero-title">శ్రీ శ్రీ కళావేదిక గురించి</h1>
           <p style={styles.paragraph}>అంతర్జాతీయ సాహిత్య, సాంస్కృతిక మరియు సామాజిక సేవా సంస్థ</p>
         </div>
         </div>

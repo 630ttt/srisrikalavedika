@@ -141,20 +141,20 @@ function ChapterDetails() {
 
   if (!chapter) {
     return (
-      <div style={styles.page}>
+      <div style={styles.page} className="resp-bg-fixed">
         <section style={styles.hero}>
-          <div style={styles.heroCard}>
-            <h1 style={styles.title}>Chapter Details</h1>
-            <p style={styles.subtitle}>Details coming soon</p>
+          <div style={styles.heroCard} className="resp-content-card">
+            <h1 style={styles.title} className="resp-hero-title">Chapter Details</h1>
+            <p style={styles.subtitle} className="resp-mobile-subtitle">Details coming soon</p>
           </div>
         </section>
-        <section style={styles.section}>
-          <Link to={meta.route} style={styles.backLink}>
+        <section style={styles.section} className="resp-section">
+          <Link to={meta.route} style={styles.backLink} className="resp-back-link">
             ← {meta.backLabel}
           </Link>
-          <div style={styles.card}>
-            <p style={styles.bodyText}>ఈ శాఖకు సంబంధించిన వివరాలు త్వరలో అందుబాటులోకి వస్తాయి.</p>
-            <p style={styles.bodyText}>Chapter details coming soon.</p>
+          <div style={styles.card} className="resp-mobile-card">
+            <p style={styles.bodyText} className="resp-mobile-text">ఈ శాఖకు సంబంధించిన వివరాలు త్వరలో అందుబాటులోకి వస్తాయి.</p>
+            <p style={styles.bodyText} className="resp-mobile-text">Chapter details coming soon.</p>
           </div>
         </section>
       </div>
@@ -163,20 +163,20 @@ function ChapterDetails() {
 
   if (chapter.detailsAvailable === false) {
     return (
-      <div style={styles.page}>
+      <div style={styles.page} className="resp-bg-fixed">
         <section style={styles.hero}>
-          <div style={styles.heroCard}>
-            <h1 style={styles.title}>{chapter.name}</h1>
-            <p style={styles.subtitle}>{chapter.state} Chapter</p>
+          <div style={styles.heroCard} className="resp-content-card">
+            <h1 style={styles.title} className="resp-hero-title">{chapter.name}</h1>
+            <p style={styles.subtitle} className="resp-mobile-subtitle">{chapter.state} Chapter</p>
           </div>
         </section>
-        <section style={styles.section}>
-          <Link to={meta.route} style={styles.backLink}>
+        <section style={styles.section} className="resp-section">
+          <Link to={meta.route} style={styles.backLink} className="resp-back-link">
             ← {meta.backLabel}
           </Link>
-          <div style={styles.card}>
-            <p style={styles.bodyText}>ఈ శాఖకు సంబంధించిన వివరాలు త్వరలో అందుబాటులోకి వస్తాయి.</p>
-            <p style={styles.bodyText}>{chapter.comingSoonMessage || "Chapter details coming soon."}</p>
+          <div style={styles.card} className="resp-mobile-card">
+            <p style={styles.bodyText} className="resp-mobile-text">ఈ శాఖకు సంబంధించిన వివరాలు త్వరలో అందుబాటులోకి వస్తాయి.</p>
+            <p style={styles.bodyText} className="resp-mobile-text">{chapter.comingSoonMessage || "Chapter details coming soon."}</p>
           </div>
         </section>
       </div>
@@ -188,32 +188,32 @@ function ChapterDetails() {
   const hasEvents = Array.isArray(chapter.events) && chapter.events.length > 0;
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       <section style={styles.hero}>
-        <div style={styles.heroCard}>
-          <h1 style={styles.title}>{chapter.name}</h1>
-          <p style={styles.subtitle}>{chapter.state} Chapter</p>
+        <div style={styles.heroCard} className="resp-content-card">
+          <h1 style={styles.title} className="resp-hero-title">{chapter.name}</h1>
+          <p style={styles.subtitle} className="resp-mobile-subtitle">{chapter.state} Chapter</p>
         </div>
       </section>
 
-      <section style={styles.section}>
-        <Link to={meta.route} style={styles.backLink}>
+      <section style={styles.section} className="resp-section">
+        <Link to={meta.route} style={styles.backLink} className="resp-back-link">
           ← {meta.backLabel}
         </Link>
 
-        <div style={styles.card}>
+        <div style={styles.card} className="resp-mobile-card">
           <div style={styles.label}>{chapter.state}</div>
-          <h2 style={styles.heading}>{chapter.name}</h2>
+          <h2 style={styles.heading} className="resp-hero-title">{chapter.name}</h2>
 
-          <div style={styles.statsGrid}>
+          <div style={styles.statsGrid} className="resp-grid-220">
             <div style={styles.statCard}>
               <div style={styles.statValue}>{chapter.members}</div>
               <div style={styles.statLabel}>Members</div>
             </div>
             {chapter.email ? (
               <div style={styles.statCard}>
-                <div style={styles.statValue}>
-                  <a href={`mailto:${chapter.email}`} style={styles.contactLink}>
+                <div style={styles.statValue} className="resp-break-anywhere">
+                  <a href={`mailto:${chapter.email}`} style={styles.contactLink} className="resp-break-anywhere">
                     {chapter.email}
                   </a>
                 </div>
@@ -222,8 +222,8 @@ function ChapterDetails() {
             ) : null}
             {chapter.phone ? (
               <div style={styles.statCard}>
-                <div style={styles.statValue}>
-                  <a href={`tel:${chapter.phone}`} style={styles.contactLink}>
+                <div style={styles.statValue} className="resp-break-anywhere">
+                  <a href={`tel:${chapter.phone}`} style={styles.contactLink} className="resp-break-anywhere">
                     {chapter.phone}
                   </a>
                 </div>

@@ -104,18 +104,19 @@ function ChaptersPage() {
   };
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       <section style={styles.hero}>
-        <div style={styles.heroCard}>
-          <h1 style={styles.title} > Committee Members </h1>
-          <p style={styles.subtitle}>{meta.englishTitle}</p>
+        <div style={styles.heroCard} className="resp-content-card">
+          <h1 style={styles.title} className="resp-hero-title"> Committee Members </h1>
+          <p style={styles.subtitle} className="resp-mobile-subtitle">{meta.englishTitle}</p>
         </div>
       </section>
 
-      <section style={styles.section}>
-        <div style={styles.nav}>
+      <section style={styles.section} className="resp-section">
+        <div style={styles.nav} className="resp-chapters-nav">
           <Link
             to="/chapters/andhra-pradesh"
+            className="resp-nav-link"
             style={{
               ...styles.navLink,
               ...(stateSlug === "andhra-pradesh" ? styles.activeNavLink : {}),
@@ -125,6 +126,7 @@ function ChaptersPage() {
           </Link>
           <Link
             to="/chapters/telangana"
+            className="resp-nav-link"
             style={{
               ...styles.navLink,
               ...(stateSlug === "telangana" ? styles.activeNavLink : {}),
@@ -134,6 +136,7 @@ function ChaptersPage() {
           </Link>
           <Link
             to="/chapters/international"
+            className="resp-nav-link"
             style={{
               ...styles.navLink,
               ...(stateSlug === "international" ? styles.activeNavLink : {}),
@@ -143,12 +146,12 @@ function ChaptersPage() {
           </Link>
         </div>
 
-        <div style={styles.intro}>
-          <h2 style={styles.introTitle}>{meta.countLabel}</h2>
-          <p style={styles.introText}>{meta.description}</p>
+        <div style={styles.intro} className="resp-mobile-card">
+          <h2 style={styles.introTitle} className="resp-hero-title">{meta.countLabel}</h2>
+          <p style={styles.introText} className="resp-mobile-text">{meta.description}</p>
         </div>
 
-        <div style={styles.grid}>
+        <div style={styles.grid} className="resp-grid-280">
           {chapters.map((chapter) => (
             <ChapterCard key={chapter.id} chapter={chapter} stateSlug={stateSlug || "andhra-pradesh"} />
           ))}
@@ -159,5 +162,4 @@ function ChaptersPage() {
 }
 
 export default ChaptersPage;
-
 

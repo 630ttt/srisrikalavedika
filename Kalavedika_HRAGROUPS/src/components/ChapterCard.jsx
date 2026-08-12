@@ -52,12 +52,12 @@ function ChapterCard({ chapter, stateSlug }) {
   };
 
   return (
-    <article style={styles.card}>
-      <h3 style={styles.title}>{chapter.name}</h3>
-      <p style={styles.meta}>{chapter.members} Members</p>
-      <p style={styles.label}>President: {chapter.president || "Details coming soon"}</p>
-      <p style={styles.description}>{chapter.description}</p>
-      <Link to={detailsPath} style={styles.link}>
+    <article style={styles.card} className="resp-mobile-card resp-chapter-card">
+      <h3 style={styles.title} className="resp-break-anywhere">{chapter.name}</h3>
+      <p style={styles.meta} className="resp-break-anywhere">{chapter.members} Members</p>
+      <p style={styles.label} className="resp-break-anywhere">President: {chapter.president || "Details coming soon"}</p>
+      <p style={styles.description} className="resp-mobile-text">{chapter.description}</p>
+      <Link to={detailsPath} style={styles.link} className="resp-break-anywhere">
         View Details 
       </Link>
     </article>
@@ -65,5 +65,4 @@ function ChapterCard({ chapter, stateSlug }) {
 }
 
 export default ChapterCard;
-
 

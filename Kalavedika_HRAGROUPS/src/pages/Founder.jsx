@@ -157,13 +157,13 @@ function Founder() {
   };
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       {/* Hero Section */}
 
       <section style={styles.hero}>
-        <div style={styles.contentCard}>
+        <div style={styles.contentCard} className="resp-content-card">
         <div>
-          <h1 style={styles.heroTitle}>వ్యవస్థాపకులు & అంతర్జాతీయ చైర్మన్</h1>
+          <h1 style={styles.heroTitle} className="resp-hero-title">వ్యవస్థాపకులు & అంతర్జాతీయ చైర్మన్</h1>
           <p>Visionary Leader of Sri Sri Kalavedika</p>
         </div>
         </div>
@@ -193,7 +193,7 @@ function Founder() {
 
         <div style={styles.content}>
           <div style={styles.contentCard}>
-          <h2 style={styles.name}>
+          <h2 style={styles.name} className="resp-break-anywhere">
             కళారత్న కత్తిమండ ప్రతాప్ కుమార్
           </h2>
 

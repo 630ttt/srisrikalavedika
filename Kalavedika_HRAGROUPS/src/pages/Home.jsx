@@ -2,7 +2,7 @@ import React from "react";
 import founder from "../assets/founder.png";
 import aboutBg from "../assets/about-bg.jpg";
 import founderBg from "../assets/founder-bg.jpg";
-import imagePic1 from "../gallery/Image 1.jpg";
+import imagePic1 from "../gallery/image 8.jpg";
 import imagePic2 from "../gallery/image 3.jpg";
 import imagePic3 from "../gallery/image 4.jpg";
 
@@ -176,7 +176,7 @@ function Home() {
 
       <section style={styles.hero}>
         <div style={styles.overlay} className="resp-hero-content">
-          <h1 className="hero-title" style={styles.heading}>శ్రీ శ్రీ కళావేదిక</h1>
+          <h1 className="hero-title resp-hero-title" style={styles.heading}>శ్రీ శ్రీ కళావేదిక</h1>
 
           <h2 className="hero-subtitle" style={styles.subHeading}>
             Sri Sri Kalavedika
@@ -188,7 +188,7 @@ function Home() {
           </p>
 
           <Link to="/membership">
-           <button style={styles.button}>
+           <button style={styles.button} className="resp-touch-btn">
             Become a Member
            </button>
           </Link>
@@ -197,8 +197,8 @@ function Home() {
 
       {/* About */}
        
-      <section style={styles.aboutSection}>
-        <div style={styles.contentCard}>
+      <section style={styles.aboutSection} className="resp-section resp-bg-fixed">
+        <div style={styles.contentCard} className="resp-content-card">
         <h2 className="about-title" style={styles.title}>మా గురించి</h2>
 
         <p className="about-text" style={styles.paragraph}>
@@ -214,9 +214,9 @@ function Home() {
 
       {/* Vision Mission */}
 
-      <section  style={styles.aboutSection}>
+      <section  style={styles.aboutSection} className="resp-section resp-bg-fixed">
          
-       <div style={styles.cards}>
+       <div style={styles.cards} className="resp-grid-280">
 
         <div  style={styles.card}>
             <h2 >దార్శనికత</h2>
@@ -242,7 +242,7 @@ function Home() {
 
       {/* Founder */}
 
-      <section style={styles.found} className="resp-found">
+      <section style={styles.found} className="resp-found resp-bg-fixed">
 
         <img
          className="founder-image" 
@@ -269,12 +269,12 @@ function Home() {
 
       {/* Activities */}
 
-       <section style={styles.aboutSection}>
-       <div style={styles.contentCard}>
+       <section style={styles.aboutSection} className="resp-section resp-bg-fixed">
+       <div style={styles.contentCard} className="resp-content-card">
 
         <h2 style={styles.title}>Our Activities</h2>
 
-        <div  className="activitycard" style={styles.cards}>
+        <div  className="activitycard resp-grid-280" style={styles.cards}>
 
           <div style={styles.card}>📚 సాహిత్య సదస్సులు</div>
 
@@ -294,16 +294,17 @@ function Home() {
       </section>
 
       {/* Gallery */}
-    <section style={styles.aboutSection}>
-      <h2 style={styles.title}>Gallery</h2>
+    <section style={styles.aboutSection} className="resp-section resp-bg-fixed">
+      <h2 style={styles.title} className="resp-hero-title">Gallery</h2>
 
-      <div style={styles.gallery}>
+      <div style={styles.gallery} className="resp-grid-250">
       {galleryImages.map((item, index) => (
       <div key={index} >
         <img
           src={item.image}
           alt={item.alt}
           style={styles.image}
+          className="resp-gallery-image"
         />
      </div>
   ))}

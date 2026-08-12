@@ -325,7 +325,7 @@ function Membership() {
 
       <section style={styles.hero}>
         <div style={styles.heroContent} className="resp-hero-content">
-          <h1 style={styles.heroTitle}>
+          <h1 style={styles.heroTitle} className="resp-hero-title">
             Membership
           </h1>
 
@@ -353,13 +353,14 @@ function Membership() {
 
         {/* MEMBERSHIP CARDS */}
 
-        <div style={styles.cards}>
+        <div style={styles.cards} className="resp-grid-250">
 
           {membershipTypes.map((member, index) => (
 
             <div
               key={index}
               style={styles.card}
+              className="resp-mobile-card"
 
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform =
@@ -413,7 +414,7 @@ function Membership() {
 
           <form onSubmit={handleSubmit}>
 
-            <div style={styles.formGrid}>
+            <div style={styles.formGrid} className="resp-grid-280">
 
               <input
                 type="text"
@@ -481,6 +482,7 @@ function Membership() {
             <button
               type="submit"
               style={styles.button}
+              className="resp-touch-btn"
               disabled={loading}
 
               onMouseEnter={(e) => {
@@ -527,7 +529,7 @@ function Membership() {
           cultural and social initiatives.
         </p>
 
-        <div style={styles.list}>
+        <div style={styles.list} className="resp-grid-280">
 
           {benefits.map((benefit, index) => (
 

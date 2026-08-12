@@ -243,12 +243,12 @@ function Gallery() {
 
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
 
       {/* HERO */}
       <section style={styles.hero}>
         <div style={styles.heroCard} className="resp-gallery-hero-card">
-          <h1 style={styles.heroTitle}>
+          <h1 style={styles.heroTitle} className="resp-hero-title">
            మా చిత్రాల గ్యాలరీ
           </h1>
 
@@ -259,7 +259,7 @@ function Gallery() {
       </section>
 
       {/* GALLERY */}
-      <section style={styles.section}>
+      <section style={styles.section} className="resp-section">
 
         <h2 style={styles.heading}>
           స్మరణీయ క్షణాలు
@@ -273,7 +273,7 @@ function Gallery() {
           ప్రయాణాన్ని, సంస్కృతిని పరిరక్షించడం మరియు సమాజానికి సేవ చేయడం ప్రతిబింబిస్తుంది.
         </p>
 
-        <div style={styles.gallery}>
+        <div style={styles.gallery} className="resp-grid-280">
           {loading ? (
             <div>Loading images...</div>
           ) : (
@@ -322,6 +322,7 @@ function Gallery() {
           onClick={() => setSelectedImage(null)}
         >
           <button
+            className="resp-close-btn"
             style={styles.closeButton}
             onClick={() => setSelectedImage(null)}
           >

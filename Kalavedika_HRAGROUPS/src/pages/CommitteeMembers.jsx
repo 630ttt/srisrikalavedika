@@ -132,17 +132,17 @@ function CommitteeMembers() {
   };
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="resp-bg-fixed">
       <section style={styles.hero}>
-        <div style={styles.heroCard}>
-          <h1 style={styles.title}>కమిటీ సభ్యులు</h1>
-          <p style={styles.subtitle}>శ్రీ శ్రీ కళావేదిక నాయకత్వ బృందం</p>
+        <div style={styles.heroCard} className="resp-content-card">
+          <h1 style={styles.title} className="resp-hero-title">కమిటీ సభ్యులు</h1>
+          <p style={styles.subtitle} className="resp-mobile-subtitle">శ్రీ శ్రీ కళావేదిక నాయకత్వ బృందం</p>
         </div>
       </section>
 
-      <section style={styles.section}>
-        <div style={styles.filterWrap}>
-          <div style={styles.filterBlock}>
+      <section style={styles.section} className="resp-section">
+        <div style={styles.filterWrap} className="resp-filter-wrap">
+          <div style={styles.filterBlock} className="resp-filter-block">
             <label htmlFor="committee-state" style={styles.label}>
               రాష్ట్రం
             </label>
@@ -151,6 +151,7 @@ function CommitteeMembers() {
               value={selectedState}
               onChange={handleStateChange}
               style={styles.select}
+              className="resp-select"
             >
               {stateOptions.map((stateName) => (
                 <option key={stateName} value={stateName}>
@@ -160,7 +161,7 @@ function CommitteeMembers() {
             </select>
           </div>
 
-          <div style={styles.filterBlock}>
+          <div style={styles.filterBlock} className="resp-filter-block">
             <label htmlFor="committee-district" style={styles.label}>
               జిల్లా
             </label>
@@ -169,6 +170,7 @@ function CommitteeMembers() {
               value={selectedDistrict}
               onChange={(event) => setSelectedDistrict(event.target.value)}
               style={styles.select}
+              className="resp-select"
             >
               {districtOptions.map((district) => (
                 <option key={district} value={district}>
@@ -180,13 +182,13 @@ function CommitteeMembers() {
         </div>
 
         {filteredMembers.length > 0 ? (
-          <div style={styles.grid}>
+          <div style={styles.grid} className="resp-grid-250">
             {filteredMembers.map((member) => (
               <CommitteeMemberCard key={member.id} member={member} />
             ))}
           </div>
         ) : (
-          <div style={styles.emptyState}>
+          <div style={styles.emptyState} className="resp-mobile-card">
             ఈ జిల్లాకు సంబంధించిన కమిటీ సభ్యుల వివరాలు త్వరలో అందుబాటులోకి
             వస్తాయి.
           </div>

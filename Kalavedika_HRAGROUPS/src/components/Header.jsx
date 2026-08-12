@@ -1,8 +1,16 @@
-﻿import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FaFacebookF, FaYoutube } from "react-icons/fa";
 import "./Header.css";
 
 function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   return (
     <header className="header">
 
@@ -15,7 +23,17 @@ function Header() {
         </div>
       </div>
 
-      <nav>
+      <button
+        type="button"
+        className="header-menu-toggle"
+        aria-expanded={isMobileMenuOpen}
+        aria-label="Toggle navigation menu"
+        onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+      >
+        {isMobileMenuOpen ? "Close" : "Menu"}
+      </button>
+
+      <nav className={`header-nav ${isMobileMenuOpen ? "is-open" : ""}`}>
         <ul className="nav-links">
           <li><Link to="/home">Home</Link></li>
           <li><Link to="/about">About Us</Link></li>
@@ -32,7 +50,7 @@ function Header() {
         </ul>
       </nav>
 
-      <div className="header-social">
+      <div className={`header-social ${isMobileMenuOpen ? "is-open" : ""}`}>
 
         <a
           href="https://www.facebook.com/100068197433222/about/?_rdr"
