@@ -247,7 +247,7 @@ function Gallery() {
 
       {/* HERO */}
       <section style={styles.hero}>
-        <div style={styles.heroCard}>
+        <div style={styles.heroCard} className="resp-gallery-hero-card">
           <h1 style={styles.heroTitle}>
            మా చిత్రాల గ్యాలరీ
           </h1>
@@ -302,7 +302,7 @@ function Gallery() {
       </section>
 
       {/* FOOTER */}
-      <section style={styles.footer}>
+      <section style={styles.footer} className="resp-highlight">
         <h2 style={styles.footerTitle}>
           Our Memories
         </h2>

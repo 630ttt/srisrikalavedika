@@ -178,8 +178,7 @@ function Activities() {
     <div style={styles.page}>
       {/* Hero */}
       <section style={styles.hero}>
-        <div style={styles.contentCard}>
-
+        <div style={styles.contentCard} className="resp-content-card">
         <div>
           <h1 style={styles.heroTitle}>మా కార్యక్రమాలు</h1>
           <p>సాహిత్యం, సంస్కృతి & సమాజానికి సేవ</p>
@@ -188,8 +187,8 @@ function Activities() {
         
       </section>
 
-      <section style={styles.section}>
-       <div style={styles.contentCard}>
+      <section style={styles.section} className="resp-section">
+       <div style={styles.contentCard} className="resp-content-card">
         <h2 style={styles.title}>మేము ఏమి చేస్తాము</h2>
             
         <p style={styles.description}>
@@ -214,7 +213,7 @@ function Activities() {
       </section>
 
       
-      <section style={styles.highlight}>
+      <section style={styles.highlight} className="resp-highlight">
         <h2>మా కట్టుబాటు</h2>
 
         <p style={styles.quote}>

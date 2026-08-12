@@ -174,8 +174,8 @@ hero: {
       </section>
 
       {/* Events Section */}
-      <section style={styles.section}>
-        <div style={styles.contentCard}>
+      <section style={styles.section} className="resp-section">
+        <div style={styles.contentCard} className="resp-content-card">
           <h2 style={styles.title}>రాబోయే కార్యక్రమాలు</h2>
           <p style={styles.description}>
             శ్రీ శ్రీ కళావేదిక సాహిత్య సదస్సులు, అవార్డు కార్యక్రమాలు,
@@ -216,7 +216,7 @@ hero: {
       </section>
 
       {/* Closing Section */}
-      <section style={styles.footer}>
+      <section style={styles.footer} className="resp-highlight">
         <h2>మా కార్యక్రమాలలో చేరండి</h2>
         <p style={styles.quote}>
           "ప్రతి కార్యక్రమం సాహిత్యాన్ని ఘనంగా జరుపుకునే, సంస్కృతిని పరిరక్షించే

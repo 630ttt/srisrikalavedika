@@ -171,7 +171,7 @@ function Founder() {
 
       {/* Founder Profile */}
 
-      <section style={styles.container}>
+      <section style={styles.container} className="resp-founder-container">
         <img
       className="founder-image"
         src={founderPic1}
@@ -218,8 +218,8 @@ function Founder() {
 
       {/* Achievements */}
 
-      <section style={styles.achievements}>
-          <div style={styles.contentCard}>
+      <section style={styles.achievements} className="resp-section">
+          <div style={styles.contentCard} className="resp-content-card">
         <h2 style={styles.title}>ప్రధాన కృషులు</h2>
 
         <div style={styles.grid}>
@@ -264,7 +264,7 @@ function Founder() {
 
       {/* Quote */}
 
-      <section style={styles.quote}>
+      <section style={styles.quote} className="resp-highlight">
         <p style={styles.quoteText}>
           "సాహిత్యం మన మేధస్సును ప్రకాశింపజేస్తుంది, సంస్కృతి మన గుర్తింపును బలోపేతం చేస్తుంది,
           మరియు సేవ సమాజాన్ని మెరుగుపరుస్తుంది. కలిసి మన వారసత్వాన్ని పరిరక్షించి భవిష్యత్తు తరం కోసం ప్రేరణనిస్తాము."

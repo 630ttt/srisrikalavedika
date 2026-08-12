@@ -279,7 +279,7 @@ function ExecutiveMembers() {
     <div style={styles.page}>
       {/* Hero */}
       <section style={styles.hero}>
-        <div style={styles.contentCard}>
+        <div style={styles.contentCard} className="resp-content-card">
         <div>
           <h1 style={styles.heroTitle}>Executive Members</h1>
           <p>Leadership Team of Sri Sri Kalavedika</p>
@@ -316,7 +316,7 @@ function ExecutiveMembers() {
       </section>
 
       {/* Closing */}
-      <section style={styles.footer}>
+      <section style={styles.footer} className="resp-highlight">
         <h2>Our Leadership</h2>
 
         <p style={{ maxWidth: "900px", margin: "20px auto", lineHeight: "1.8" }}>

@@ -319,7 +319,7 @@ function Publications() {
   return (
     <div style={styles.page}>
       <section style={styles.hero}>
-        <div style={styles.contentCard}>
+        <div style={styles.contentCard} className="resp-publications-hero-card resp-content-card">
           <div>
             <h1 style={styles.heroTitle}>ప్రచురణలు</h1>
             <p>పుస్తకాలు • మాగజైన్లు • పరిశోధనలు • సాహిత్య సేకరణలు</p>
@@ -375,7 +375,7 @@ function Publications() {
         )}
       </section>
 
-      <section style={styles.footer}>
+      <section style={styles.footer} className="resp-highlight">
         <h2>Knowledge Through Literature</h2>
         <p
           style={{

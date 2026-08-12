@@ -1,0 +1,332 @@
+/* =============================================================
+   RESPONSIVE FIXES — screen-size only, no design changes
+   Breakpoints: tablet ≤ 992px, mobile ≤ 600px, small ≤ 400px
+
+   Strategy: React inline styles cannot be overridden with
+   CSS attribute selectors reliably. We use:
+   1. Existing CSS classes already on the components
+   2. New CSS classes added to the JSX in this PR
+   3. Element/descendant selectors where structure is known
+   ============================================================= */
+
+/* ── Prevent horizontal overflow globally ────────────────────── */
+html,
+body {
+  overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* =============================================================
+   HEADER
+   ============================================================= */
+@media (max-width: 600px) {
+  .header {
+    padding: 8px 10px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-section h2 {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .header-social a {
+    font-size: 26px;
+  }
+}
+
+/* =============================================================
+   FOOTER
+   ============================================================= */
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 5% 20px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* =============================================================
+   WELCOME PAGE (existing classes in App.css extended here)
+   ============================================================= */
+@media (max-width: 480px) {
+  .welcome-overlay {
+    padding: 30px 16px !important;
+    width: 92% !important;
+  }
+}
+
+/* =============================================================
+   HOME PAGE — classes: hero-title, hero-subtitle, hero-description
+   hero-button, about-title, about-text, about-section1,
+   founder-image, activitycard
+   ============================================================= */
+
+/* Hero overlay width/padding on mobile */
+@media (max-width: 768px) {
+  .hero-overlay {
+    width: 95% !important;
+    padding: 30px 16px !important;
+  }
+}
+
+/* Founder image: fixed 320px → fluid */
+@media (max-width: 992px) {
+  .founder-image {
+    width: min(260px, 80vw) !important;
+  }
+}
+
+/* =============================================================
+   SHARED "content card" overlay boxes (backdrop-filter cards)
+   These appear in: Home, AboutUs, Events, Activities, Awards,
+   Founder, ExecutiveMembers, Gallery, Publications, Membership
+   
+   We add class "resp-content-card" to each of them in JSX so we
+   can target them here. (See JSX changes below in this PR.)
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-content-card {
+    padding: 28px 18px !important;
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resp-content-card {
+    padding: 18px 12px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* =============================================================
+   SHARED hero section padding for pages using hero + heroContent
+   We add class "resp-hero-content" in JSX.
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-hero-content {
+    padding: 28px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resp-hero-content {
+    padding: 20px 14px !important;
+    width: 95% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* =============================================================
+   SHARED section padding (pages use "padding: 70px 10%")
+   We add class "resp-section" in JSX.
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-section {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resp-section {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+}
+
+/* =============================================================
+   SHARED fixed heroTitle (48px) — class "resp-hero-title" in JSX
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-hero-title {
+    font-size: clamp(26px, 7vw, 40px) !important;
+  }
+}
+
+/* =============================================================
+   SHARED highlight / quote banner — class "resp-highlight"
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-highlight {
+    padding: 40px 6% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resp-highlight {
+    padding: 30px 5% !important;
+    font-size: 18px !important;
+  }
+}
+
+/* =============================================================
+   FOUNDER PAGE — flex container with 3 images
+   Class "resp-founder-container" added in JSX
+   ============================================================= */
+@media (max-width: 992px) {
+  .resp-founder-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 40px 5% !important;
+    gap: 24px !important;
+  }
+
+  .resp-founder-container img {
+    width: min(260px, 85vw) !important;
+  }
+
+  .resp-founder-container > div {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* =============================================================
+   HOME — founder "found" section flex wrap
+   Class "resp-found" added in JSX
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-found {
+    padding: 40px 5% !important;
+    gap: 24px !important;
+  }
+
+  .resp-found img {
+    width: min(260px, 80vw) !important;
+  }
+}
+
+/* =============================================================
+   AWARDS — contentCard with very large padding (100px)
+   Class "resp-awards-card" added in JSX
+   ============================================================= */
+@media (max-width: 992px) {
+  .resp-awards-card {
+    padding: 40px 25px !important;
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .resp-awards-card {
+    padding: 22px 14px !important;
+    border-radius: 14px !important;
+  }
+}
+
+/* =============================================================
+   MEMBERSHIP — formWrapper (padding:50px)
+   Class "resp-form-wrapper" added in JSX
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-form-wrapper {
+    padding: 30px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resp-form-wrapper {
+    padding: 20px 12px !important;
+  }
+}
+
+/* =============================================================
+   GALLERY — heroCard (padding: 45px 60px)
+   Class "resp-gallery-hero-card" added in JSX
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-gallery-hero-card {
+    padding: 28px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resp-gallery-hero-card {
+    padding: 18px 12px !important;
+  }
+}
+
+/* =============================================================
+   PUBLICATIONS — contentCard (padding: 45px 60px, maxWidth:850px)
+   Class "resp-publications-hero-card" added in JSX
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-publications-hero-card {
+    padding: 28px 18px !important;
+    max-width: 100% !important;
+  }
+}
+
+/* =============================================================
+   GRID FIXES — grids with minmax(320px,1fr) on small screens
+   ============================================================= */
+@media (max-width: 480px) {
+  .resp-grid-320 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .resp-grid-300 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =============================================================
+   HOME gallery images fixed height 400px
+   ============================================================= */
+@media (max-width: 600px) {
+  .resp-gallery-image {
+    height: 220px !important;
+  }
+}
+
+/* =============================================================
+   COMMITTEE MEMBERS — filterBlock min-width 220px
+   ============================================================= */
+@media (max-width: 480px) {
+  .resp-filter-block {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* =============================================================
+   iOS backgroundAttachment:fixed fix (causes blank/broken bg)
+   ============================================================= */
+@media (max-width: 768px) {
+  .resp-bg-fixed {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Mobile: disable background-attachment:fixed site-wide to prevent
+   blank backgrounds on iOS/mobile browsers */
+@media (max-width: 992px) {
+  div[style],
+  section[style] {
+    background-attachment: scroll !important;
+  }
+}

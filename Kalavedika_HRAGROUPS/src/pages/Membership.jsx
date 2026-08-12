@@ -324,7 +324,7 @@ function Membership() {
       {/* HERO */}
 
       <section style={styles.hero}>
-        <div style={styles.heroContent}>
+        <div style={styles.heroContent} className="resp-hero-content">
           <h1 style={styles.heroTitle}>
             Membership
           </h1>
@@ -338,7 +338,7 @@ function Membership() {
 
       {/* MEMBERSHIP SECTION */}
 
-      <section style={styles.section}>
+      <section style={styles.section} className="resp-section">
 
         <h2 style={styles.title}>
           Join Our Literary & Cultural Family
@@ -401,7 +401,7 @@ function Membership() {
 
         {/* REGISTRATION FORM */}
 
-        <div style={styles.formWrapper}>
+        <div style={styles.formWrapper} className="resp-form-wrapper">
 
           <h2 style={styles.formTitle}>
             Membership Registration
@@ -516,7 +516,7 @@ function Membership() {
 
       {/* BENEFITS */}
 
-      <section style={styles.benefits}>
+      <section style={styles.benefits} className="resp-highlight">
 
         <h2 style={styles.benefitsTitle}>
           Membership Benefits

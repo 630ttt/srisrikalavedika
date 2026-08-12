@@ -174,7 +174,7 @@ function Awards() {
     <div style={styles.page}>
       {/* Hero */}
       <section style={styles.hero}>
-        <div style={styles.contentCard}>
+        <div style={styles.contentCard} className="resp-awards-card resp-content-card">
         <div>
           <h1 style={styles.heroTitle}>పురస్కారాలు & గుర్తింపులు</h1>
           <p>సాహిత్యం, సంస్కృతి & సామాజిక సేవలో ఉన్నతతను గౌరవించడం</p>
@@ -183,8 +183,8 @@ function Awards() {
       </section>
 
       {/* Awards Section */}
-      <section style={styles.section}>
-        <div style={styles.contentCard}>
+      <section style={styles.section} className="resp-section">
+        <div style={styles.contentCard} className="resp-awards-card resp-content-card">
         <h2 style={styles.title}>మా ప్రతిష్ఠాత్మక పురస్కారాలు</h2>
 
         <p style={styles.description}>
@@ -207,7 +207,7 @@ function Awards() {
       </section>
 
       {/* Closing Section */}
-      <section style={styles.highlight}>
+      <section style={styles.highlight} className="resp-highlight">
         <h2>ఉన్నతతను ఘనంగా జరుపుకుంటూ</h2>
 
         <p style={styles.quote}>

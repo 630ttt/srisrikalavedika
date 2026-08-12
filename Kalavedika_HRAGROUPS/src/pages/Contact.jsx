@@ -224,7 +224,7 @@ function Contact() {
 
       {/* Hero Section */}
       <section style={styles.hero}>
-        <div style={styles.heroContent}>
+        <div style={styles.heroContent} className="resp-hero-content">
           <h1 style={styles.heroTitle}>Contact Us</h1>
 
           <p style={styles.heroText}>
@@ -370,7 +370,7 @@ function Contact() {
       </div>
 
       {/* Bottom Section */}
-      <section style={styles.bottomSection}>
+      <section style={styles.bottomSection} className="resp-highlight">
 
         <h2 style={styles.bottomTitle}>
           Connect With Sri Sri Kalavedika

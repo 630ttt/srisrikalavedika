@@ -32,6 +32,7 @@ import Notifications from "./pages/admin/Notifications.jsx";
 import Profile from "./pages/admin/Profile.jsx";
 
 import "./App.css";
+import "./responsive.css";
 
 function PublicLayout() {
   return (

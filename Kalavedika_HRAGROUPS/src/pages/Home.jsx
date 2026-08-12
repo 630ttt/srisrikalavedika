@@ -175,7 +175,7 @@ function Home() {
       {/* Hero */}
 
       <section style={styles.hero}>
-        <div   style={styles.overlay}>
+        <div style={styles.overlay} className="resp-hero-content">
           <h1 className="hero-title" style={styles.heading}>శ్రీ శ్రీ కళావేదిక</h1>
 
           <h2 className="hero-subtitle" style={styles.subHeading}>
@@ -242,7 +242,7 @@ function Home() {
 
       {/* Founder */}
 
-      <section style={styles.found}>
+      <section style={styles.found} className="resp-found">
 
         <img
          className="founder-image" 

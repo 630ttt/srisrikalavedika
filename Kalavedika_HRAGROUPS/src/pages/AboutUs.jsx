@@ -112,7 +112,7 @@ contentCard: {
     <div style={styles.page}>
       {/* Hero Section */}
       <section style={styles.hero}>
-        <div style={styles.contentCard}>
+        <div style={styles.contentCard} className="resp-content-card">
         <div>
           <h1 style={styles.heroTitle}>శ్రీ శ్రీ కళావేదిక గురించి</h1>
           <p style={styles.paragraph}>అంతర్జాతీయ సాహిత్య, సాంస్కృతిక మరియు సామాజిక సేవా సంస్థ</p>
@@ -121,8 +121,8 @@ contentCard: {
       </section>
 
       {/* About */}
-      <section style={styles.section}>
-         <div style={styles.contentCard}>
+      <section style={styles.section} className="resp-section">
+         <div style={styles.contentCard} className="resp-content-card">
         <h2 style={styles.title}>మేము ఎవరు</h2>
 
         <p style={styles.paragraph}>
@@ -146,7 +146,7 @@ contentCard: {
       
 
       {/* Vision & Mission */}
-      <section style={styles.section}>
+      <section style={styles.section} className="resp-section">
         <div style={styles.cards}>
           <div className="card" style={styles.card}>
             <h2 style={styles.cardTitle}>దార్శనికత</h2>
@@ -169,8 +169,8 @@ contentCard: {
       </section>
 
       {/* Objectives */}
-      <section style={styles.section}>
-        <div style={styles.contentCard}>
+      <section style={styles.section} className="resp-section">
+        <div style={styles.contentCard} className="resp-content-card">
         <h2 style={styles.title}>మా లక్ష్యాలు</h2>
 
         <div style={styles.objectives}>
@@ -198,8 +198,8 @@ contentCard: {
       </section>
 
       {/* Activities */}
-      <section style={styles.section}>
-         <div style={styles.contentCard}>
+      <section style={styles.section} className="resp-section">
+         <div style={styles.contentCard} className="resp-content-card">
         <h2 style={styles.title}>ప్రధాన కార్యక్రమాలు</h2>
         </div>
         <div style={styles.cards}>
@@ -218,7 +218,7 @@ contentCard: {
       </section>
 
       {/* Quote */}
-      <section style={styles.quote}>
+      <section style={styles.quote} className="resp-highlight">
         “సాహిత్యం సమాజానికి స్ఫూర్తినిస్తుంది, సంస్కృతి మన గుర్తింపును కాపాడుతుంది, సేవ మానవత్వాన్ని బలోపేతం చేస్తుంది.”
       </section>
     </div>
