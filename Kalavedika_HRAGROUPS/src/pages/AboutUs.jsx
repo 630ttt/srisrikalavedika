@@ -536,5 +536,18 @@ function AboutUs() {
     </>
   );
 }
+<style>
+{`
+@media (max-width: 600px) {
+  .resp-bg-fixed {
+    background-size: contain !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    background-color: #5a3b20;
+  }
+}
+`}
+</style>
 
 export default AboutUs;
