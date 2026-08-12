@@ -249,13 +249,11 @@ function Gallery() {
       <section style={styles.hero}>
         <div style={styles.heroCard}>
           <h1 style={styles.heroTitle}>
-            Our Gallery
+           మా చిత్రాల గ్యాలరీ
           </h1>
 
           <p style={styles.heroText}>
-            A glimpse into the memorable journey of
-            Sri Sri Kalavedika through literature,
-            culture, celebrations and service.
+           శ్రీ శ్రీ కళావేదిక సాహిత్యం, సంస్కృతి, వేడుకలు మరియు సేవా కార్యక్రమాల ద్వారా సాగించిన స్ఫూర్తిదాయక ప్రయాణంలోని కొన్ని జ్ఞాపకాలు.
           </p>
         </div>
       </section>
@@ -264,16 +262,15 @@ function Gallery() {
       <section style={styles.section}>
 
         <h2 style={styles.heading}>
-          Memorable Moments
+          స్మరణీయ క్షణాలు
         </h2>
 
         <p style={styles.description}>
-          Explore the memorable moments and cherished memories
-          of Sri Sri Kalavedika through our collection of photographs.
-          From literary conferences and cultural celebrations to
-          award ceremonies, social service initiatives and special
-          events, each photograph reflects our journey of promoting
-          literature, preserving culture and serving society.
+          శ్రీ శ్రీ కళావేదిక ద్వారా సాహిత్యం, సంస్కృతి మరియు సేవా కార్యక్రమాలలోని స్మరణీయ క్షణాలు మరియు cherished జ్ఞాపకాలను మా ఫోటోలు ద్వారా అన్వేషించండి.
+          సాహిత్య సదస్సులు మరియు సాంస్కృతిక వేడుకల నుండి
+          పురస్కార సమారోహాలు, సామాజిక సేవా కార్యక్రమాలు మరియు ప్రత్యేక
+          ఈవెంట్ల వరకు, ప్రతి ఫోటో మా సాహిత్యాన్ని ప్రోత్సహించే
+          ప్రయాణాన్ని, సంస్కృతిని పరిరక్షించడం మరియు సమాజానికి సేవ చేయడం ప్రతిబింబిస్తుంది.
         </p>
 
         <div style={styles.gallery}>

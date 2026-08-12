@@ -120,57 +120,57 @@ function Activities() {
   const activities = [
     {
       icon: "📚",
-      title: "Literary Conferences",
+      title: "సాహిత్య సదస్సులు",
       description:
-        "Conducting national and international literary conferences to encourage writers, poets and scholars.",
+        "రచయితలు, కవులు మరియు పండితులను ప్రోత్సహించడానికి జాతీయ మరియు అంతర్జాతీయ సాహిత్య సదస్సులను నిర్వహించడం.",
     },
     {
       icon: "🏆",
-      title: "Award Ceremonies",
+      title: "పురస్కార సమారోహాలు",
       description:
-        "Honouring outstanding personalities in literature, arts, education and social service.",
+        "సాహిత్యం, కళలు, విద్య మరియు సామాజిక సేవలో ఉన్నత వ్యక్తిత్వాలను గౌరవించడం.",
     },
     {
       icon: "🎭",
-      title: "Cultural Programs",
+      title: "సాంస్కృతిక కార్యక్రమాలు",
       description:
-        "Organizing dance, music, drama and cultural festivals to preserve Indian traditions.",
+        "భారతీయ సంప్రదాయాలను పరిరక్షించడానికి నృత్యం, సంగీతం, నాటక మరియు సాంస్కృతిక ఉత్సవాలను నిర్వహించడం.",
     },
     {
       icon: "📖",
-      title: "Book Launches",
+      title: "పుస్తక ప్రారంభాలు",
       description:
-        "Supporting authors by organizing book release events and literary discussions.",
+        "రచయితలను ప్రోత్సహించడానికి పుస్తక విడుదల కార్యక్రమాలు మరియు సాహిత్య చర్చలను నిర్వహించడం.",
     },
     {
       icon: "🎓",
-      title: "Educational Seminars",
+      title: "విద్యా సదస్సులు",
       description:
-        "Conducting seminars, workshops and awareness programs for students and teachers.",
+        "విద్యార్థులు మరియు ఉపాధ్యాయుల కోసం సదస్సులు, వర్క్‌షాప్‌లు మరియు అవగాహన కార్యక్రమాలను నిర్వహించడం.",
     },
     {
       icon: "🌳",
-      title: "Social Service",
+      title: "సామాజిక సేవ",
       description:
-        "Serving society through tree plantation drives, blood donation camps and community welfare activities.",
+        "చెట్టు నాటడం, రక్తదానం శిబిరాలు మరియు సమాజ సంక్షేమ కార్యక్రమాల ద్వారా సమాజానికి సేవ చేయడం.",
     },
     {
       icon: "👩‍🎓",
-      title: "Youth Development",
+      title: "యువత అభివృద్ధి",
       description:
-        "Providing opportunities and motivation for young writers, artists and students.",
+        "యువ రచయితలు, కళాకారులు మరియు విద్యార్థులకు అవకాశాలు మరియు ప్రేరణను అందించడం.",
     },
     {
       icon: "🌍",
-      title: "International Events",
+      title: "అంతర్జాతీయ కార్యక్రమాలు",
       description:
-        "Connecting Telugu communities worldwide through literary and cultural events.",
+        "ప్రపంచవ్యాప్తంగా తెలుగు సమాజాలను సాహిత్య మరియు సాంస్కృతిక కార్యక్రమాల ద్వారా అనుసంధానించడం.",
     },
      {
       icon: "✍️  ",
-      title: "Supporting Writers & Poets",
+      title: "రచయితలు & కవులను మద్దతు ఇవ్వడం",
       description:
-        "Providing a platform for emerging and established writers, poets, and literary personalities to showcase their talent.",
+        "ఉదయించే మరియు స్థాపిత రచయితలు, కవులు మరియు సాహిత్య వ్యక్తిత్వాలను తమ ప్రతిభను ప్రదర్శించడానికి వేదికను అందించడం.",
     },
   ];
 
@@ -181,8 +181,8 @@ function Activities() {
         <div style={styles.contentCard}>
 
         <div>
-          <h1 style={styles.heroTitle}>Our Activities</h1>
-          <p>Serving Literature, Culture & Society</p>
+          <h1 style={styles.heroTitle}>మా కార్యక్రమాలు</h1>
+          <p>సాహిత్యం, సంస్కృతి & సమాజానికి సేవ</p>
         </div>
         </div>
         
@@ -190,18 +190,12 @@ function Activities() {
 
       <section style={styles.section}>
        <div style={styles.contentCard}>
-        <h2 style={styles.title}>What We Do</h2>
+        <h2 style={styles.title}>మేము ఏమి చేస్తాము</h2>
             
         <p style={styles.description}>
-          Sri Sri Kalavedika actively organizes literary, cultural,
-          educational and social service programs across India and
-          internationally to promote Telugu language, culture and community
-          welfare.We provide a platform for writers, poets, artists, students
-           and emerging talents to showcase their abilities and receive recognition.
-            Along with cultural and literary initiatives, we actively support social welfare, 
-            environmental awareness and community development programs, 
-            while promoting Telugu culture and connecting literary and cultural communities 
-            across India and around the world.
+          శ్రీ శ్రీ కళావేదిక తెలుగు భాష, సంస్కృతి మరియు సమాజ సంక్షేమాన్ని ప్రోత్సహించేందుకు భారతదేశ వ్యాప్తంగా మరియు అంతర్జాతీయ స్థాయిలో సాహిత్య, సాంస్కృతిక, విద్యా మరియు సామాజిక సేవా కార్యక్రమాలను చురుకుగా నిర్వహిస్తోంది.
+
+రచయితలు, కవులు, కళాకారులు, విద్యార్థులు మరియు అభివృద్ధి చెందుతున్న ప్రతిభావంతులు తమ సామర్థ్యాలను ప్రదర్శించి గుర్తింపు పొందేందుకు మేము ఒక వేదికను అందిస్తున్నాము. సాహిత్య మరియు సాంస్కృతిక కార్యక్రమాలతో పాటు, సామాజిక సంక్షేమం, పర్యావరణ పరిరక్షణపై అవగాహన మరియు సమాజ అభివృద్ధి కార్యక్రమాలకు కూడా మేము చురుకుగా మద్దతు అందిస్తున్నాము. భారతదేశంతో పాటు ప్రపంచవ్యాప్తంగా తెలుగు సంస్కృతిని ప్రోత్సహిస్తూ, సాహిత్య మరియు సాంస్కృతిక సమాజాలను అనుసంధానించేందుకు కృషి చేస్తున్నాము.
         </p>
            </div>
 
@@ -221,12 +215,10 @@ function Activities() {
 
       
       <section style={styles.highlight}>
-        <h2>Our Commitment</h2>
+        <h2>మా కట్టుబాటు</h2>
 
         <p style={styles.quote}>
-          "Through literature, culture and social service, we strive to
-          inspire individuals, strengthen communities and preserve our rich
-          heritage for future generations."
+          “సాహిత్యం, సంస్కృతి మరియు సామాజిక సేవ ద్వారా వ్యక్తులకు స్ఫూర్తినిస్తూ, సమాజాలను బలోపేతం చేస్తూ, మన గొప్ప సాంస్కృతిక వారసత్వాన్ని భవిష్యత్ తరాల కోసం పరిరక్షించేందుకు మేము కృషి చేస్తున్నాము.”
         </p>
       </section>
     </div>

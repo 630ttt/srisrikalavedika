@@ -76,7 +76,7 @@ function Home() {
     title: {
       fontFamily: "'Noto Serif Telugu', serif",
       fontSize: "40px",
-      color: "#fcfcfc",
+      color: "#eabe0f",
       marginBottom: "10px",
     },
 
@@ -199,21 +199,14 @@ function Home() {
        
       <section style={styles.aboutSection}>
         <div style={styles.contentCard}>
-        <h2 className="about-title" style={styles.title}>About Us</h2>
+        <h2 className="about-title" style={styles.title}>మా గురించి</h2>
 
         <p className="about-text" style={styles.paragraph}>
-          Sri Sri Kalavedika is a renowned literary,
-          cultural and social service organization
-          dedicated to promoting Telugu language,
-          literature, arts, culture and humanitarian
-          values through various national and
-          international programs.
+          శ్రీ శ్రీ కళావేదిక తెలుగు భాష, సాహిత్యం, కళలు, సంస్కృతి మరియు మానవతా విలువలను ప్రోత్సహించేందుకు కృషి చేస్తున్న ప్రముఖ సాహిత్య, సాంస్కృతిక మరియు సామాజిక సేవా సంస్థ.
 
-          Established with the vision of nurturing creativity and strengthening cultural values, 
-          Sri Sri Kalavedika organizes literary conferences, poetry gatherings, cultural festivals, 
-          award ceremonies, educational initiatives, and social welfare activities at both national and international levels. 
-          Through these programs, the organization recognizes excellence, encourages emerging talent, 
-          and fosters unity among Telugu-speaking communities across the world.
+సృజనాత్మకతను పెంపొందించడం, సాంస్కృతిక విలువలను బలోపేతం చేయడం అనే లక్ష్యంతో స్థాపించబడిన శ్రీ శ్రీ కళావేదిక జాతీయ మరియు అంతర్జాతీయ స్థాయిలో సాహిత్య సదస్సులు, కవితా సమ్మేళనాలు, సాంస్కృతిక ఉత్సవాలు, పురస్కార ప్రదానోత్సవాలు, విద్యా కార్యక్రమాలు మరియు సామాజిక సంక్షేమ కార్యక్రమాలను నిర్వహిస్తోంది.
+
+ఈ కార్యక్రమాల ద్వారా ప్రతిభను గుర్తించి సత్కరించడం, అభివృద్ధి చెందుతున్న కొత్త ప్రతిభను ప్రోత్సహించడం మరియు ప్రపంచవ్యాప్తంగా ఉన్న తెలుగు మాట్లాడే సమాజాల మధ్య ఐక్యతను పెంపొందించడం కోసం శ్రీ శ్రీ కళావేదిక నిరంతరం కృషి చేస్తోంది.
         </p>
         </div>
         
@@ -226,22 +219,20 @@ function Home() {
        <div style={styles.cards}>
 
         <div  style={styles.card}>
-            <h2 >Vision</h2>
+            <h2 >దార్శనికత</h2>
 
             <p className="about-section1">
-              To preserve and promote Telugu
-              literature, language, arts and culture
-              across the world.
+              ప్రపంచవ్యాప్తంగా తెలుగు సాహిత్యం, భాష, కళలు మరియు సంస్కృతిని పరిరక్షించి, ప్రోత్సహించడం.
             </p>
           </div>
 
          <div  style={styles.card}>
-            <h2>Mission</h2>
+            <h2>మిషన్</h2>
 
             <p className="about-section1">
-              To encourage writers, poets, artists,
-              students and social workers through
-              events, awards and community service.
+              రచయితలు, కవులు, కళాకారులు,
+              విద్యార్థులు మరియు సామాజిక కార్యకర్తలను
+              కార్యక్రమాలు, అవార్డులు మరియు సామాజిక సేవ ద్వారా ప్రోత్సహించడం.
             </p>
           </div>
 
@@ -262,7 +253,7 @@ function Home() {
 
         <div style={styles.founderContent}>
           <h2 style={styles.title}>
-            Founder & Chairman
+           వ్యవస్థాపకులు మరియు చైర్మన్
           </h2>
 
           <h3>
@@ -270,13 +261,7 @@ function Home() {
           </h3>
 
           <p style={styles.paragraph}>
-            Founder and Chairman of Sri Sri
-            Kalavedika, working tirelessly for the
-            development of literature, culture and
-            social welfare.With a deep passion for 
-            encouraging creativity and bringing talented individuals together,
-             the Founder established Sri Sri Kalavedika as a platform 
-             to celebrate and nurture artistic excellence.
+            శ్రీ శ్రీ కళావేదిక వ్యవస్థాపకులు మరియు చైర్మన్‌గా సాహిత్యం, సంస్కృతి మరియు సామాజిక సంక్షేమ అభివృద్ధి కోసం నిరంతరం కృషి చేస్తున్నారు. సృజనాత్మకతను ప్రోత్సహించడం, ప్రతిభావంతులను ఒకే వేదికపైకి తీసుకురావడం పట్ల ఉన్న లోతైన ఆసక్తితో, కళాత్మక ప్రతిభను గౌరవించి, ప్రోత్సహించి, అభివృద్ధి చేసే వేదికగా శ్రీ శ్రీ కళావేదికను స్థాపించారు.
           </p>
         </div>
 
@@ -291,17 +276,17 @@ function Home() {
 
         <div  className="activitycard" style={styles.cards}>
 
-          <div style={styles.card}>📚 Literary Conferences</div>
+          <div style={styles.card}>📚 సాహిత్య సదస్సులు</div>
 
-           <div  style={styles.card}>🏆 Award Ceremonies</div>
+           <div  style={styles.card}>🏆 అవార్డు కార్యక్రమాలు</div>
 
-          <div  style={styles.card}>🎭 Cultural Programs</div>
+          <div  style={styles.card}>🎭 సాంస్కృతిక కార్యక్రమాలు</div>
 
-           <div  style={styles.card}>🌳 Social Service</div>
+           <div  style={styles.card}>🌳 సామాజిక సేవ</div>
 
-           <div  style={styles.card}>🎓 Educational Programs</div>
+           <div  style={styles.card}>🎓 విద్యా కార్యక్రమాలు</div>
 
-           <div  style={styles.card}>🌍 International Events</div>
+           <div  style={styles.card}>🌍 అంతర్జాతీయ కార్యక్రమాలు</div>
 
         </div>
         </div>

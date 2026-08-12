@@ -168,19 +168,19 @@ hero: {
       {/* Hero Section */}
       <section style={styles.hero}>
         <div>
-          <h1 style={styles.heroTitle}>Events</h1>
-          <p>Celebrating Literature, Culture &amp; Social Service</p>
+          <h1 style={styles.heroTitle}>కార్యక్రమాలు</h1>
+          <p>సాహిత్యం, సంస్కృతి మరియు సామాజిక సేవను ఘనంగా జరుపుకుందాం</p>
         </div>
       </section>
 
       {/* Events Section */}
       <section style={styles.section}>
         <div style={styles.contentCard}>
-          <h2 style={styles.title}>Upcoming Events</h2>
+          <h2 style={styles.title}>రాబోయే కార్యక్రమాలు</h2>
           <p style={styles.description}>
-            Sri Sri Kalavedika organizes literary conferences, award ceremonies,
-            cultural festivals, educational seminars and social service
-            initiatives throughout the year.
+            శ్రీ శ్రీ కళావేదిక సాహిత్య సదస్సులు, అవార్డు కార్యక్రమాలు,
+            సాంస్కృతిక ఉత్సవాలు, విద్యా సదస్సులు మరియు సామాజిక సేవా
+            కార్యక్రమాలను సంవత్సరాంతం నిర్వహిస్తుంది.
           </p>
 
           {loading ? (
@@ -205,7 +205,7 @@ hero: {
                         : event.description}
                     </p>
                     <button style={styles.button} onClick={() => setSelectedEvent(event)}>
-                      Read More
+                      మరిన్ని వివరాలు
                     </button>
                   </div>
                 </div>
@@ -217,10 +217,10 @@ hero: {
 
       {/* Closing Section */}
       <section style={styles.footer}>
-        <h2>Join Our Events</h2>
+        <h2>మా కార్యక్రమాలలో చేరండి</h2>
         <p style={styles.quote}>
-          "Every event is an opportunity to celebrate literature, preserve
-          culture and strengthen our commitment to serving society."
+          "ప్రతి కార్యక్రమం సాహిత్యాన్ని ఘనంగా జరుపుకునే, సంస్కృతిని పరిరక్షించే
+          మరియు సమాజానికి సేవ చేయడానికి మన కట్టుబాటును బలోపేతం చేసే అవకాశం."
         </p>
       </section>
 

@@ -321,21 +321,21 @@ function Publications() {
       <section style={styles.hero}>
         <div style={styles.contentCard}>
           <div>
-            <h1 style={styles.heroTitle}>Publications</h1>
-            <p>Books • Magazines • Research • Literary Collections</p>
+            <h1 style={styles.heroTitle}>ప్రచురణలు</h1>
+            <p>పుస్తకాలు • మాగజైన్లు • పరిశోధనలు • సాహిత్య సేకరణలు</p>
           </div>
         </div>
       </section>
 
       <section style={styles.section}>
         <div style={styles.headingRow}>
-          <h2 style={styles.heading}>Our Publications</h2>
+          <h2 style={styles.heading}>మా ప్రచురణలు</h2>
         </div>
 
         <p style={styles.description}>
-          Sri Sri Kalavedika publishes books, magazines, poetry collections,
-          research articles and literary journals to encourage writers,
-          poets and literature enthusiasts.
+          శ్రీ శ్రీ కళావేదిక పుస్తకాలు, మాగజైన్లు, కవితా సేకరణలు,
+          పరిశోధన వ్యాసాలు మరియు సాహిత్య జర్నల్స్ ప్రచురిస్తుంది, రచయితలు,
+          కవులు మరియు సాహిత్య అభిరుచిగలవారిని ప్రోత్సహించడానికి.
         </p>
 
         {error && <div style={styles.message}>{error}</div>}
@@ -345,7 +345,7 @@ function Publications() {
           <p style={{ textAlign: "center", marginBottom: "30px" }}>Loading publications...</p>
         ) : publications.length === 0 ? (
           <p style={{ textAlign: "center", marginBottom: "30px" }}>
-            No publications available yet. Use Add Publication to create one.
+            ఇంకా ప్రచురణలు అందుబాటులో లేవు. ఒకటి సృష్టించడానికి ప్రచురణను జోడించండి.
           </p>
         ) : (
           <div style={styles.grid}>

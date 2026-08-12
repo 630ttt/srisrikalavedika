@@ -114,8 +114,8 @@ contentCard: {
       <section style={styles.hero}>
         <div style={styles.contentCard}>
         <div>
-          <h1 style={styles.heroTitle}>About Sri Sri Kalavedika</h1>
-          <p style={styles.paragraph}>International Literary, Cultural & Social Service Organization</p>
+          <h1 style={styles.heroTitle}>శ్రీ శ్రీ కళావేదిక గురించి</h1>
+          <p style={styles.paragraph}>అంతర్జాతీయ సాహిత్య, సాంస్కృతిక మరియు సామాజిక సేవా సంస్థ</p>
         </div>
         </div>
       </section>
@@ -123,22 +123,23 @@ contentCard: {
       {/* About */}
       <section style={styles.section}>
          <div style={styles.contentCard}>
-        <h2 style={styles.title}>Who We Are</h2>
+        <h2 style={styles.title}>మేము ఎవరు</h2>
 
         <p style={styles.paragraph}>
-          Sri Sri Kalavedika is an International Literary, Cultural and Social
-          Service Organization established to preserve, promote and celebrate
-          Telugu language, literature, arts, culture and humanitarian values.
-          The organization provides a common platform for poets, writers,
-          artists, teachers, students and social activists to contribute towards
-          society through literature and cultural activities.
+          శ్రీ శ్రీ కళావేదిక అంతర్జాతీయ సాహిత్య, సాంస్కృతిక మరియు సామాజిక
+          సేవా సంస్థగా స్థాపించబడింది, ఇది తెలుగు భాష, సాహిత్యం, కళలు,
+          సంస్కృతి మరియు మానవతా విలువలను పరిరక్షించడానికి, ప్రోత్సహించడానికి
+          మరియు జరుపుకోవడానికి కృషి చేస్తుంది. ఈ సంస్థ కవులు, రచయితలు,
+          కళాకారులు, ఉపాధ్యాయులు, విద్యార్థులు మరియు సామాజిక కార్యకర్తలకు
+          సాహిత్యం మరియు సాంస్కృతిక కార్యకలాపాల ద్వారా సమాజానికి
+          సహకరించడానికి ఒక సాధారణ వేదికను అందిస్తుంది.
         </p>
 
         <p style={{ ...styles.paragraph, marginTop: "20px" }}>
-          Over the years, Sri Sri Kalavedika has organized numerous literary
-          conferences, poetry gatherings, award ceremonies, cultural festivals,
-          book release events, educational programs and social service
-          initiatives across India and abroad.
+          సంవత్సరాలుగా, శ్రీ శ్రీ కళావేదిక అనేక సాహిత్య సదస్సులు,
+          కవితా సమ్మేళనాలు, అవార్డు కార్యక్రమాలు, సాంస్కృతిక ఉత్సవాలు,
+          పుస్తక విడుదల కార్యక్రమాలు, విద్యా కార్యక్రమాలు మరియు సామాజిక సేవా
+          కార్యక్రమాలను భారతదేశంలో మరియు విదేశాలలో నిర్వహించింది.
         </p>
         </div>
       </section>
@@ -148,20 +149,18 @@ contentCard: {
       <section style={styles.section}>
         <div style={styles.cards}>
           <div className="card" style={styles.card}>
-            <h2 style={styles.cardTitle}>Vision</h2>
+            <h2 style={styles.cardTitle}>దార్శనికత</h2>
 
             <p>
-              To become a globally recognized platform for promoting Telugu
-              literature, culture, language and social responsibility.
+             తెలుగు సాహిత్యం, సంస్కృతి, భాష మరియు సామాజిక బాధ్యతను ప్రోత్సహించే ప్రపంచవ్యాప్తంగా గుర్తింపు పొందిన వేదికగా ఎదగడం.
             </p>
           </div>
 
           <div className="card" style={styles.card}>
-            <h2 style={styles.cardTitle}>Mission</h2>
+            <h2 style={styles.cardTitle}>మిషన్</h2>
 
             <p>
-              To encourage literary excellence, cultural heritage and community
-              development through educational and social initiatives.
+              సాహిత్య ప్రావీణ్యం, సాంస్కృతిక వారసత్వం మరియు సమాజ అభివృద్ధిని విద్యా మరియు సామాజిక కార్యక్రమాల ద్వారా ప్రోత్సహించడం.
             </p>
           </div>
         </div>
@@ -172,28 +171,28 @@ contentCard: {
       {/* Objectives */}
       <section style={styles.section}>
         <div style={styles.contentCard}>
-        <h2 style={styles.title}>Our Objectives</h2>
+        <h2 style={styles.title}>మా లక్ష్యాలు</h2>
 
         <div style={styles.objectives}>
-          Promote Telugu Language & Literature
+          తెలుగు భాష మరియు సాహిత్యాన్ని ప్రోత్సహించడం
           <br />
-          Encourage Writers & Poets
+          రచయితలు మరియు కవులను ప్రోత్సహించడం
           <br />
-          Organize Literary Conferences
+          సాహిత్య సదస్సులను నిర్వహించడం
           <br />
-          Conduct Cultural Festivals
+          సాంస్కృతిక ఉత్సవాలను నిర్వహించడం
           <br />
-          Recognize Talent through Awards
+          ప్రతిభను అవార్డుల ద్వారా గుర్తించడం
           <br />
-          Support Young Artists & Students
+          యువ కళాకారులు మరియు విద్యార్థులను మద్దతు ఇవ్వడం
           <br />
-          Organize Book Launches
+          పుస్తక విడుదల కార్యక్రమాలను నిర్వహించడం
           <br />
-          Social Welfare Activities
+          సామాజిక సేవా కార్యక్రమాలు
           <br />
-           Environmental Awareness Programs
+          పర్యావరణ అవగాహన కార్యక్రమాలు
           <br />
-           International Cultural Exchange
+          అంతర్జాతీయ సాంస్కృతిక మార్పిడి
         </div>
         </div>
       </section>
@@ -201,27 +200,26 @@ contentCard: {
       {/* Activities */}
       <section style={styles.section}>
          <div style={styles.contentCard}>
-        <h2 style={styles.title}>Major Activities</h2>
+        <h2 style={styles.title}>ప్రధాన కార్యక్రమాలు</h2>
         </div>
         <div style={styles.cards}>
-          <div className="card" style={styles.card}>Literary Conferences</div>
+          <div className="card" style={styles.card}>సాహిత్య సదస్సులు</div>
 
-          <div className="card" style={styles.card}>National Awards</div>
+          <div className="card" style={styles.card}>జాతీయ అవార్డులు</div>
 
-          <div className="card" style={styles.card}>Cultural Programs</div>
+          <div className="card" style={styles.card}>సాంస్కృతిక కార్యక్రమాలు</div>
 
-          <div className="card" style={styles.card}>Book Launches</div>
+          <div className="card" style={styles.card}>పుస్తక విడుదల కార్యక్రమాలు</div>
 
-          <div className="card" style={styles.card}>Social Service</div>
+          <div className="card" style={styles.card}>సామాజిక సేవా కార్యక్రమాలు</div>
 
-          <div className="card" style={styles.card}>Educational Seminars</div>
+          <div className="card" style={styles.card}>విద్యా కార్యక్రమాలు</div>
         </div>
       </section>
 
       {/* Quote */}
       <section style={styles.quote}>
-        "Literature inspires society, Culture preserves identity, and Service
-        strengthens humanity."
+        “సాహిత్యం సమాజానికి స్ఫూర్తినిస్తుంది, సంస్కృతి మన గుర్తింపును కాపాడుతుంది, సేవ మానవత్వాన్ని బలోపేతం చేస్తుంది.”
       </section>
     </div>
   );

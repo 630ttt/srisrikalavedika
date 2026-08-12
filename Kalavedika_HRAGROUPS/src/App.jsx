@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Founder from "./pages/Founder";
 import ExecutiveMembers from "./pages/ExecutiveMembers";
+import ChaptersPage from "./pages/ChaptersPage";
+import ChapterDetails from "./pages/ChapterDetails";
 import Activities from "./pages/Activities";
 import Awards from "./pages/Awards";
 import Gallery from "./pages/Gallery";
@@ -80,6 +82,8 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/founder" element={<Founder />} />
           <Route path="/executive-members" element={<ExecutiveMembers />} />
+          <Route path="/chapters/:stateSlug" element={<ChaptersPage />} />
+          <Route path="/chapters/:stateSlug/:slug" element={<ChapterDetails />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/gallery" element={<Gallery />} />

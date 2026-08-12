@@ -163,7 +163,7 @@ function Founder() {
       <section style={styles.hero}>
         <div style={styles.contentCard}>
         <div>
-          <h1 style={styles.heroTitle}>Founder & Chairman</h1>
+          <h1 style={styles.heroTitle}>వ్యవస్థాపకులు & అంతర్జాతీయ చైర్మన్</h1>
           <p>Visionary Leader of Sri Sri Kalavedika</p>
         </div>
         </div>
@@ -198,28 +198,19 @@ function Founder() {
           </h2>
 
           <p style={styles.designation}>
-            Founder & International Chairman
+            వ్యవస్థాపకులు & అంతర్జాతీయ చైర్మన్
           </p>
 
           <p style={styles.paragraph}>
-            Sri Sri Kalavedika was established with a vision to preserve,
-            promote and celebrate Telugu language, literature, arts and culture.
-            Under the leadership of Kala Ratna Katthimanda Pratap Kumar,
-            the organization has become a respected platform for poets,
-            writers, artists, educators and social workers.
+            తెలుగు భాష, సాహిత్యం, కళలు మరియు సంస్కృతిని పరిరక్షించడం, ప్రోత్సహించడం మరియు ఘనంగా చాటిచెప్పాలనే దృక్పథంతో శ్రీ శ్రీ కళావేదిక స్థాపించబడింది. కళారత్న కత్తిమండ ప్రతాప్ కుమార్ గారి నాయకత్వంలో, ఈ సంస్థ కవులు, రచయితలు, కళాకారులు, విద్యావేత్తలు మరియు సామాజిక సేవకులకు ఒక గౌరవనీయమైన వేదికగా అభివృద్ధి చెందింది.
           </p>
 
           <p style={styles.paragraph}>
-            His dedication to literature and community service has inspired
-            thousands of people across India and abroad. Through literary
-            conferences, cultural festivals, award ceremonies and social
-            initiatives, he continues to strengthen the values of creativity,
-            heritage and humanitarian service.
+            సాహిత్యం మరియు సామాజిక సేవ పట్ల ఆయనకున్న అంకితభావం భారతదేశంతో పాటు విదేశాల్లోని వేలాది మందికి స్ఫూర్తినిచ్చింది. సాహిత్య సదస్సులు, సాంస్కృతిక ఉత్సవాలు, పురస్కార ప్రదానోత్సవాలు మరియు సామాజిక సేవా కార్యక్రమాల ద్వారా సృజనాత్మకత, సాంస్కృతిక వారసత్వం మరియు మానవతా సేవా విలువలను బలోపేతం చేయడానికి ఆయన నిరంతరం కృషి చేస్తున్నారు.
           </p>
 
           <p style={styles.paragraph}>
-            His mission is to empower future generations by encouraging
-            knowledge, cultural awareness and social responsibility.
+            ఆయన లక్ష్యం భవిష్యత్తు తరం కోసం జ్ఞానం, సాంస్కృతిక అవగాహన మరియు సామాజిక బాధ్యతను ప్రోత్సహించడం.
           </p>
         </div>
         </div>
@@ -229,43 +220,43 @@ function Founder() {
 
       <section style={styles.achievements}>
           <div style={styles.contentCard}>
-        <h2 style={styles.title}>Major Contributions</h2>
+        <h2 style={styles.title}>ప్రధాన కృషులు</h2>
 
         <div style={styles.grid}>
           <div className="card"style={styles.card}>
             <div style={styles.icon}>📚</div>
-            <h3>Literary Promotion</h3>
-            <p>Encouraging writers, poets and scholars across the world.</p>
+            <h3>సాహిత్య ప్రోత్సాహం</h3>
+            <p>ప్రపంచవ్యాప్తంగా రచయితలు, కవులు మరియు విద్యావేత్తలను ప్రోత్సహించడం.</p>
           </div>
 
           <div className="card"style={styles.card}>
             <div style={styles.icon}>🏆</div>
-            <h3>Award Programs</h3>
-            <p>Recognizing excellence in literature, arts and social service.</p>
+            <h3>అవార్డు కార్యక్రమాలు</h3>
+            <p>సాహిత్యం, కళలు మరియు సామాజిక సేవలో ఉన్న ప్రతిభను గుర్తించడం.</p>
           </div>
 
           <div className="card"style={styles.card}>
             <div style={styles.icon}>🎭</div>
-            <h3>Cultural Heritage</h3>
-            <p>Organizing cultural festivals and preserving Indian traditions.</p>
+            <h3>సాంస్కృతిక వారసత్వం</h3>
+            <p>సాంస్కృతిక ఉత్సవాలను నిర్వహించడం మరియు భారతీయ సంప్రదాయాలను పరిరక్షించడం.</p>
           </div>
 
           <div className="card"style={styles.card}>
             <div style={styles.icon}>🌍</div>
-            <h3>International Reach</h3>
-            <p>Connecting Telugu communities across the globe.</p>
+            <h3>అంతర్జాతీయ పరిధి</h3>
+            <p>ప్రపంచవ్యాప్తంగా తెలుగు సమాజాలను కలపడం.</p>
           </div>
 
           <div className="card"style={styles.card}>
             <div style={styles.icon}>🤝</div>
-            <h3>Social Service</h3>
-            <p>Leading community welfare and humanitarian initiatives.</p>
+            <h3>సామాజిక సేవ</h3>
+            <p>సమాజ సంక్షేమ మరియు మానవతా కార్యక్రమాలను నడిపించడం.</p>
           </div>
 
           <div className="card" style={styles.card}>
             <div style={styles.icon}>🎓</div>
-            <h3>Education</h3>
-            <p>Supporting students through educational and motivational programs.</p>
+            <h3>విద్యా కార్యక్రమాలు</h3>
+            <p>విద్యా మరియు ప్రేరణాత్మక కార్యక్రమాల ద్వారా విద్యార్థులను మద్దతు ఇవ్వడం.</p>
           </div>
         </div>
         </div>
@@ -275,9 +266,8 @@ function Founder() {
 
       <section style={styles.quote}>
         <p style={styles.quoteText}>
-          "Literature enlightens minds, culture strengthens identity,
-          and service builds a better society. Together we preserve our
-          heritage and inspire future generations."
+          "సాహిత్యం మన మేధస్సును ప్రకాశింపజేస్తుంది, సంస్కృతి మన గుర్తింపును బలోపేతం చేస్తుంది,
+          మరియు సేవ సమాజాన్ని మెరుగుపరుస్తుంది. కలిసి మన వారసత్వాన్ని పరిరక్షించి భవిష్యత్తు తరం కోసం ప్రేరణనిస్తాము."
         </p>
       </section>
     </div>

@@ -21,6 +21,7 @@ function Header() {
           <li><Link to="/about">About Us</Link></li>
           <li><Link to="/founder">Founder</Link></li>
           <li><Link to="/executive-members">Executive Members</Link></li>
+          <li><Link to="/chapters/andhra-pradesh">Committee Members</Link></li>
           <li><Link to="/activities">Activities</Link></li>
           <li><Link to="/awards">Awards</Link></li>
           <li><Link to="/gallery">Gallery</Link></li>

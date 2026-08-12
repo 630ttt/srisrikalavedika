@@ -122,51 +122,51 @@ function Awards() {
   const awards = [
     {
       icon: "🏆",
-      title: "Kala Ratna Award",
+      title: "కళా రత్న అవార్డు",
       description:
-        "Presented to individuals for their outstanding contribution to literature, arts and culture.",
+        "సాహిత్యం, కళలు మరియు సంస్కృతికి వారి అసాధారణ కృషికి వ్యక్తులకు అందించబడింది.",
     },
     {
       icon: "📚",
-      title: "Sahiti Ratna Award",
+      title: "సాహితీ రత్న అవార్డు",
       description:
-        "Recognizes eminent poets, writers and literary personalities for their remarkable achievements.",
+        "ప్రఖ్యాత కవులు, రచయితలు మరియు సాహిత్య వ్యక్తిత్వాలను వారి విశిష్టమైన సాధనల కోసం గుర్తిస్తుంది.",
     },
     {
       icon: "🎭",
-      title: "Cultural Excellence Award",
+      title: "సాంస్కృతిక ఉత్తమత అవార్డు",
       description:
-        "Honours artists who have significantly contributed to music, dance, theatre and folk arts.",
+        "సంగీతం, నృత్యం, నాటక మరియు ప్రజా కళలకు గణనీయమైన కృషి చేసిన కళాకారులను గౌరవిస్తుంది.",
     },
     {
       icon: "🌍",
-      title: "International Excellence Award",
+      title: "అంతర్జాతీయ ఉత్తమత అవార్డు",
       description:
-        "Presented to distinguished personalities promoting Telugu language and culture worldwide.",
+        "ప్రపంచవ్యాప్తంగా తెలుగు భాష మరియు సంస్కృతిని ప్రోత్సహిస్తున్న ప్రతిష్టాత్మక వ్యక్తిత్వాలకు అందించబడింది.",
     },
     {
       icon: "🎓",
-      title: "Education Excellence Award",
+      title: "విద్యా ఉత్తమత అవార్డు",
       description:
-        "Recognizes educators and institutions for their valuable contribution to education.",
+        "విద్యకు వారి విలువైన కృషికి విద్యావేత్తలు మరియు సంస్థలను గుర్తిస్తుంది.",
     },
     {
       icon: "🤝",
-      title: "Social Service Award",
+      title: "సామాజిక సేవ అవార్డు",
       description:
-        "Presented to individuals and organizations making an exceptional impact through community service.",
+        "సామాజిక సేవ ద్వారా అసాధారణ ప్రభావం చూపుతున్న వ్యక్తులు మరియు సంస్థలకు అందించబడింది.",
     },
     {
       icon: "🖋️",
-      title: "Young Writer Award",
+      title: "యంగ్ రైటర్ అవార్డు",
       description:
-        "Encourages emerging writers, poets and authors with outstanding literary talent.",
+        "అసాధారణ సాహిత్య ప్రతిభ కలిగిన కొత్త రచయితలు, కవులు మరియు రచయితలను ప్రోత్సహిస్తుంది.",
     },
     {
       icon: "🌟",
-      title: "Lifetime Achievement Award",
+      title: "లైఫ్‌టైమ్ అచీవ్‌మెంట్ అవార్డు",
       description:
-        "The highest honour recognizing a lifetime of dedication to literature, culture and society.",
+        "సాహిత్యం, సంస్కృతి మరియు సమాజానికి జీవితకాల కట్టుబాటును గుర్తించే అత్యున్నత గౌరవం.",
     },
   ];
 
@@ -176,8 +176,8 @@ function Awards() {
       <section style={styles.hero}>
         <div style={styles.contentCard}>
         <div>
-          <h1 style={styles.heroTitle}>Awards & Recognitions</h1>
-          <p>Honouring Excellence in Literature, Culture & Social Service</p>
+          <h1 style={styles.heroTitle}>పురస్కారాలు & గుర్తింపులు</h1>
+          <p>సాహిత్యం, సంస్కృతి & సామాజిక సేవలో ఉన్నతతను గౌరవించడం</p>
         </div>
         </div>
       </section>
@@ -185,12 +185,11 @@ function Awards() {
       {/* Awards Section */}
       <section style={styles.section}>
         <div style={styles.contentCard}>
-        <h2 style={styles.title}>Our Prestigious Awards</h2>
+        <h2 style={styles.title}>మా ప్రతిష్ఠాత్మక పురస్కారాలు</h2>
 
         <p style={styles.description}>
-          Sri Sri Kalavedika proudly recognizes outstanding personalities for
-          their remarkable contributions in literature, arts, education,
-          culture and social service through various prestigious awards.
+          శ్రీ శ్రీ కళావేదిక సాహిత్య, కళలు, విద్య, సంస్కృతి మరియు సామాజిక సేవలో
+          ఉన్నతమైన వ్యక్తిత్వాలను వివిధ ప్రతిష్ఠాత్మక పురస్కారాల ద్వారా ఘనంగా గుర్తిస్తుంది.
         </p>
 
         <div style={styles.grid}>
@@ -209,12 +208,12 @@ function Awards() {
 
       {/* Closing Section */}
       <section style={styles.highlight}>
-        <h2>Celebrating Excellence</h2>
+        <h2>ఉన్నతతను ఘనంగా జరుపుకుంటూ</h2>
 
         <p style={styles.quote}>
-          "Every award celebrates dedication, creativity, leadership and
-          service, inspiring future generations to contribute to literature,
-          culture and society."
+          "ప్రతి పురస్కారం కట్టుబాటు, సృజనాత్మకత, నాయకత్వం మరియు
+          సేవను ఘనంగా జరుపుకుంటుంది, భవిష్యత్తు తరం సాహిత్యం,
+          సంస్కృతి మరియు సమాజానికి సేవ చేయడానికి ప్రేరణనిస్తుంది."
         </p>
       </section>
     </div>
